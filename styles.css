@@ -3,24 +3,68 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #ff8c1a;
 }
 
-li, a {
+li, a, button {
     font-weight: 500;
     font-size: 16px;
     color: #000000;
     text-decoration: none;
-
+    list-style-type: none;
 }
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    padding: 30px 10%;
+    padding: 5px 15%;
+    background-color: #ff8c1a;
 }
 
 .logo {
     cursor: pointer;
+    width: 80px;
+    margin-right: auto;
+}
+
+.contact-us {
+    cursor: pointer;
+    width: 30px;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links li a{
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover{
+    color: rgb(255, 255, 255);
+}
+
+button {
+    padding: 9px 25px;
+    background-color: rgba(0,136,169,1);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: rgba(0, 180, 224, 0.8);
+    transition: all 0.3s ease 0s;
+}
+
+.contact-us {
+    margin-right: 10px;
+    opacity: 30%;
+}
+
+.contact-us:hover {
+    opacity: 100%;
+    transition: all 0.3s ease 0s;
 }
