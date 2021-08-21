@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&display=swap');
 * {
     box-sizing: border-box;
     margin: 0;
@@ -92,6 +92,10 @@
     align-items: center;
     padding: 0px 255px;
     background-color: #263600;
+}
+
+.navbar_options button {
+    font-family: 'Noto Sans JP';
 }
 
 .navbar_options_button {
