@@ -70,6 +70,7 @@
     border-radius: 7px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
+    margin-right: 15px;
 }
 
 .navbar_button:hover {
