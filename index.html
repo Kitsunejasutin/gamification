@@ -12,7 +12,7 @@
         <img class = "logo" src="images/placeholder.png" alt = "logo">
         <nav>
             <ul class = "nav_links">
-                <a class = "login" href="#"><button class = "navbar_button">LOG IN</button></a>
+                <a id="login" href="#"><button class = "navbar_button">LOG IN</button></a>
                 <li><a href="#"><u>SIGN UP</u></a></li>
             </ul>
         </nav>
@@ -31,5 +31,19 @@
         </nav>
     </header>
 
+    <!-- Popup SignIn -->
+    <div class="bg-modal">
+        <div class="modal-content"">
+            <div class="close">+</div>
+            <img src="images/placeholder.png" height="75px">
+            <form>
+                <input type="text" placeholder="Username/Email">
+                <input type="text" placeholder="Password">
+                <a href="" class="button">Submit</a>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
