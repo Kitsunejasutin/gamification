@@ -14,10 +14,21 @@ nav {
     background-color: orange;
 }
 
+.logo {
+    -webkit-touch-callout: none;
+    user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}
+
 .nav-links {
     display: flex;
     justify-content: space-around;
     width: 30%;
+    -webkit-touch-callout: none;
+    user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
 }
 
 .nav-links li {
@@ -58,7 +69,7 @@ nav {
         position: absolute;
         right: 0px;
         height: 92vh;
-        top: 9vh;
+        top: 8vh;
         background-color: orange;
         display: flex;
         flex-direction: column;
