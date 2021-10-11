@@ -7,12 +7,17 @@ modalBtn.addEventListener('click', function() {
     bgmodal.style.display = 'flex';
 });
 
+
 exit.addEventListener('click', function() {
     bgmodal.style.display = 'none';
 });
 
 modalBtn.addEventListener("click", () => {
-    modalcont.id = "open"
+    modalcont.id = "open";
+});
+
+bgmodal.addEventListener('click', function() {
+    bgmodal.style.display = "none";
 });
 
 const navSlide = () => {
