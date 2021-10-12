@@ -6,6 +6,15 @@
     font-family: "Noto Sans JP", sans-serif;
 }
 
+html, body {
+    height: 100%;
+}
+
+#container {
+    min-height: 99.3%;
+    background-color: black;
+}
+
 nav {
     display: flex;
     justify-content: space-around;
@@ -222,5 +231,43 @@ p.tag-name {
     border: none;
     border-radius: 5px;
     margin: 5px -1px;
+}
+
+#footer {
+    background-color: rgb(253, 176, 33);
+    position: relative;
+    height: 105px;
+    margin-top: -100px;
+    clear: both;
+}
+
+#footer .rule {
+    height: 8px;
+    border-top: 1px solid #363c44;
+}
+
+#footer .footer-contents {
+    width: 930px;
+    margin: 0px auto;
+    padding-top: 10px;
+}
+
+div.footer-contents #footer-logo {
+    float: left;
+    padding-top: 2px;
+}
+
+div.footer-contents #footer-logo img {
+    width: 75px;
+}
+
+#footer #footer-text {
+    float: left;
+    margin-left: 12px;
+    font-size: 12px;
+    padding-top: 20px;
+    line-height: 16px;
+    text-align: center;
+    color: rgb(68, 65, 33);
 }
 
