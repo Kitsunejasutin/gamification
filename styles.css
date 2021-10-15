@@ -8,7 +8,9 @@
 
 html, body {
     height: 180%;
-    background-color: rgb(66, 55, 35);
+    background: radial-gradient(circle, rgba(247,148,0,1) 41%, rgba(255,0,0,1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* Extra small devices (phones, 600px and down) */
