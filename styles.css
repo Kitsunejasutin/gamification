@@ -13,72 +13,13 @@ html, body {
     background-attachment: fixed;
 }
 
+.container {
+    min-height: 140%;
+    min-width: 100%;
+}
+
 .burger {
     display: none;
-}
-
-/* Medium devices (landscape tablets, 768px and down) */
-@media only screen and (max-width: 768px) {
-    div.tab-title {
-        font-size: 15px;
-        color: rgb(233, 232, 232);
-    }
-    div.text {
-        font-size: 10px;
-    }
-    div.text-description {
-        font-size: 8px;
-    }
-    div.searchbox input#input-default {
-        margin-left: 180px;
-        width: 42%;
-        height:65%;
-    }
-    div#home-options {
-        width: 540px;
-        height: 35px;
-    }
-}
-
-/* Large devices (laptops/desktops, 992px and down) */
-@media only screen and (max-width: 992px) {
-    .nav-links li {
-        opacity: 0;
-    }
-    div.tab-title {
-        font-size: 15px;
-        color: rgb(233, 232, 232);
-    }
-    div.text {
-        font-size: 13px;
-    }
-    div.text-description {
-        font-size: 9px;
-    }
-    div.searchbox input#input-default {
-        margin-left: 180px;
-        width: 42%;
-        height:65%;
-    }
-    div#home-options {
-        width: 540px;
-        height: 35px;
-    }
-    .burger{
-        display: block;
-        cursor: pointer;
-    }
-    #footer {
-        display: none;
-    }
-
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (max-width: 1200px) {
-    .nav-links{
-        width: 40%;
-    }
 }
 
 .burger div {
@@ -91,11 +32,6 @@ html, body {
 
 .nav-active {
     transform: translateX(0%);
-}
-
-#container {
-    min-height: 150%;
-    overflow-y: hidden;
 }
 
 nav {
@@ -341,6 +277,7 @@ input#input-default:-ms-input-placeholder { /* Microsoft Edge */
 
 img {
     vertical-align: middle;
+    border-radius: 10px;
 }
 
 .slideshow-container, .slideshow-container2, .slideshow-container3, .slideshow-container4, .slideshow-container5, 
@@ -384,7 +321,7 @@ img {
     position: absolute;
     top: 50%;
     width: auto;
-    padding: 16px;
+    padding: 25px;
     margin-top: -22px;
     color: white;
     font-weight: bold;
@@ -400,7 +337,7 @@ img {
 }
 
 .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.6);
 }
 
 .text {
@@ -411,6 +348,8 @@ img {
     width: 100%;
     bottom: 23px;
     background: linear-gradient(0deg, rgba(0,0,0,1) 16%, rgba(0,0,0,0) 100%);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .text-description {
@@ -461,7 +400,6 @@ img {
     background-color: rgb(253, 176, 33);
     position: relative;
     height: 105px;
-    margin-top: -100px;
     clear: both;
 }
 
@@ -493,5 +431,85 @@ div.footer-contents #footer-logo img {
     line-height: 16px;
     text-align: center;
     color: rgb(68, 65, 33);
+}
+
+
+/* Extra large devices (large laptops and desktops, 1200px and down) */
+@media only screen and (max-width: 1200px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and down) */
+@media only screen and (max-width: 992px) {
+    .slideshow-container, .slideshow-container2, .slideshow-container3, .slideshow-container4, .slideshow-container5, .slideshow-container6
+    ,.slideshow-container7 {
+        max-width: 65%;
+    }
+    div.tab-title {
+            font-size: 18px;
+            color: rgb(233, 232, 232);
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .container {
+        min-height: 70%;
+    }
+    .nav-links li {
+        opacity: 0;
+    }
+    div.tab-title {
+        font-size: 15px;
+        color: rgb(233, 232, 232);
+    }
+    div.text {
+        font-size: 13px;
+    }
+    div.text-description {
+        font-size: 9px;
+    }
+    div.searchbox input#input-default {
+        margin-left: 180px;
+        width: 42%;
+        height:65%;
+    }
+    div#home-options {
+        width: 540px;
+        height: 35px;
+    }
+    .burger{
+        display: block;
+        cursor: pointer;
+    }
+    .slideshow-container, .slideshow-container2, .slideshow-container3, .slideshow-container4, .slideshow-container5, .slideshow-container6
+    ,.slideshow-container7 {
+        max-width: 70%;
+    }
+    div.tab-title {
+        font-size: 15px;
+        color: rgb(233, 232, 232);
+    }
+    div.text {
+        font-size: 12px;
+    }
+    div.text-description {
+        font-size: 8px;
+    }
+    .prev, .next {
+        padding: 15px;
+    }
+    div.searchbox input#input-default {
+        margin-left: 80px;
+        width: 63%;
+        height:65%;
+    }
+    div#home-options {
+        width: 455px;
+        height: 35px;
+    }
+    #footer {
+        display: none;
+    }
 }
 
