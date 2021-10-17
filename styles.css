@@ -119,7 +119,23 @@ nav {
     display: none;
 }
 
-.modal-content {
+.bg-modal-signup {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.overflow-hidden {
+    overflow-y: hidden;
+}
+
+.modal-content, .modal-content-signup {
     width: 500px;
     height: 400px;
     background-color: #00008B;
@@ -134,13 +150,18 @@ nav {
     -webkit-user-select: none;
 }
 
+.modal-content-signup {
+    width: 700px;
+    height: 590px;
+}
+
 input {
     width: 50%;
     display: block;
     margin: 15px auto;
 }
 
-.close {
+.close, .close-signup {
     position: absolute;
     top: 0;
     right: 14px;
@@ -154,7 +175,27 @@ input {
     -webkit-user-select: none;
 }
 
-.modal-content#open {
+.arrow {
+    position: absolute;
+    border: solid rgb(255, 255, 255);
+    border-width: 0 6px 6px 0;
+    display: inline-block;
+    padding: 5px;
+    font-size: 42px;
+    top: 26px;
+    left: 30px;
+    cursor: pointer;
+    user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+#open {
     animation: open 0.5s forwards;
 }
 
@@ -171,11 +212,35 @@ input[type=text].login {
     box-sizing: border-box;
     border: 1px solid #555;
     outline: none;
-    color: #ffffff;
+    color: #000000;
 }
 
-input[type=text]:focus.login {
+input[type=text].name {
+    width: 33.3%;
+    padding: 5px 20px;
+    float: left;
+    margin: auto;
+    border-radius: 5px;
+    color: #000000;
+}
+
+input[type=date].date {
+    width: 100%;
+    padding: 5px;
+    margin: auto;
+}
+
+input[type=text].address, input[type=text].contact, input[type=text].email, input[type=text].password
+, input[type=text].conpass {
+    width: 100%;
+    padding: 5px;
+    margin: auto;
+}
+
+input[type=text]:focus.login, input[type=text]:focus.name, input[type=text]:focus.address, input[type=text]:focus.contact, 
+input[type=text]:focus.email, input[type=text]:focus.password, input[type=text]:focus.conpass {
     background-color: #000000;
+    color: #ffffff;
 }
 
 p.tag-name {
@@ -183,7 +248,7 @@ p.tag-name {
     color: #ffffff;
 }
 
-#btnAction {
+#btnLogin, #btnSignup, #btnSubmit {
     width: 100%;
     cursor: pointer;
     padding: 0.5rem 1.5rem;
@@ -193,7 +258,11 @@ p.tag-name {
     outline: none;
     border: none;
     border-radius: 5px;
-    margin: 5px -1px;
+    margin: 7px -1px;
+}
+
+#btnSubmit {
+    margin: 25px -1px;
 }
 
 #home-options {
@@ -462,6 +531,14 @@ div.footer-contents #footer-logo img {
         margin-left: 130px;
         width: 63%;
         height:65%;
+    }
+    div#home-options {
+        width: 570px;
+        height: 35px;
+    }
+    .slideshow-container, .slideshow-container2, .slideshow-container3, .slideshow-container4, .slideshow-container5, .slideshow-container6
+    ,.slideshow-container7 {
+        max-width: 65%;
     }
     div.tab-title {
             font-size: 18px;

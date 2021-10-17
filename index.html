@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
-<body>
+<body class="responsive">
     <div class="container">
         <nav>
             <div class="logo">
@@ -350,9 +350,9 @@
             </div>
         </div>
     </div>
-    <!-- Popup SignIn -->
+    <!-- Popup LogIn -->
     <div class="bg-modal">
-        <div class="modal-content"">
+        <div class="modal-content">
             <div class="close">+</div>
             <img src="images/udm_logo.png" height="95px">
             <form>
@@ -360,11 +360,40 @@
                 <input type="text" class="login">
                 <p class="tag-name">Password</p>
                 <input type="text" class="login">
-                <button id="btnAction">LogIn</button>
-                <button id="btnAction">SignUp</button>
+                <button id="btnLogin">LogIn</button>
             </form>
+            <button id="btnSignup">SignUp</button>
         </div>
     </div>
+        <!-- Popup SignUp -->
+        <div class="bg-modal-signup">
+            <div class="modal-content-signup">
+                <div class="close-signup">+</div>
+                 <div class="back-signup">
+                    <i class="arrow left"></i>
+                </div>
+                <img src="images/udm_logo.png" height="95px">
+                <form>
+                    <p class="tag-name">Name</p>
+                    <input type="text" class="name">
+                    <input type="text" class="name">
+                    <input type="text" class="name">
+                    <p class="tag-name">Birthdate</p>
+                    <input type="date" class="date">
+                    <p class="tag-name">Address</p>
+                    <input type="text" class="address">
+                    <p class="tag-name">Contact</p>
+                    <input type="text" class="contact">
+                    <p class="tag-name">Email</p>
+                    <input type="text" class="email">
+                    <p class="tag-name">Password</p>
+                    <input type="text" class="password">
+                    <p class="tag-name">Confirm Password</p>
+                    <input type="text" class="conpass">
+                    <button id="btnSubmit">Signup</button>
+                </form>
+            </div>
+        </div>
     <div id="footer">
         <div class="footer-contents">
             <div class="rule"></div>

@@ -1,20 +1,49 @@
+const body = document.querySelector('.responsive')
 const modalcont = document.querySelector('.modal-content');
+const modalcont_signup = document.querySelector('.modal-content-signup');
 const bgmodal = document.querySelector('.bg-modal');
+const bgmodal_signup = document.querySelector('.bg-modal-signup');
 const modalBtn = document.getElementById('login');
+const signBtn = document.getElementById('btnSignup');
 const exit = document.querySelector('.close');
+const exit_signup = document.querySelector('.close-signup');
+const back = document.querySelector('.left');
 
 
 modalBtn.addEventListener('click', function() {
     bgmodal.style.display = 'flex';
-});
+    body.classList.toggle('overflow-hidden');
 
-exit.addEventListener('click', function() {
-    bgmodal.style.display = 'none';
 });
 
 modalBtn.addEventListener("click", () => {
     modalcont.id = "open";
 });
+
+exit.addEventListener('click', function() {
+    bgmodal.style.display = 'none';
+    body.classList.remove("overflow-hidden");
+});
+
+signBtn.addEventListener('click', function() {
+    bgmodal.style.display = 'none';
+    bgmodal_signup.style.display = 'flex';
+});
+
+signBtn.addEventListener("click", () => {
+    modalcont_signup.id = "open";
+});
+
+back.addEventListener('click', function() {
+    bgmodal.style.display = 'flex';
+    bgmodal_signup.style.display = 'none';
+});
+
+exit_signup.addEventListener('click', function() {
+    bgmodal_signup.style.display = 'none';
+    body.classList.remove("overflow-hidden");
+});
+
 
 const navSlide = () => {
     const burger = document.querySelector('.burger');
