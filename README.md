@@ -1,1 +1,1 @@
-# gamification.github.io
+# kitsunejasutin.github.io/gamification/
