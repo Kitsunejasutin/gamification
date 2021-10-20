@@ -9,16 +9,17 @@ const exit = document.querySelector('.close');
 const exit_signup = document.querySelector('.close-signup');
 const back = document.querySelector('.left');
 
-
+if (modalBtn){
 modalBtn.addEventListener('click', function() {
     bgmodal.style.display = 'flex';
     body.classList.toggle('overflow-hidden');
-
 });
 
 modalBtn.addEventListener("click", () => {
     modalcont.id = "open";
 });
+
+}
 
 exit.addEventListener('click', function() {
     bgmodal.style.display = 'none';
@@ -44,12 +45,10 @@ exit_signup.addEventListener('click', function() {
     body.classList.remove("overflow-hidden");
 });
 
-
 const navSlide = () => {
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
     const navLinks = document.querySelectorAll('.nav-links li');
-
 
     //Toogle
     burger.addEventListener('click',()=>{

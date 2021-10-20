@@ -1,36 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DUMNSS E-Library</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-</head>
-<body class="responsive">
-    <div class="container">
-        <nav>
-            <div class="logo">
-                DUMNSS
-            </div>
-            <ul class="nav-links">
-                <li>
-                    <a href="">About</a>
-                </li>
-                <li>
-                    <a>Support</a>
-                </li>
-                <li>
-                    <button class="navbar_button" id="login">LOG IN</button>
-                </li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
+<?php 
+    include_once 'includes/header.php';
+?>
         <div id="home-options">
             <div id="home-options-contents">
                 <div class="tab" id="home">
@@ -355,14 +325,17 @@
         <div class="modal-content">
             <div class="close">+</div>
             <img src="images/udm_logo.png" height="95px">
-            <form>
+            <form action="includes/login.php" method="post">
                 <p class="tag-name">Email</p>
-                <input type="text" class="login">
+                <input type="email" class="login" name="email">
                 <p class="tag-name">Password</p>
-                <input type="text" class="login">
-                <button id="btnLogin">LogIn</button>
+                <input type="password" class="login" name="password">
+                <button id="btnLogin" name="login">LogIn</button>
             </form>
             <button id="btnSignup">SignUp</button>
+            <div class="error-messages">
+            <?php  include 'includes/login-errors.php'; ?>
+        </div>
         </div>
     </div>
         <!-- Popup SignUp -->
@@ -373,46 +346,33 @@
                     <i class="arrow left"></i>
                 </div>
                 <img src="images/udm_logo.png" height="95px">
-                <form>
+                <form action="includes/signup.php" method="post">
                     <p class="tag-name">Name</p>
-                    <input type="text" class="name">
-                    <input type="text" class="name">
-                    <input type="text" class="name">
+                    <input type="text" class="name" name="Fname">
+                    <input type="text" class="name" name="Mname">
+                    <input type="text" class="name" name="Lname">
                     <p class="tag-name">Birthdate</p>
-                    <input type="date" class="date">
+                    <input type="date" class="date" name="Bdate">
                     <p class="tag-name">Address</p>
-                    <input type="text" class="address">
+                    <input type="text" class="signup-text" name="address">
                     <p class="tag-name">Contact</p>
-                    <input type="text" class="contact">
+                    <input type="text" class="signup-text" name="contact">
                     <p class="tag-name">Email</p>
-                    <input type="text" class="email">
+                    <input type="text" class="signup-text" name="email">
                     <p class="tag-name">Password</p>
-                    <input type="text" class="password">
+                    <input type="password" class="signup-text" name="password">
                     <p class="tag-name">Confirm Password</p>
-                    <input type="text" class="conpass">
-                    <button id="btnSubmit">Signup</button>
+                    <input type="password" class="signup-text" name="pwdrepeat">
+                    <button id="btnSubmit" name="submit">Signup</button>
+                    <div class="error-messages">
+                        <?php  include 'includes/signup-errors.php'; ?>
+                    </div>
                 </form>
             </div>
         </div>
-    <div id="footer">
-        <div class="footer-contents">
-            <div class="rule"></div>
-            <div id="footer-logo">
-            <img src="images/udm_logo.png">
-            </div>
-            <div id="footer-text">
-                <div>
-                    © 2021 DUMNSS. All rights reserved. All trademarks are property of their respective owners in the Philippines and other countries.
-                </div>  
-                <div id="footer-links">  
-                    <a href="">Privacy Policy</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-                    <a href="">Legal</a> &nbsp;&nbsp;|&nbsp;&nbsp; 
-                    <a href="">Cookies</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-                    <a href="">Subscriber Agreement</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="js/script.js"></script>
-</body>
-</html>
+        <script>function greet(name){
+            const greeting="<?php echo 'hello'; ?>"; c
+            onsole.log($,{greeting}, $,{name});}</script>
+<?php 
+    include_once 'includes/footer.php';
+?>
