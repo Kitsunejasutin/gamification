@@ -348,9 +348,9 @@
                 <img src="images/udm_logo.png" height="95px">
                 <form action="includes/signup.php" method="post">
                     <p class="tag-name">Name</p>
-                    <input type="text" class="name" name="Fname">
-                    <input type="text" class="name" name="Mname">
-                    <input type="text" class="name" name="Lname">
+                    <input type="text" class="name" name="Lname" placeholder="Surname">
+                    <input type="text" class="name" name="Fname" placeholder="First Name">
+                    <input type="text" class="name" name="Mname" placeholder="Middle Name">
                     <p class="tag-name">Birthdate</p>
                     <input type="date" class="date" name="Bdate">
                     <p class="tag-name">Address</p>
