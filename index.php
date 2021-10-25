@@ -324,7 +324,7 @@
     <div class="bg-modal">
         <div class="modal-content">
             <div class="close">+</div>
-            <img src="images/udm_logo.png" height="95px">
+            <img src="images/dumnss_logo.png" height="100px">
             <form action="includes/login.php" method="post">
                 <p class="tag-name">Email</p>
                 <input type="email" class="login" name="email">
@@ -345,7 +345,7 @@
                  <div class="back-signup">
                     <i class="arrow left"></i>
                 </div>
-                <img src="images/udm_logo.png" height="95px">
+                <img src="images/dumnss_logo.png" height="95px">
                 <form action="includes/signup.php" method="post">
                     <p class="tag-name">Name</p>
                     <input type="text" class="name" name="Lname" placeholder="Surname">
