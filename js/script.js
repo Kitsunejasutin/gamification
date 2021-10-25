@@ -45,21 +45,6 @@ exit_signup.addEventListener('click', function() {
     body.classList.remove("overflow-hidden");
 });
 
-const navSlide = () => {
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('.nav-links');
-    const navLinks = document.querySelectorAll('.nav-links li');
-
-    //Toogle
-    burger.addEventListener('click',()=>{
-        //Burger
-        burger.classList.toggle('toggle');
-    });
-
-}
-
-navSlide();
-
 // Tab 1
 var slideIndex1 = 1;
 showSlides1(slideIndex1);

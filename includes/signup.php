@@ -32,7 +32,7 @@ if (isset($_POST["submit"])) {
         exit();
     }
 
-    createUser($connection, $Fname, $Mname, $Lname, $Bdate, $address, $contact, $email, $pwd);
+    createUser($connection, $Sname, $Mname, $Fname, $Bdate, $address, $contact, $email, $pwd);
 
 }else {
     header("location: ../index.php");

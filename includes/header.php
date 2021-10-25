@@ -12,31 +12,42 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body class="responsive">
+<div class="navigation">
+                <ul>
+                    <li class="selection">
+                        <?php if (isset($_SESSION["Fname"])) {?>
+                            <a>
+                            <span class="icon"><i class="fas fa-user"></i></span>
+                            <span class="title">Settings</span>
+                        </a>
+                        <?php }else { ?>
+                            <a id="login">
+                            <span class="icon"><i class="fas fa-user"></i></span>
+                            <span class="title">LogIn</span>
+                        </a>
+                        <?php }?>
+                    </li>
+                    <li class="selection">
+                        <a href="">
+                            <span class="icon"><i class="fas fa-question-circle"></i></span>
+                            <span class="title">About</span>
+                        </a>
+                    </li>
+                    <li class="selection">
+                        <a href="">
+                            <span class="icon"><i class="fas fa-ticket-alt"></i></span>
+                            <span class="title">Support</span>
+                        </a>
+                    </li>
+                    <?php if (isset($_SESSION["Fname"])) {?>
+                        <li class="selection">
+                            <a href="includes/signout.php">
+                                <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                                <span class="title">Signout</span>
+                            </a>
+                        </li>
+                    <?php }?>
+                </ul>
+            </div>
     <div class="container">
-        <nav>
-            <div class="logo">
-                DUMNSS
-            </div>
-            <ul class="nav-links">
-                <li>
-                    <a href="">About</a>
-                </li>
-                <li>
-                    <a>Support</a>
-                </li>
-                <li>
-                    <?php 
-                        if (isset($_SESSION["userid"])) {
-                            echo '<a href="includes/signout.php"><button class="navbar_button" id="signout">LOG OUT</button></a>';
-                        }else {
-                            echo '<button class="navbar_button" id="login">LOG IN</button>';
-                        }
-                    ?>
-                </li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
+

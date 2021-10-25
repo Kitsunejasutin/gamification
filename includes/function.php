@@ -53,7 +53,7 @@ function emailExists($connection, $email) {
     mysqli_stmt_close($stmt);
 }
 
-function createUser($connection, $Fname, $Mname, $Lname, $Bdate, $address, $contact, $email, $pwd) {
+function createUser($connection, $Lname, $Fname, $Mname, $Bdate, $address, $contact, $email, $pwd) {
     $sql = "INSERT INTO account (Surname, Firstname, Middlename, Birthday, location_address, Contact, Email, pwd) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -80,7 +80,7 @@ function emptyInputLogin($email, $pwd) {
     return $result;
 }
 
-function loginUser($connection, $email, $pwd) {
+function loginUser($connection, $email, $pwd, $Lname, $Fname, $Mname) {
     $emailExists = emailExists($connection, $email);
 
     if ($emailExists === false) {
@@ -96,8 +96,9 @@ function loginUser($connection, $email, $pwd) {
         exit();
     }else if ($checkPwd === true) {
         session_start();
-        $_SESSION["userid"] = $emailExists["user_id"];
-        $_SESSION["email"] = $emailExists["email"];
+        $_SESSION["Lname"] = $emailExists["Surname"];
+        $_SESSION["Fname"] = $emailExists["Firstname"];
+        $_SESSION["Mname"] = $emailExists["Middlename"];
         header("location: ../index.php");
         exit();
 

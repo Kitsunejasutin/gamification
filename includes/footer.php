@@ -2,7 +2,7 @@
         <div class="footer-contents">
             <div class="rule"></div>
             <div id="footer-logo">
-            <img src="images/udm_logo.png">
+            <img src="images/dumnss_logo.png">
             </div>
             <div id="footer-text">
                 <div>
