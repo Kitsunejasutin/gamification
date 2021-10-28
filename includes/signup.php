@@ -2,18 +2,18 @@
 
 if (isset($_POST["submit"])) {
     
-    $Fname = $_POST["Fname"];
-    $Mname = $_POST["Mname"];
-    $Lname = $_POST["Lname"];
-    $Bdate = $_POST["Bdate"];
-    $address = $_POST["address"];
-    $contact = $_POST["contact"];
-    $email = $_POST["email"];
-    $pwd = $_POST["password"];
-    $pwdRepeat = $_POST["pwdrepeat"];
-
     require_once 'connection.php';
     require_once 'function.php';
+    
+    $Fname = mysqli_real_escape_string($connection,$_POST["Fname"]);
+    $Mname = mysqli_real_escape_string($connection,$_POST["Mname"]);
+    $Lname = mysqli_real_escape_string($connection,$_POST["Lname"]);
+    $Bdate = mysqli_real_escape_string($connection,$_POST["Bdate"]);
+    $address = mysqli_real_escape_string($connection,$_POST["address"]);
+    $contact = mysqli_real_escape_string($connection,$_POST["contact"]);
+    $email = mysqli_real_escape_string($connection,$_POST["email"]);
+    $pwd = mysqli_real_escape_string($connection,$_POST["password"]);
+    $pwdRepeat = mysqli_real_escape_string($connection,$_POST["pwdrepeat"]);
 
     if (emptyInputSignup($Fname, $Mname, $Lname, $Bdate, $address, $contact, $email, $pwd, $pwdRepeat) !== false) {
         header("location: ../index.php?error=emptyinputsignup");
@@ -32,7 +32,7 @@ if (isset($_POST["submit"])) {
         exit();
     }
 
-    createUser($connection, $Sname, $Mname, $Fname, $Bdate, $address, $contact, $email, $pwd);
+    createUser($connection, $Lname, $Fname, $Mname, $Bdate, $address, $contact, $email, $pwd);
 
 }else {
     header("location: ../index.php");

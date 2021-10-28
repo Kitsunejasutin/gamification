@@ -9,48 +9,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DUMNSS E-Library</title>
     <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/mainpage.css">
+    <link rel="stylesheet" href="styles/book.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body class="responsive">
 <div class="navigation">
                 <ul>
-                        <?php if (isset($_SESSION["Fname"])) {?>
-                        <li class="user">
-                            <a>
-                                <span class="icon"><i class="fas fa-user"></i></span>
-                                <span class="title"> Hi!, <?php echo $_SESSION['Fname']; ?></span>
-                            </a>
-                        </li>
-                        <li class="selection">
-                            <a class="selection-links">
-                                <span class="icon"><i class="fas fa-user-cog"></i></span>
-                                <span class="title">Account Settings</span>
-                            </a>
-                        </li>
-                        <?php }else { ?>
-                        <li class="selection">
-                            <a class="selection-links" id="login">
-                                <span class="icon"><i class="fas fa-user"></i></span>
-                                <span class="title">LogIn</span>
-                            </a>
-                        </li>
-                        <?php }?>
                     <li class="selection">
-                        <a href="" class="selection-links">
+                        <?php if (isset($_SESSION["Fname"])) {?>
+                            <a>
+                            <span class="icon"><i class="fas fa-user"></i></span>
+                            <span class="title">Settings</span>
+                        </a>
+                        <?php }else { ?>
+                            <a id="login">
+                            <span class="icon"><i class="fas fa-user"></i></span>
+                            <span class="title">LogIn</span>
+                        </a>
+                        <?php }?>
+                    </li>
+                    <li class="selection">
+                        <a href="">
                             <span class="icon"><i class="fas fa-question-circle"></i></span>
                             <span class="title">About</span>
                         </a>
                     </li>
                     <li class="selection">
-                        <a href="" class="selection-links">
+                        <a href="">
                             <span class="icon"><i class="fas fa-ticket-alt"></i></span>
                             <span class="title">Support</span>
                         </a>
                     </li>
                     <?php if (isset($_SESSION["Fname"])) {?>
                         <li class="selection">
-                            <a href="includes/signout.php" class="selection-links">
+                            <a href="includes/signout.php">
                                 <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
                                 <span class="title">Signout</span>
                             </a>
@@ -76,4 +68,3 @@
             </div>
         </div>
     </div>
-

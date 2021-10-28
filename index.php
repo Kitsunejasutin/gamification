@@ -1,27 +1,10 @@
 <?php 
     include_once 'includes/header.php';
 ?>
-        <div id="home-options">
-            <div id="home-options-contents">
-                <div class="tab" id="home">
-                    <span class="pulldown">
-                        <a href="index.html">Home</a>
-                    </span>
-                </div>
-                <div class="tab" id="categories">
-                    <span class="pulldown">
-                        <a href="index.html">Categories</a>
-                    </span>
-                </div>
-                <div class="searchbox">
-                    <input type="text" id="input-default" placeholder="search" size="22" autocomplete="off" maxlength="64" >
-                </div>
-            </div>
-        </div>
         <div class="slideshow-container">
             <div class="tab-title">Featured & Recommendation</div>
             <div class="mySlides-recommendation-1 fade">
-                <a href=""><img src="images/main_page/1.png" class="recommendation-main" style="width: 100%;">
+                <a href="placeholder-page.php"><img src="images/main_page/1.png" class="recommendation-main" style="width: 100%;">
                 <div class="text">Title1
                     <div class="text-description">
                         Description1

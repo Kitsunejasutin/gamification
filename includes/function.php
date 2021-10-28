@@ -54,18 +54,15 @@ function emailExists($connection, $email) {
 }
 
 function createUser($connection, $Lname, $Fname, $Mname, $Bdate, $address, $contact, $email, $pwd) {
-    $sql = "INSERT INTO account (Surname, Firstname, Middlename, Birthday, location_address, Contact, Email, pwd) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+    $hashedPWD = password_hash($pwd, PASSWORD_DEFAULT);
+    $sql = "INSERT INTO account (Surname, Firstname, Middlename, Birthday, location_address, Contact, Email, pwd) VALUES ('$Lname', '$Fname', '$Mname', '$Bdate', '$address', '$contact', '$email', '$hashedPWD');";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../index.php?error=stmtfailedcreate");
         exit();
     }
 
-    $hashedPWD = password_hash($pwd, PASSWORD_DEFAULT);
-
-    mysqli_stmt_bind_param($stmt, "ssssssss", $Fname, $Mname, $Lname, $Bdate, $address, $contact, $email, $hashedPWD);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
+    mysqli_query($connection, $sql);
     header("location: ../index.php?error=none");
     exit();
 }
