@@ -5,7 +5,7 @@
             <div class="tab-title">Featured & Recommendation</div>
             <div class="mySlides-recommendation-1 fade">
                 <a href="placeholder-page.php"><img src="images/main_page/1.png" class="recommendation-main" style="width: 100%;">
-                <div class="text">Title1
+                <div class="text">Random
                     <div class="text-description">
                         Description1
                     </div>
@@ -13,7 +13,7 @@
             </div>
             <div class="mySlides-recommendation-1 fade">
                 <a href=""><img src="images/main_page/2.png" class="recommendation-main" style="width: 100%;"></a>
-                <div class="text">Title2
+                <div class="text">Little Bad Habits
                     <div class="text-description">
                         Description2
                     </div>
@@ -21,7 +21,7 @@
             </div>
             <div class="mySlides-recommendation-1 fade">
                 <a href=""><img src="images/main_page/3.png" class="recommendation-main" style="width: 100%;"></a>
-                <div class="text">Title3
+                <div class="text">Kaddish for an Unborn Child
                     <div class="text-description">
                         Description3
                     </div>
@@ -29,7 +29,7 @@
             </div>
             <div class="mySlides-recommendation-1 fade">
                 <a href=""><img src="images/main_page/4.png" class="recommendation-main" style="width:100%;"></a>
-                <div class="text">Title4
+                <div class="text">GearBreakers
                     <div class="text-description">
                         Description4
                     </div>
@@ -47,32 +47,32 @@
         <div class="slideshow-container2">
             <div class="tab-title">Programming Language</div>
             <div class="mySlides-recommendation-2 fade">
-                <a href=""><img src="images/main_page/1.png" class="recommendation-main" style="width: 100%;">
-                <div class="text">Title1
+                <a href=""><img src="images/main_page/5.png" class="recommendation-main" style="width: 100%;">
+                <div class="text">How to Code
                     <div class="text-description">
                         Description1
                     </div>
                 </div>
             </div>
             <div class="mySlides-recommendation-2 fade">
-                <a href=""><img src="images/main_page/2.png" class="recommendation-main" style="width: 100%;"></a>
-                <div class="text">Title2
+                <a href=""><img src="images/main_page/6.png" class="recommendation-main" style="width: 100%;"></a>
+                <div class="text">Python for Data Science
                     <div class="text-description">
                         Description2
                     </div>
                 </div>
             </div>
             <div class="mySlides-recommendation-2 fade">
-                <a href=""><img src="images/main_page/3.png" class="recommendation-main" style="width: 100%;"></a>
-                <div class="text">Title3
+                <a href=""><img src="images/main_page/7.png" class="recommendation-main" style="width: 100%;"></a>
+                <div class="text">Javascript for Kids
                     <div class="text-description">
                         Description3
                     </div>
                 </div>
             </div>
             <div class="mySlides-recommendation-2 fade">
-                <a href=""><img src="images/main_page/4.png" class="recommendation-main" style="width:100%;"></a>
-                <div class="text">Title4
+                <a href=""><img src="images/main_page/8.png" class="recommendation-main" style="width:100%;"></a>
+                <div class="text">Visual Studio C# Programming
                     <div class="text-description">
                         Description4
                     </div>

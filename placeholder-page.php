@@ -15,7 +15,7 @@
             <img src="images/main_page/1.png">
         </div>
         <div class="box3">
-            <h1>Text3</h1>
+            <h1><i class="fas fa-bookmark"></i></h1>
         </div>
         <div class="box4">
             <h1>Comments</h1>
@@ -23,5 +23,5 @@
     </div>
 
 <?php
-    include_once 'includes/footer.php'
+    include_once 'headers/footer.php'
 ?>
