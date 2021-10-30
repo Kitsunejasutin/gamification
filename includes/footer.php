@@ -1,4 +1,4 @@
-<div id="footer">
+    <div id="footer">
         <div class="footer-contents">
             <div class="rule"></div>
             <div id="footer-logo">

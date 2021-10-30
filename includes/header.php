@@ -63,7 +63,7 @@
         <div id="home-options-contents">
             <div class="tab" id="home">
                 <span class="pulldown">
-                    <a href="index.html">Home</a>
+                    <a href="index.php">Home</a>
                 </span>
             </div>
             <div class="tab" id="categories">
