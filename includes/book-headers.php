@@ -1,4 +1,4 @@
-<?php 
+<?php
     session_start();
 ?>
 <!DOCTYPE html>
@@ -74,5 +74,55 @@
             <div class="searchbox">
                  <input type="text" id="input-default" placeholder="search" size="22" autocomplete="off" maxlength="64" >
             </div>
+        </div>
+    </div>
+    <!-- Popup LogIn -->
+    <div class="bg-modal">
+        <div class="modal-content">
+            <div class="close">+</div>
+            <img src="images/dumnss_logo.png" height="100px">
+            <form action="includes/login.php" method="post">
+                <p class="tag-name">Email</p>
+                <input type="email" class="login" name="email">
+                <p class="tag-name">Password</p>
+                <input type="password" class="login" name="password">
+                <button id="btnLogin" name="login">LogIn</button>
+            </form>
+            <button id="btnSignup">SignUp</button>
+            <div class="error-messages">
+            <?php  include 'includes/login-errors.php'; ?>
+        </div>
+        </div>
+    </div>
+    <!-- Popup SignUp -->
+    <div class="bg-modal-signup">
+        <div class="modal-content-signup">
+            <div class="close-signup">+</div>
+            <div class="back-signup">
+                <i class="arrow left"></i>
+            </div>
+            <img src="images/dumnss_logo.png" height="95px">
+            <form action="includes/signup.php" method="post">
+                <p class="tag-name">Name</p>
+                <input type="text" class="name" name="Lname" placeholder="Surname">
+                <input type="text" class="name" name="Fname" placeholder="First Name">
+                <input type="text" class="name" name="Mname" placeholder="Middle Name">
+                <p class="tag-name">Birthdate</p>
+                <input type="date" class="date" name="Bdate">
+                <p class="tag-name">Address</p>
+                <input type="text" class="signup-text" name="address">
+                <p class="tag-name">Contact</p>
+                <input type="text" class="signup-text" name="contact">
+                <p class="tag-name">Email</p>
+                <input type="text" class="signup-text" name="email">
+                <p class="tag-name">Password</p>
+                <input type="password" class="signup-text" name="password">
+                <p class="tag-name">Confirm Password</p>
+                <input type="password" class="signup-text" name="pwdrepeat">
+                <button id="btnSubmit" name="submit">Signup</button>
+                <div class="error-messages">
+                    <?php  include 'includes/signup-errors.php'; ?>
+                </div>
+            </form>
         </div>
     </div>

@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+body {
+    background-color: rgba(136, 136, 136, 0.768);
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 50vh);
+    grid-template-rows: 1fr 1fr;
+    justify-content: center; /* up and down */
+    grid-gap: 1rem;
+    grid-template-areas: 
+    "box1 box2";
+}
+
+.box1 {
+    background-color: rgba(0, 255, 191, 0.768);
+    grid-area: box1;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box2 {
+    background-color: rgba(177, 68, 68, 0.768);
+    grid-area: box2;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+input[type=text] {
+    width: 49.4%;
+    padding: 5px 10px;
+    margin: auto;
+    border-radius: 5px;
+    color: #000000;
+}
+
+input[type=text]:focus {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+div form button {
+    margin: auto;
+}
+

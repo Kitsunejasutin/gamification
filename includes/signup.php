@@ -5,30 +5,30 @@ if (isset($_POST["submit"])) {
     require_once 'connection.php';
     require_once 'function.php';
     
-    $Fname = mysqli_real_escape_string($connection,$_POST["Fname"]);
-    $Mname = mysqli_real_escape_string($connection,$_POST["Mname"]);
-    $Lname = mysqli_real_escape_string($connection,$_POST["Lname"]);
-    $Bdate = mysqli_real_escape_string($connection,$_POST["Bdate"]);
-    $address = mysqli_real_escape_string($connection,$_POST["address"]);
-    $contact = mysqli_real_escape_string($connection,$_POST["contact"]);
-    $email = mysqli_real_escape_string($connection,$_POST["email"]);
-    $pwd = mysqli_real_escape_string($connection,$_POST["password"]);
-    $pwdRepeat = mysqli_real_escape_string($connection,$_POST["pwdrepeat"]);
+    $Fname = $_POST["Fname"];
+    $Mname = $_POST["Mname"];
+    $Lname = $_POST["Lname"];
+    $Bdate = $_POST["Bdate"];
+    $address = $_POST["address"];
+    $contact = $_POST["contact"];
+    $email = $_POST["email"];
+    $pwd = $_POST["password"];
+    $pwdRepeat = $_POST["pwdrepeat"];
 
     if (emptyInputSignup($Fname, $Mname, $Lname, $Bdate, $address, $contact, $email, $pwd, $pwdRepeat) !== false) {
-        header("location: ../index.php?error=emptyinputsignup");
+        header("location: ". $_SERVER['HTTP_REFERER'] . "&error=emptyinputsignup");
         exit();
     }
     if (invalidEmail($email) !== false) {
-        header("location: ../index.php?error=invalidemail");
+        header("location: ". $_SERVER['HTTP_REFERER'] . "&error=invalidemail");
         exit();
     }
     if (pwdMatch($pwd, $pwdRepeat) !== false) {
-        header("location: ../index.php?error=passworddontmatch");
+        header("location: ". $_SERVER['HTTP_REFERER'] . "&error=passworddontmatch");
         exit();
     }
     if (emailExists($connection, $email) !== false) {
-        header("location: ../index.php?error=emailtaken");
+        header("location: ". $_SERVER['HTTP_REFERER'] . "&error=emailtaken");
         exit();
     }
 

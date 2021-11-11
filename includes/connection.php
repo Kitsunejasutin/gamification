@@ -1,6 +1,5 @@
 <?php
-Session_start();
-$connection = mysqli_connect ("localhost", "root","", "registered");
+$connection = mysqli_connect ("localhost", "root","", "gamification");
 if(!$connection)
 {
 	die("Connection failed: " . mysqli_connect_error());

@@ -34,7 +34,7 @@ function emailExists($connection, $email) {
     $sql = "SELECT * FROM account WHERE Email = ?;";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../index.php?error=stmtfailedexists");
+        header("location: ". $_SERVER['HTTP_REFERER'] . "&error=stmtfailedexists");
         exit();
     }
 
@@ -54,16 +54,19 @@ function emailExists($connection, $email) {
 }
 
 function createUser($connection, $Lname, $Fname, $Mname, $Bdate, $address, $contact, $email, $pwd) {
-    $hashedPWD = password_hash($pwd, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO account (Surname, Firstname, Middlename, Birthday, location_address, Contact, Email, pwd) VALUES ('$Lname', '$Fname', '$Mname', '$Bdate', '$address', '$contact', '$email', '$hashedPWD');";
+    $sql = "INSERT INTO account (Surname, Firstname, Middlename, Birthday, location_address, Contact, Email, pwd) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../index.php?error=stmtfailedcreate");
+        header("location: ". $_SERVER['HTTP_REFERER'] . "&error=stmtfailedcreate");
         exit();
     }
 
-    mysqli_query($connection, $sql);
-    header("location: ../index.php?error=none");
+    $hashedPWD = password_hash($pwd, PASSWORD_DEFAULT);
+
+    mysqli_stmt_bind_param($stmt, "ssssssss", $Fname, $Mname, $Lname, $Bdate, $address, $contact, $email, $hashedPWD);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ". $_SERVER['HTTP_REFERER'] . "&error=none");
     exit();
 }
 
@@ -77,11 +80,11 @@ function emptyInputLogin($email, $pwd) {
     return $result;
 }
 
-function loginUser($connection, $email, $pwd, $Lname, $Fname, $Mname) {
+function loginUser($connection, $email, $pwd) {
     $emailExists = emailExists($connection, $email);
 
     if ($emailExists === false) {
-        header("location: ../index.php?error=wronglogin");
+        header("location: ". $_SERVER['HTTP_REFERER'] . "&error=wronglogin");
         exit();
     }
 
@@ -89,7 +92,7 @@ function loginUser($connection, $email, $pwd, $Lname, $Fname, $Mname) {
     $checkPwd = password_verify($pwd, $pwdHashed);
 
     if ($checkPwd === false) {
-        header("location: ../index.php?error=wrongloginpassword");
+        header("location: ". $_SERVER['HTTP_REFERER'] . "&error=wrongloginpassword");
         exit();
     }else if ($checkPwd === true) {
         session_start();
@@ -100,4 +103,13 @@ function loginUser($connection, $email, $pwd, $Lname, $Fname, $Mname) {
         exit();
 
     }
+}
+
+function fetchbooks($connection) {
+    $sql = "SELECT book_title FROM books";
+    $result = mysqli_query($connection,$sql);
+    while ($row = mysqli_fetch_assoc($result)) {
+        $bookArray[] = $row;
+    }
+    return $bookArray;
 }
