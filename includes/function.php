@@ -54,7 +54,7 @@ function emailExists($connection, $email) {
 }
 
 function createUser($connection, $Lname, $Fname, $Mname, $Bdate, $address, $contact, $email, $pwd) {
-    $sql = "INSERT INTO account (Surname, Firstname, Middlename, Birthday, location_address, Contact, Email, pwd) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+    $sql = "INSERT INTO account (type, Surname, Firstname, Middlename, Birthday, location_address, Contact, Email, pwd) VALUES ('member', ?, ?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ". $_SERVER['HTTP_REFERER'] . "&error=stmtfailedcreate");
