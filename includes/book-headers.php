@@ -15,7 +15,8 @@
 <body class="responsive">
     <div class="navigation">
             <ul>
-                <?php if (isset($_SESSION["Fname"])) {?>
+                <?php if (isset($_SESSION["Fname"])) {
+                    if ($_SESSION["type"] == "member") {?>
                 <li class="user">
                     <a>
                         <span class="icon"><i class="fas fa-user"></i></span>
@@ -26,9 +27,29 @@
                     <a class="selection-links">
                         <span class="icon"><i class="fas fa-user-cog"></i></span>
                         <span class="title">Account Settings</span>
-                            </a>
+                    </a>
                 </li>
-                <?php }else { ?>
+                <?php }elseif($_SESSION["type"] == "admin") {?>
+                    <li class="user">
+                        <a>
+                            <span class="icon"><i class="fas fa-user"></i></span>
+                            <span class="title"> Hi!, <?php echo $_SESSION['Fname']; ?></span>
+
+                        </a>
+                    </li>
+                    <li class="selection">
+                        <a class="selection-links">
+                            <span class="icon"><i class="fas fa-user-cog"></i></span>
+                            <span class="title">Account Settings</span>
+                        </a>
+                    </li>
+                    <li class="selection">
+                        <a href="admin/index.php" class="selection-links">
+                            <span class="icon"><i class="fas fa-book"></i></span>
+                            <span class="title"> Add Books</span>
+                        </a>
+                    </li>
+            <?php }}else { ?>
                 <li class="selection">
                     <a class="selection-links" id="login">
                         <span class="icon"><i class="fas fa-user"></i></span>

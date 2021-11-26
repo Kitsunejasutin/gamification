@@ -9,5 +9,12 @@
             }else if ($_GET["status"] == "uploadsuccess") {
                 echo "Image Successfully uploaded!";
         }
+    }elseif (isset($_GET["error"])) {
+        if ($_GET["error"] == "emptyinput"){
+            echo "Fill up all fields";
+        }else if ($_GET["error"] == "bookexists") {
+            echo "Book already exists";
+        }else if ($_GET["error"] == "none") {
+            echo "Book Added";
+        }
     }
-?>

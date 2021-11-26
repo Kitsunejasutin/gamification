@@ -1,5 +1,6 @@
 <?php 
     include_once '../../includes/connection.php';
+    include_once '../../includes/function.php';
 
     if (isset($_POST['submitImg'])) {
 
@@ -37,5 +38,21 @@
         }else{
             header("Location: ../index.php?status=incorrecttype");
         }
+    }else if (isset($_POST['submitBook'])) {
+        $book_title = $_POST["book_title"];
+        $book_author = $_POST["book_author"];
+        $book_info = $_POST["book_info"];
+        $book_pub = $_POST["book_pub"];
+
+        if (emptyBook($book_title, $book_author, $book_info, $book_pub) !== false) {
+            header("location: ". $_SERVER['HTTP_REFERER'] . "?error=emptyinput");
+            exit();
+        }
+        if (bookExists($connection, $book_title) !== false) {
+            header("location: ". $_SERVER['HTTP_REFERER'] . "?error=bookexists");
+            exit();
+        }
+
+        createBook($connection, $book_title, $book_author, $book_info, $book_pub);
     }
 ?>

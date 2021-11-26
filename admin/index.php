@@ -26,7 +26,9 @@
                     echo "<input type='file' name='img' class='uploadImg'>
                     <button type='submit' name='submitImg'>UPLOAD</button>";
                     echo "</form>";
+                    if (isset($_GET["status"])) { 
                     include_once 'includes/upload-errors.php';
+                    }
                 }else {
                     echo "There's no Books yet!";
                 }
@@ -40,6 +42,11 @@
                 <input type="text" name="book_pub" placeholder="Book Published">
                 <br><button type="submit" name="submitBook">Add Book</button>
             </form>
+            <?php 
+                if (isset($_GET["error"])) { 
+                    include_once 'includes/upload-errors.php';
+                }
+            ?>
         </div>
     </div>
 </body>

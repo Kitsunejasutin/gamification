@@ -12,12 +12,12 @@ if (isset($_POST["login"])) {
     require_once 'function.php';
 
     if (emptyInputLogin($email, $pwd) !== false) {
-        header("location: ". $_SERVER['HTTP_REFERER'] . "&error=emptyinput");
+        header("location: ". $_SERVER['HTTP_REFERER'] . "?error=emptyinput");
         exit();
     }
 
     loginUser($connection, $email, $pwd);
     }else {
-        header("location: ". $_SERVER['HTTP_REFERER'] . "&entered");
+        header("location: ". $_SERVER['HTTP_REFERER'] . "?entered");
         exit();
     }
