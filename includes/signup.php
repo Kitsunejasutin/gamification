@@ -16,19 +16,19 @@ if (isset($_POST["submit"])) {
     $pwdRepeat = $_POST["pwdrepeat"];
 
     if (emptyInputSignup($Fname, $Mname, $Lname, $Bdate, $address, $contact, $email, $pwd, $pwdRepeat) !== false) {
-        header("location: ". $_SERVER['HTTP_REFERER'] . "?error=emptyinputsignup");
+        header("location: ../index.php?error=emptyinputsignup");
         exit();
     }
     if (invalidEmail($email) !== false) {
-        header("location: ". $_SERVER['HTTP_REFERER'] . "?error=invalidemail");
+        header("location: ../index.php?error=invalidemail");
         exit();
     }
     if (pwdMatch($pwd, $pwdRepeat) !== false) {
-        header("location: ". $_SERVER['HTTP_REFERER'] . "?error=passworddontmatch");
+        header("location: ../index.phperror=passworddontmatch");
         exit();
     }
     if (emailExists($connection, $email) !== false) {
-        header("location: ". $_SERVER['HTTP_REFERER'] . "?error=emailtaken");
+        header("location: ../index.php?error=emailtaken");
         exit();
     }
 

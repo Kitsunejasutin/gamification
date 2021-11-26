@@ -45,11 +45,11 @@
         $book_pub = $_POST["book_pub"];
 
         if (emptyBook($book_title, $book_author, $book_info, $book_pub) !== false) {
-            header("location: ". $_SERVER['HTTP_REFERER'] . "?error=emptyinput");
+            header("location: ". $_SESSION['redirectURL'] . "?error=emptyinput");
             exit();
         }
         if (bookExists($connection, $book_title) !== false) {
-            header("location: ". $_SERVER['HTTP_REFERER'] . "?error=bookexists");
+            header("location: ". $_SESSION['redirectURL'] . "?error=bookexists");
             exit();
         }
 

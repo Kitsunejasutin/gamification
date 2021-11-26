@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $_SESSION['redirectURL'] = $_SERVER['REQUEST_URI'];
 ?>
 <!DOCTYPE html>
 <html lang="en">

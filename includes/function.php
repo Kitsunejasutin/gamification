@@ -1,6 +1,6 @@
 <?php 
 
-function emptyInputSignup($Fname, $Mname, $Lname, $Bdate, $address, $contact, $email, $pwd, $pwdRepeat) {
+function emptyInputSignup($Fname, $Mname, $Lname, $Bdate, $address, $contact, $email, $pwd) {
     if (empty($Fname) || empty($Mname) || empty($Lname) || empty($Bdate) || empty($address) || empty($contact) || empty($email) || empty( $pwd)) {
         $result = true;
     }else {
@@ -31,7 +31,7 @@ function emailExists($connection, $email) {
     $sql = "SELECT * FROM account WHERE Email = ?;";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ". $_SERVER['HTTP_REFERER'] . "?serror=stmtfailedexists");
+        header("location: ../index.php?error=stmtfailedexists");
         exit();
     }
 
@@ -54,7 +54,7 @@ function createUser($connection, $Lname, $Fname, $Mname, $Bdate, $address, $cont
     $sql = "INSERT INTO account (type, Surname, Firstname, Middlename, Birthday, location_address, Contact, Email, pwd) VALUES ('member', ?, ?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ". $_SERVER['HTTP_REFERER'] . "?error=stmtfailedcreate");
+        header("location: ../index.php?error=stmtfailedcreate");
         exit();
     }
 
@@ -63,7 +63,7 @@ function createUser($connection, $Lname, $Fname, $Mname, $Bdate, $address, $cont
     mysqli_stmt_bind_param($stmt, "ssssssss", $Fname, $Mname, $Lname, $Bdate, $address, $contact, $email, $hashedPWD);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ". $_SERVER['HTTP_REFERER'] . "?error=none");
+    header("location: ../index.php?error=none");
     exit();
 }
 
@@ -80,7 +80,7 @@ function loginUser($connection, $email, $pwd) {
     $emailExists = emailExists($connection, $email);
 
     if ($emailExists === false) {
-        header("location: ". $_SERVER['HTTP_REFERER'] . "?error=wronglogin");
+        header("location: ../index.php?error=wronglogin");
         exit();
     }
 
@@ -88,16 +88,27 @@ function loginUser($connection, $email, $pwd) {
     $checkPwd = password_verify($pwd, $pwdHashed);
 
     if ($checkPwd === false) {
-        header("location: ". $_SERVER['HTTP_REFERER'] . "?error=wrongloginpassword");
+        header("location: ../index.php?error=wrongloginpassword");
         exit();
     }else if ($checkPwd === true) {
         session_start();
-        $_SESSION["Lname"] = $emailExists["Surname"];
-        $_SESSION["Fname"] = $emailExists["Firstname"];
-        $_SESSION["Mname"] = $emailExists["Middlename"];
         $_SESSION["type"] = $emailExists["type"];
-        header("location: ../index.php");
-        exit();
+        if ($_SESSION['type'] == "member") {
+            $_SESSION["Lname"] = $emailExists["Surname"];
+            $_SESSION["Fname"] = $emailExists["Firstname"];
+            $_SESSION["Mname"] = $emailExists["Middlename"];
+            $_SESSION["type"] = $emailExists["type"];
+            header("location: " . $_SESSION['redirectURL']);
+            exit();
+        }elseif ($_SESSION['type'] == "admin"){
+            $_SESSION["admin"] = TRUE;
+            $_SESSION["Lname"] = $emailExists["Surname"];
+            $_SESSION["Fname"] = $emailExists["Firstname"];
+            $_SESSION["Mname"] = $emailExists["Middlename"];
+            $_SESSION["type"] = $emailExists["type"];
+            header("location: " . $_SESSION['redirectURL']);
+            exit();
+        }
 
     }
 }
@@ -124,7 +135,7 @@ function bookExists($connection, $book_title) {
     $sql = "SELECT * FROM books WHERE book_title = ?;";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ". $_SERVER['HTTP_REFERER'] . "?error=stmtfailedexists");
+        header("location: ../index.php?error=stmtfailedexists");
         exit();
     }
 
@@ -147,13 +158,13 @@ function createBook($connection, $book_title, $book_author, $book_info, $book_pu
     $sql = "INSERT INTO books (book_title, book_author, book_info, book_publish) VALUES (?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ". $_SERVER['HTTP_REFERER'] . "?error=stmtfailedcreate");
+        header("location: ../index.php?error=stmtfailedcreate");
         exit();
     }
 
     mysqli_stmt_bind_param($stmt, "ssss", $book_title, $book_author, $book_info, $book_pub);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ". $_SERVER['HTTP_REFERER'] . "?error=none");
+    header("location: ../index.php?error=none");
     exit();
 }

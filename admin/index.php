@@ -1,5 +1,10 @@
 <?php
     include_once '../includes/connection.php';
+    session_start();
+    if (!isset($_SESSION['admin'])){
+        $_SESSION['redirectURL'] = $_SERVER['REQUEST_URI'];
+        header('location: ../index.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
