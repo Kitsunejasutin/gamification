@@ -21,10 +21,10 @@
                 <span>Employee LogIn</span>
             </div>
             <div class="card-body">
-                <form method="POST" accept-charset="utf-8">
+                <form action="includes/login.php" method="POST" accept-charset="utf-8">
                     <fieldset class="form-group fieldset-border">
                         <i class="fas fa-user-circle"></i>
-                        <input type="text" class="card-control no-outline" name="username" placeholder="Your Email" required>
+                        <input type="text" class="card-control no-outline" name="email" placeholder="Your Email" required>
                     </fieldset>
                     <fieldset class="form-group fieldset-border">
                         <i class="fas fa-key"></i>
@@ -34,7 +34,7 @@
                         <div class="remember-me">Remember Me</div>
                         <div class="forgot"><a href="forgot.php" class="forgot">Forgot Your Password?</a></div>
                     </div>
-                    <button class="btn grey"><span>LogIn</span></button>
+                    <button class="btn grey" name="login"><span>LogIn</span></button>
                 </form>
                 <h6 class="line-on-side text-muted font-small-3">
                 </h6>
