@@ -1,6 +1,7 @@
 <?php 
     include_once 'includes/header.php';
 ?>
+    <link rel="stylesheet" href="styles/index.css">
     <title>Landing Page</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
                 <span>Employee LogIn</span>
             </div>
             <div class="card-body">
-                <form action="includes/login.php" method="POST" accept-charset="utf-8">
+                <!--<form action="includes/login.php" method="POST" accept-charset="utf-8">-->
                     <fieldset class="form-group fieldset-border">
                         <i class="fas fa-user-circle"></i>
                         <input type="text" class="card-control no-outline" name="email" placeholder="Your Email" required>
@@ -28,8 +29,8 @@
                         <div class="remember-me">Remember Me</div>
                         <div class="forgot"><a href="forgot.php" class="forgot">Forgot Your Password?</a></div>
                     </div>
-                    <button class="btn grey"> <!--name="login">--><a href="registration.php"><span>LogIn</span></a></button>
-                </form>
+                    <a href="registration1.php"><button class="btn grey"> <!--name="login">--><span>LogIn</span></button></a>
+                <!--</form>-->
                 <h6 class="line-on-side text-muted font-small-3">
                 </h6>
                 <span>Are you a Client?</span>
