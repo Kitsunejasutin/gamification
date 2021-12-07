@@ -34,7 +34,7 @@
                         <div class="remember-me">Remember Me</div>
                         <div class="forgot"><a href="forgot.php" class="forgot">Forgot Your Password?</a></div>
                     </div>
-                    <button class="btn grey" name="login"><span>LogIn</span></button>
+                    <button class="btn grey"> <!--name="login">--><a href="registration.php"><span>LogIn</span></a></button>
                 </form>
                 <h6 class="line-on-side text-muted font-small-3">
                 </h6>
