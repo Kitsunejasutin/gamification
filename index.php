@@ -28,7 +28,7 @@
                     </fieldset>
                     <fieldset class="form-group fieldset-border">
                         <i class="fas fa-key"></i>
-                        <input type="text" class="card-control no-outline" name="password" placeholder="Your Password" required>
+                        <input type="password" class="card-control no-outline" name="password" placeholder="Your Password" required>
                     </fieldset>
                     <div class="form-group row">
                         <div class="remember-me">Remember Me</div>
