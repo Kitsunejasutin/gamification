@@ -83,16 +83,20 @@
     <div class="container">
     <div id="home-options">
         <div id="home-options-contents">
-            <div class="tab" id="home">
-                <span class="pulldown">
-                    <a href="index.php">Home</a>
-                </span>
-            </div>
-            <div class="tab" id="categories">
-                <span class="pulldown">
-                    <a href="index.html">Categories</a>
-                </span>
-            </div>
+            <a href="index.php">
+                <div class="tab" id="home">
+                    <span class="pulldown">
+                        Home
+                    </span>
+                </div>
+            </a>
+            <a href="index.html">
+                <div class="tab" id="categories">
+                    <span class="pulldown">
+                        Categories
+                    </span>            
+                </div>
+            </a>
             <div class="searchbox">
                  <input type="text" id="input-default" placeholder="search" size="22" autocomplete="off" maxlength="64" >
             </div>
