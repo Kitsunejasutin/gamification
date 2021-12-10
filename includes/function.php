@@ -94,3 +94,10 @@ function loginUser($connection, $email, $pwd) {
 
     }
 }
+
+function fetchcompanyname($connection){
+    $sql = "SELECT company_name FROM company_info; ";
+    $result = mysqli_query($connection, $sql);
+    $row = mysqli_fetch_array($result);
+    return $row['company_name'];
+}
