@@ -80,7 +80,7 @@ function loginUser($connection, $email, $pwd) {
             $_SESSION["FName"] = $emailExists["FName"];
             $_SESSION["MName"] = $emailExists["MName"];
             $_SESSION["type"] = $emailExists["type"];
-            header("location: ../index.php?status=login" );
+            header("location: ../dashboard.php" );
             exit();
         }elseif ($_SESSION['type'] == "0"){
             //$_SESSION["admin"] = TRUE;
@@ -88,7 +88,8 @@ function loginUser($connection, $email, $pwd) {
             $_SESSION["FName"] = $emailExists["FName"];
             $_SESSION["MName"] = $emailExists["MName"];
             $_SESSION["type"] = $emailExists["type"];
-            header("location: ../index.php?status=login");
+            $sql = "SELECT company_name FROM company_info"; $result = mysqli_query($connection, $sql); $column = mysqli_fetch_array($result);
+            if ($column['company_name'] == ""){header("location: ../registration1.php");}else {header("location: ../dashboard.php");}
             exit();
         }
     }
