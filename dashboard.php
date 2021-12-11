@@ -29,7 +29,10 @@
         </div>
         <div class="main_content">
             <div class="topbar">
-                <i class="fas fa-bell"></i><i class="fas fa-clock"></i>
+                <i class="fas fa-bell"></i>
+                <div class="popup" onclick="myFunction()"><!--<a href="includes/attendance.php">--><i class="fas fa-clock"></i><!--</a>-->
+                    <span class="popuptext" id="myPopup">Check In</span>
+                </div>
                 <img src ="images/user-icon.png" class="user-icon"><span class="text">Account</span><span class="indicator">^</span>
             </div>
             <div class="info">
@@ -54,5 +57,12 @@
             </div>
         </div>
     </div>
+    <script>
+// When the user clicks on div, open the popup
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+</script>
 </body>
 </html>
