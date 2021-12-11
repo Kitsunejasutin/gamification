@@ -21,7 +21,7 @@ body{
 .container .sidebar{
   width: 260px;
   height: 100%;
-  background: #4b4276;
+  background: #000000bd;
   padding: 30px 0px;
   position: fixed;
 }
@@ -82,7 +82,7 @@ body{
 .container .sidebar .social_media a{
   display: block;
   width: 40px;
-  background: #594f8d;
+  background: #000000bd;
   height: 40px;
   line-height: 45px;
   text-align: center;
