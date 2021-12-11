@@ -10,7 +10,7 @@
 }
 
 body{
-   background-color: #f3f5f9;
+  background-color: #f1f5ff;
 }
 
 .container{
@@ -50,17 +50,17 @@ body{
 }
 
 .arrow {
-    position: relative;
-    float: right;
-    border: solid #bdb8d7;
-    top: 3px;
-    border-width: 0 3px 3px 0;
-    padding: 3px;
+  position: relative;
+  float: right;
+  border: solid #bdb8d7;
+  top: 3px;
+  border-width: 0 3px 3px 0;
+  padding: 3px;
 }
 
 .right {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
 }
 
 .container .sidebar ul li:hover{
@@ -98,36 +98,41 @@ body{
 }
 
 .container .main_content .topbar {
-    padding: 20px;
-    display: flex;
-    align-items: center ;
-    justify-content: right;
-    background: rgb(247, 247, 247);
-    color: #717171;
-    border-bottom: 1px solid #e0e4e8;
+  padding: 20px;
+  display: flex;
+  align-items: center ;
+  justify-content: right;
+  background: rgb(247, 247, 247);
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
 }
 
 .container .main_content .topbar .fa-bell {
-    font-size: 20px;
-    padding-right: 30px;
-    right: 0;
+  font-size: 20px;
+  padding-right: 30px;
+}
+
+.container .main_content .topbar .fa-clock {
+  font-size: 20px;
+  padding-right: 30px;
+  cursor: pointer;
 }
 
 .container .main_content .topbar .user-icon {
-    width: 35px;
-    height: 35px;
+  width: 35px;
+  height: 35px;
 }
 
 .container .main_content .topbar .text {
-    padding-left: 12px;
-    padding-top: 4px;
+  padding-left: 12px;
+  padding-top: 4px;
 }
 
 .container .main_content .topbar .indicator {
-    transform: rotateX(180deg); 
-    padding-left: 4px;
-    margin-top: -17px ;
-    font-size: 30px;
+  transform: rotateX(180deg); 
+  padding-left: 4px;
+  margin-top: -17px ;
+  font-size: 30px;
 }
 
 .container .main_content .info{

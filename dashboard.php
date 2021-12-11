@@ -29,7 +29,7 @@
         </div>
         <div class="main_content">
             <div class="topbar">
-                <i class="fas fa-bell"></i>
+                <i class="fas fa-bell"></i><i class="fas fa-clock"></i>
                 <img src ="images/user-icon.png" class="user-icon"><span class="text">Account</span><span class="indicator">^</span>
             </div>
             <div class="info">

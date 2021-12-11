@@ -91,7 +91,6 @@ function loginUser($connection, $email, $pwd) {
             header("location: ../index.php?status=login");
             exit();
         }
-
     }
 }
 
@@ -100,4 +99,8 @@ function fetchcompanyname($connection){
     $result = mysqli_query($connection, $sql);
     $row = mysqli_fetch_array($result);
     return $row['company_name'];
+}
+
+function checkin($connection) {
+    
 }
