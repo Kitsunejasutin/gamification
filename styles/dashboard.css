@@ -65,9 +65,31 @@ body{
 
 .container .sidebar ul li:hover{
   background-color: #594f8d;
+  cursor: pointer;
 }
     
 .container .sidebar ul li:hover a{
+  color: #fff;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+}
+
+.container .sidebar ul li.dropdown {
+  color: #bdb8d7;
+  cursor: pointer;
+}
+
+.container .sidebar ul li.dropdown span {
+  margin-left: 30px;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+}
+
+.container .sidebar ul li.dropdown:hover span {
   color: #fff;
 }
  

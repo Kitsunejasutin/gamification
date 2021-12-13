@@ -14,13 +14,36 @@
                     echo fetchcompanyname($connection);
                 ?>
             </h2>
-            <ul>
-                <li><a href="#"><i class="fas fa-tachometer-alt"></i>Dashboard<i class="arrow right"></i></a></li>
-                <li><a href="#"><i class="fas fa-boxes"></i>Stocks<i class="arrow right"></i></a></li>
-                <li><a href="#"><i class="fas fa-user-tie"></i>Accounts<i class="arrow right"></i></a></li>
-                <li><a href="#"><i class="fas fa-table"></i>Data & Reports<i class="arrow right"></i></a></li>
-                <li><a href="#"><i class="fas fa-file-export"></i>Data Export<i class="arrow right"></i></a></li>
-            </ul> 
+            <ul id="categories">
+                <li><a href="dashboard.php"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+                <li class="categories"><a><i class="fas fa-boxes"></i>Stocks<i class="arrow right"></i></a></li>
+                <li class="dropdown stocks"><span>Stock Manager</span><i class="arrow right"></i></li>
+                <li class="dropdown stocks"><span>Product Categories</span><i class="arrow right"></i></li>
+                <li class="dropdown stocks"><span>Purchase Order</span><i class="arrow right"></i></li>
+                <li class="dropdown stocks"><span>Suppliers</span><i class="arrow right"></i></li>
+            </ul>
+            <ul id="categories">
+                <li class="categories"><a><i class="fas fa-user-tie"></i>Account<i class="arrow right"></i></a></li>
+                <li class="dropdown account"><span>Manage Accounts</span><i class="arrow right"></i></li>
+                <li class="dropdown account"><span>Employees Transactions</span><i class="arrow right"></i></li>
+                <li class="dropdown account"><span>Tasks</span><i class="arrow right"></i></li>
+                <li class="dropdown account"><span>Permissions</span><i class="arrow right"></i></li>
+                <li class="dropdown account"><span>Add Employees</span><i class="arrow right"></i></li>
+            </ul>
+            <ul id="categories">
+                <li class="categories"><a><i class="fas fa-table"></i>Data & Reports<i class="arrow right"></i></a></li>
+                <li class="dropdown datareport"><span>Customer Transactions</span><i class="arrow right"></i></li>
+                <li class="dropdown datareport"><span>Income Sales</span><i class="arrow right"></i></li>
+                <li class="dropdown datareport"><span>Activity Report</span><i class="arrow right"></i></li>
+            </ul>
+            <ul id="categories">
+                <li class="categories"><a><i class="fas fa-file-export"></i>Data Export<i class="arrow right"></i></a></li>
+                <li class="dropdown export"><span>Income Export</span><i class="arrow right"></i></li>
+                <li class="dropdown export"><span>Database Export</span><i class="arrow right"></i></li>
+                <li class="dropdown export"><span>Customer Export</span><i class="arrow right"></i></li>
+                <li class="dropdown export"><span>Transaction Export</span><i class="arrow right"></i></li>
+                <li class="dropdown export"><span>Supplier Export</span><i class="arrow right"></i></li>
+            </ul>
             <div class="social_media">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -30,7 +53,7 @@
         <div class="main_content">
             <div class="topbar">
                 <i class="fas fa-bell"></i>
-                <div class="popup" onclick="myFunction()"><!--<a href="includes/attendance.php">--><i class="fas fa-clock"></i><!--</a>-->
+                <div class="popup"><!--<a href="includes/attendance.php">--><i class="fas fa-clock"></i><!--</a>-->
                     <span class="popuptext" id="myPopup">Check In</span>
                 </div>
                 <img src ="images/user-icon.png" class="user-icon"><span class="text">Account</span><span class="indicator">^</span>
@@ -57,12 +80,6 @@
             </div>
         </div>
     </div>
-    <script>
-// When the user clicks on div, open the popup
-function myFunction() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-}
-</script>
+    <script src="script/app.js"></script>
 </body>
 </html>
