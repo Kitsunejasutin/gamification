@@ -14,9 +14,30 @@ $(document).ready(function () {
         
     });
 
-    // When the user clicks on div, open the popup
-    $('.popup').click(function () {
-        $('#myPopup').addClass('show');
-    });
+    $('.popuptext-account').hide();
+
+    $('.account').click(function () {
+        $('.popuptext-account').toggle();
+    })
+
+    var modal = document.getElementById("myModal");
+
+    var btn = document.getElementById("myPopup");
+
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 
 });
