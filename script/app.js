@@ -1,8 +1,8 @@
-$(document).ready(function () {
+$(window).on('load', function () {
 
     $('.dropdown').hide();
 
-    $('.categories').click(function(e){
+    $('.categories').click(function (e) {
         
         e.preventDefault();
         // hide all span
@@ -19,25 +19,4 @@ $(document).ready(function () {
     $('.account').click(function () {
         $('.popuptext-account').toggle();
     })
-
-    var modal = document.getElementById("myModal");
-
-    var btn = document.getElementById("myPopup");
-
-    var span = document.getElementsByClassName("close")[0];
-
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
-
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-
 });

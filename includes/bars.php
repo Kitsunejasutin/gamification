@@ -8,33 +8,33 @@
             <ul id="categories">
                 <li><a href="dashboard.php"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
                 <li class="categories"><a><i class="fas fa-boxes"></i>Stocks<i class="arrow right"></i></a></li>
-                <li class="dropdown stocks"><span>Stock Manager</span><i class="arrow right"></i></li>
-                <li class="dropdown stocks"><span>Product Categories</span><i class="arrow right"></i></li>
-                <li class="dropdown stocks"><span>Purchase Order</span><i class="arrow right"></i></li>
-                <li class="dropdown stocks"><span>Suppliers</span><i class="arrow right"></i></li>
+                <li class="dropdown"><span>Stock Manager</span></i></li>
+                <li class="dropdown"><span>Product Categories</span></i></li>
+                <li class="dropdown"><span>Purchase Order</span></i></li>
+                <li class="dropdown"><span>Suppliers</span></i></li>
             </ul>
             <ul id="categories">
                 <li class="categories"><a><i class="fas fa-user-tie"></i>Account<i class="arrow right"></i></a></li>
-                <li class="dropdown account"><span>Manage Accounts</span><i class="arrow right"></i></li>
-                <li class="dropdown account"><span>Employees Transactions</span><i class="arrow right"></i></li>
-                <a href="attendance.php"><li class="dropdown account"><span>Attendance</span><i class="arrow right"></i></li></a>
-                <li class="dropdown account"><span>Tasks</span><i class="arrow right"></i></li>
-                <li class="dropdown account"><span>Permissions</span><i class="arrow right"></i></li>
-                <li class="dropdown account"><span>Add Employees</span><i class="arrow right"></i></li>
+                <li class="dropdown"><span>Manage Accounts</span></li>
+                <li class="dropdown"><span>Employees Transactions</span></li>
+                <a href="attendance.php"><li class="dropdown account"><span>Attendance</span></li></a>
+                <li class="dropdown"><span>Tasks</span></i></li>
+                <li class="dropdown"><span>Permissions</span></i></li>
+                <li class="dropdown"><span>Add Employees</span></li>
             </ul>
             <ul id="categories">
                 <li class="categories"><a><i class="fas fa-table"></i>Data & Reports<i class="arrow right"></i></a></li>
-                <li class="dropdown datareport"><span>Customer Transactions</span><i class="arrow right"></i></li>
-                <li class="dropdown datareport"><span>Income Sales</span><i class="arrow right"></i></li>
-                <li class="dropdown datareport"><span>Activity Report</span><i class="arrow right"></i></li>
+                <li class="dropdown"><span>Customer Transactions</span></i></li>
+                <li class="dropdown"><span>Income Sales</span></li>
+                <li class="dropdown"><span>Activity Report</span></i></li>
             </ul>
             <ul id="categories">
                 <li class="categories"><a><i class="fas fa-file-export"></i>Data Export<i class="arrow right"></i></a></li>
-                <li class="dropdown export"><span>Income Export</span><i class="arrow right"></i></li>
-                <li class="dropdown export"><span>Database Export</span><i class="arrow right"></i></li>
-                <li class="dropdown export"><span>Customer Export</span><i class="arrow right"></i></li>
-                <li class="dropdown export"><span>Transaction Export</span><i class="arrow right"></i></li>
-                <li class="dropdown export"><span>Supplier Export</span><i class="arrow right"></i></li>
+                <li class="dropdown"><span>Income Export</span></li>
+                <li class="dropdown"><span>Database Export</span></li>
+                <li class="dropdown"><span>Customer Export</span></li>
+                <li class="dropdown"><span>Transaction Export</span></li>
+                <li class="dropdown"><span>Supplier Export</span></li>
             </ul>
             <div class="social_media">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
