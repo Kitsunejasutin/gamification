@@ -75,7 +75,7 @@ function loginUser($connection, $email, $pwd) {
     }else if ($checkPwd === true) {
         session_start();
         $_SESSION["access"] = $emailExists["access"];
-        if ($_SESSION['type'] == "1") {
+        if ($_SESSION['access'] == "1") {
             $_SESSION["LName"] = $emailExists["LName"];
             $_SESSION["FName"] = $emailExists["FName"];
             $_SESSION["MName"] = $emailExists["MName"];

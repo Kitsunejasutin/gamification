@@ -8,10 +8,10 @@
             <ul id="categories">
                 <li><a href="dashboard.php"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
                 <li class="categories"><a><i class="fas fa-boxes"></i>Stocks<i class="arrow right"></i></a></li>
-                <li class="dropdown"><span>Stock Manager</span></i></li>
-                <li class="dropdown"><span>Product Categories</span></i></li>
+                <a href="stock_manager.php"><li class="dropdown"><span>Stock Manager</span></i></li></a>
+                <a href="pro-categories.php"><li class="dropdown"><span>Product Categories</span></i></li></a>
                 <li class="dropdown"><span>Purchase Order</span></i></li>
-                <li class="dropdown"><span>Suppliers</span></i></li>
+                <a href="suppliers.php"><li class="dropdown"><span>Suppliers</span></i></li></a>
             </ul>
             <ul id="categories">
                 <li class="categories"><a><i class="fas fa-user-tie"></i>Account<i class="arrow right"></i></a></li>
