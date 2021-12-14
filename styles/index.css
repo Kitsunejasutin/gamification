@@ -125,7 +125,8 @@ i {
 }
 
 .form-group .remember-me {
-    margin-right: 406px;
+    margin-right: 390px;
+    margin-left: 4px;
 }
 
 .btn {

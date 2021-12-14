@@ -27,7 +27,7 @@
                         <input type="password" class="card-control no-outline" name="password" placeholder="Your Password" required>
                     </fieldset>
                     <div class="form-group row">
-                        <div class="remember-me">Remember Me</div>
+                    <input type="checkbox"><div class="remember-me">Remember Me</div>
                         <div class="forgot"><a href="forgot.php" class="forgot">Forgot Your Password?</a></div>
                     </div>
                     <button class="btn grey" name="login"><span>LogIn</span></button>
