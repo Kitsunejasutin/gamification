@@ -127,6 +127,7 @@ function timeIn($connection, $id, $time) {
 					session_start();
 					$last_id = mysqli_insert_id($connection);
 					$_SESSION['user_id'] = $last_id;
+                    $_SESSION['status'] = "timeIn";
 					header("location: ../attendance.php?success=clockin");
 			}
 		}else{
@@ -157,6 +158,8 @@ function timeOut($connection, $id, $time) {
 					$name = $data['FName'] ." ". $data['LName'];
 					$sql = "UPDATE timeclock SET verify_status='TimeOut', time_out='". $time ."' WHERE id_key='". $_SESSION['user_id'] ."'";
 					$execute = mysqli_query($connection, $sql);
+                    session_start();
+                    $_SESSION['status'] = "timeOut";
 					header("location: ../attendance.php?status=clockout");
 				}
 			}

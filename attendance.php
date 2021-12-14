@@ -5,13 +5,7 @@
     session_start();
     
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles/header.css">
 	<title>Document</title>
 </head>
 <body onload="startTime()">
@@ -53,9 +47,9 @@
 			<!-- Button -->
 			<div align = "center">
 				<div align="center">
-				<button id='TimeIN-btn' style='width:100px; height:100px; margin:20px; font-size:16pt;' name='TimeIN-btn' class='btn btn-success' value='-IN'>Time<br />IN</button>
-				<button id='TimeOUT-btn' style='width:100px; height:100px; margin:20px; font-size:16pt;' name='TimeOUT-btn' class='btn btn-danger' value='-OUT'>Time<br />OUT</button>
-	  			</div>
+					<button id='TimeIN-btn' style='width:100px; height:100px; margin:20px; font-size:16pt; <?php if ($_SESSION['status'] == "timeIn") echo "background-color:yellowgreen;" ?>' name='TimeIN-btn' class='btn btn-success' value='-IN'>Time<br />IN</button>
+					<button id='TimeOUT-btn' style='width:100px; height:100px; margin:20px; font-size:16pt; <?php if ($_SESSION['status'] == "timeOut") echo "background-color:yellowgreen;" ?>' name='TimeOUT-btn' class='btn btn-danger' value='-OUT'>Time<br />OUT</button>
+				</div>
 			</div>
 		</fieldset>
 	</form>

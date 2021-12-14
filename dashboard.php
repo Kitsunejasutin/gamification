@@ -5,6 +5,7 @@
     session_start();
     
 ?>
+    <link rel="stylesheet" href="styles/header.css">
     <title>Dashboard</title>
 </head>
 <body>
