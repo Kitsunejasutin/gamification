@@ -41,22 +41,22 @@ function emailExists($connection, $email) {
     mysqli_stmt_close($stmt);
 }
 
-/*function createUser($connection,$pwd, $email) {
-    $sql = "INSERT INTO account (type, Surname, Firstname, Middlename, Birthday, location_address, Contact, Email, pwd) VALUES ('0', ?, ?, ?, ?, ?, ?, ?, ?);";
+function createUser($connection, $id, $email, $pwd, $FName, $MName, $LName, $address, $contact) {
+    $sql = "INSERT INTO accounts (employee_id, email, pwd, FName, MName, LName, access, employ_address, contact) VALUES (?, ?, ?, ?, ?, ?, '0', ?, ?);";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../index.php?error=stmtfailedcreate");
+        header("location: ../addemployee.php?error=stmtfailedcreate");
         exit();
     }
 
     $hashedPWD = password_hash($pwd, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "ssssssss", $Fname, $Mname, $Lname, $Bdate, $address, $contact, $email, $hashedPWD);
+    mysqli_stmt_bind_param($stmt, "ssssssss", $id, $email, $hashedPWD, $FName, $MName, $LName, $address, $contact);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../index.php?error=none");
+    header("location: ../addemployee.php?success=added");
     exit();
-}*/
+}
 
 function loginUser($connection, $email, $pwd) {
     $emailExists = emailExists($connection, $email);
@@ -66,7 +66,7 @@ function loginUser($connection, $email, $pwd) {
         exit();
     }
 
-    $pwdHashed = $emailExists["password"];
+    $pwdHashed = $emailExists["pwd"];
     $checkPwd = password_verify($pwd, $pwdHashed);
 
     if ($checkPwd === false) {
@@ -74,21 +74,19 @@ function loginUser($connection, $email, $pwd) {
         exit();
     }else if ($checkPwd === true) {
         session_start();
-        $_SESSION["type"] = $emailExists["type"];
+        $_SESSION["access"] = $emailExists["access"];
         if ($_SESSION['type'] == "1") {
             $_SESSION["LName"] = $emailExists["LName"];
             $_SESSION["FName"] = $emailExists["FName"];
             $_SESSION["MName"] = $emailExists["MName"];
-            $_SESSION["type"] = $emailExists["type"];
             header("location: ../dashboard.php" );
             exit();
-        }elseif ($_SESSION['type'] == "0"){
-            //$_SESSION["admin"] = TRUE;
+        }elseif ($_SESSION['access'] == "0"){
+            $_SESSION["admin"] = TRUE;
             $_SESSION["LName"] = $emailExists["LName"];
             $_SESSION["FName"] = $emailExists["FName"];
             $_SESSION["MName"] = $emailExists["MName"];
             $_SESSION["email"] = $emailExists["email"];
-            $_SESSION["type"] = $emailExists["type"];
             $sql = "SELECT company_name FROM company_info"; $result = mysqli_query($connection, $sql); $column = mysqli_fetch_array($result);
             if ($column['company_name'] == ""){header("location: ../registration1.php");}else {header("location: ../dashboard.php");}
             exit();
@@ -167,4 +165,23 @@ function timeOut($connection, $id, $time) {
 			header("location: ../attendance.php?status=error");
 		}
 	}	
+}
+
+function fetchAccounts($connection) {
+    $sql = "SELECT * FROM accounts";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../index.php?error=stmtfailedexists");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_array($resultData)) {
+        return $row;
+    }else {
+        $result = false;
+        return $result;
+    }
 }

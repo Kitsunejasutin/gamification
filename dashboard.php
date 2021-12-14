@@ -6,7 +6,7 @@
     
 ?>
     <link rel="stylesheet" href="styles/header.css">
-    <title>Dashboard</title>
+	<title><?php echo fetchcompanyname($connection); ?></title>
 </head>
 <body>
 <?php
