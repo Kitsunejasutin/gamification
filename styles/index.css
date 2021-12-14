@@ -19,7 +19,7 @@ a {
 
 .front-card {
     width: 700px;
-    height: 550px;
+    height: 590px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -164,4 +164,8 @@ i {
 
 .btn.grey:focus {
     background-color: rgb(255, 255, 255);
+}
+
+span.error {
+    color: rgb(255, 255, 255);
 }
