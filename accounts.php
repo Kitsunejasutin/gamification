@@ -7,7 +7,7 @@
 ?>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/accounts.css">
-            <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+            <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
         <style type="text/css">
 </style>
 	<title><?php echo fetchcompanyname($connection); ?></title>
@@ -58,8 +58,8 @@
                     </table>
                 </div>
             </div>
-            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 <script type="text/javascript" src="script/paging.js"></script> 
 <script type="text/javascript">
             $(document).ready(function() {
