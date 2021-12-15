@@ -16,7 +16,10 @@
 
 <div class="info">
     <div class="card">
-        <h1 id="header">Suppliers</h1>
+        <div class="header">
+            <span class="span-header">Suppliers</span>
+            <a class="action">Add Supplier</a>
+        </div>
         <table>
             <thead>
                 <th>#</th>

@@ -16,7 +16,10 @@
 
 <div class="info">
     <div class="card">
-        <h1 id="header">Product Categories</h1>
+        <div class="header">
+            <span class="span-header">Product Categories</span>
+            <a class="action">Add Categories</a>
+        </div>
         <table>
             <thead>
                 <th>#</th>

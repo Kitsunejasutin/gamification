@@ -10,7 +10,7 @@
                 <li class="categories"><a><i class="fas fa-boxes"></i>Stocks<i class="arrow right"></i></a></li>
                 <a href="stock_manager.php"><li class="dropdown"><span>Stock Manager</span></i></li></a>
                 <a href="pro-categories.php"><li class="dropdown"><span>Product Categories</span></i></li></a>
-                <li class="dropdown"><span>Purchase Order</span></i></li>
+                <a href="purchaseorder.php"><li class="dropdown"><span>Purchase Order</span></i></li></a>
                 <a href="suppliers.php"><li class="dropdown"><span>Suppliers</span></i></li></a>
             </ul>
             <ul id="categories">

@@ -17,8 +17,8 @@
 <div class="info">
     <div class="card">
         <div class="header">
-            <span class="span-header">Stock Manager</span>
-            <a class="action">Add Stock</a>
+            <span class="span-header">Orders</span>
+            <a class="action">Purchase Order</a>
         </div>
         <table>
             <thead>

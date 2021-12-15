@@ -11,6 +11,13 @@ div.card {
     -moz-box-shadow: 0px 1px 5px 5px rgba(0,0,0,0.18);
 }
 
+div.header {
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: .5rem;
+    display: inline-block;
+}
+
 table,th,tr,td {
     text-align: center;
     margin-left: 100px;
@@ -43,8 +50,24 @@ a {
     color: black;;
 }
 
-h1#header {
-    padding-top: 30px;
-    padding-bottom: 25px;
-    padding-left: 35px;
+a.action {
+    padding: .5rem;
+    background-color: gray;
+    text-align: center;
+    color: #fff;
+    border-radius: 6px;
+}
+
+a.action:hover {
+    background-color: rgb(97, 102, 88);
+    cursor: pointer;
+}
+
+a.categories {
+    left: 605px;
+}
+
+span.span-header {
+    font-size: 35px;
+    padding-left: 2.5rem;
 }
