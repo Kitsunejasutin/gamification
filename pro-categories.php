@@ -34,13 +34,15 @@
                     <th>placeholder</th>
                 </tr>
             </tbody>
-            <tr>
-                <th>2</th>
-                <th>placeholder</th>
-                <th>placeholder</th>
-                <th>placeholder</th>
-                <th>placeholder</th>
-            </tr>
+            <tbody>
+                <tr>
+                    <th>2</th>
+                    <th>placeholder</th>
+                    <th>placeholder</th>
+                    <th>placeholder</th>
+                    <th>placeholder</th>
+                </tr>
+            </tbody>
             <tbody>
                 <tr>
                     <th>3</th>

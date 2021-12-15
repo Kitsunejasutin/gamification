@@ -13,24 +13,53 @@ a {
     color: black;;
 }
 
-table,th,tr,td {
-    text-align: center;
-    border: 1px solid;
-    margin: auto;
-}
-
 h1#header {
     padding-top: 30px;
     padding-bottom: 25px;
     padding-left: 35px;
 }
 
-td {
-    color: black;
-    padding: 20px;
+table {
+    margin: auto;
+    height: 540px;
+    border: 1px solid rgba(0, 0, 0, 0.171);
+    border-collapse: collapse;
+    box-shadow: 0 5px 10px gray;
+    background-color: white;
 }
-td.header {
-    font-size: 20px;
+
+thead {
+    box-shadow: 0 5px 10px gray;
+    text-align: center;
+}
+
+th {
+    border: 1px solid rgba(0, 0, 0, 0.075);
+    padding: 1rem .5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 0.7rem;
+    font-weight: 900;
+}
+
+.paging-nav {
+    text-align: right;
+    padding-top: 10px;
+}
+  
+.paging-nav a {
+    margin: auto 1px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 1px 7px;
+    background: #91b9e6;
+    color: white;
+    border-radius: 3px;
+}
+  
+.paging-nav .selected-page {
+    background: #187ed5;
+    font-weight: bold;
 }
 
 fieldset {
