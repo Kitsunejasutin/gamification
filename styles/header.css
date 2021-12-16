@@ -315,7 +315,7 @@ body{
   padding: 2px 16px;
 }
 
-button {
+button.blue {
   position: relative;
   overflow: hidden;
   transition: background 400ms;
@@ -328,6 +328,7 @@ button {
   border-radius: 0.25rem;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
   cursor: pointer;
+  
 }
 
 .container .main_content .info{

@@ -3,13 +3,36 @@
     require_once 'includes/connection.php';
     require_once 'includes/function.php';
     session_start();
-    
-?>
+    if(isset($_POST['change'])){
+        $id = $_POST['change'];?>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Update Permission</h2>
+                </div>
+                <div class="modal-body">
+                    <form action="includes/perms.php" method="POST">
+                        <?php $data = (fetchDataid($connection,$id)); $id = $data['employee_id']; $name = $data['FName']." ".$data['MName']." ".$data['LName']; $access=$data['access'];?>
+                        <p class="text">Update Permission to the following Employee?</p><br>
+                        <p class="text"><?php echo $id;?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $name;?></p><br>
+                        <p class="text">Current Access: <?php echo $access;?></p>
+                        <p class="text">Updated Access: <?php if($access == "1"){echo "0";}else{echo "1";} ?></p>
+                        <button type="Submit" class="blue" name="update" value="<?php echo $id; ?>">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>        
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("myBtn");
+        $(function() {
+         $('#myModal').css('display','block');
+        });</script>
+    <?php } ?>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/accounts.css">
-            <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-        <style type="text/css">
-</style>
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 	<title><?php echo fetchcompanyname($connection); ?></title>
 </head>
 <body>
@@ -30,7 +53,8 @@
                             <th class="header"><b>Contact</th>
                             <th class="header"><b>Action</th>
                         </thead>
-                        <?php
+                        <form method="POST">
+                            <?php
                                 $sql = "SELECT * FROM accounts";
                                 $stmt = mysqli_stmt_init($connection);
                                 if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -43,43 +67,25 @@
 
                                 while($data = mysqli_fetch_array($resultData)){
                             ?>
-                        <tbody>
-                            <tr>
-                                <th><?php echo $data[1]; ?></th>
-                                <th><?php echo $data[4] ." ". $data[5] ." ". $data[6]; ?></th>
-                                <th><?php echo $data[2]?></th>
-                                <th><?php echo $data[7]?></th>
-                                <th><?php echo $data[8]?></th>
-                                <th><?php echo $data[9]?></th>
-                                <th><a href="includes/rmemp.php"><i class="fas fa-chevron-circle-up"></i></i></a></th>
-                            </tr>
-                        </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th><?php echo $data[1]; ?></th>
+                                        <th><?php echo $data[4] ." ". $data[5] ." ". $data[6]; ?></th>
+                                        <th><?php echo $data[2]?></th>
+                                        <th><?php echo $data[7]?></th>
+                                        <th><?php echo $data[9]?></th>
+                                        <th><?php echo $data[10]?></th>
+                                        <th><button type="Submit" class="action" name="change" id ="myBtn" value="<?php echo $data[1]; ?>"><i class="fas fa-chevron-circle-up"></i></button></th>
+                                    </tr>
+                                </tbody>
                             <?php }mysqli_stmt_close($stmt); ?>
+                        </form>
                     </table>
                 </div>
             </div>
             <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-<script type="text/javascript" src="script/paging.js"></script> 
-<script type="text/javascript">
-            $(document).ready(function() {
-                $('#tableData').paging({limit:5});
-            });
-        </script>
-        <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36251023-1']);
-  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+            <script type="text/javascript" src="script/paging.js"></script> 
 <?php 
 	include_once 'includes/footer.php';
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-/*function invalidEmail($email) {
+function invalidEmail($email) {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $result = true;
     }else {
@@ -16,7 +16,7 @@ function pwdMatch($pwd, $pwdRepeat) {
         $result = false;
     }
     return $result;
-}*/
+}
 
 function emailExists($connection, $email) {
     $sql = "SELECT * FROM accounts WHERE email = ?;";
@@ -42,7 +42,7 @@ function emailExists($connection, $email) {
 }
 
 function createUser($connection, $id, $email, $pwd, $FName, $MName, $LName, $address, $contact) {
-    $sql = "INSERT INTO accounts (employee_id, email, pwd, FName, MName, LName, access, employ_address, contact) VALUES (?, ?, ?, ?, ?, ?, '0', ?, ?);";
+    $sql = "INSERT INTO accounts (employee_id, email, pwd, FName, MName, LName, access, employee_status, employ_address, contact) VALUES (?, ?, ?, ?, ?, ?, '1', 'active', ?, ?);";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../addemployee.php?error=stmtfailedcreate");
@@ -185,3 +185,77 @@ function fetchAccounts($connection) {
         return $result;
     }
 }
+
+function fetchLatestAccount($connection) {
+    $sql = "SELECT employee_id FROM accounts ORDER BY employee_id DESC LIMIT 1";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../index.php?error=stmtfailedexists");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_array($resultData)) {
+        return $row;
+    }else {
+        $result = false;
+        return $result;
+    }
+}
+
+function fetchDataid($connection, $id){
+    $sql = "SELECT employee_id,FName, MName, LName, access FROM accounts WHERE employee_id=?;";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../permissions.php?error=stmtfailedcreate");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $id);
+    mysqli_stmt_execute($stmt);    
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    }else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+    exit();
+
+}
+
+function updateAccess($connection, $access, $id){
+    $sql = "UPDATE accounts SET access=? WHERE employee_id=?;";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../permissions.php?error=stmtfailedcreate");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ss", $access, $id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../permissions.php?success=updated");
+    exit();
+}
+
+function deleteAccount($connection, $id){
+    $sql = "DELETE FROM accounts WHERE employee_id=?";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../accounts.php?error=stmtfailedcreate");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../accounts.php?success=deleted");
+    exit();
+}
+

@@ -3,13 +3,34 @@
     require_once 'includes/connection.php';
     require_once 'includes/function.php';
     session_start();
-    
-?>
+    if(isset($_POST['remove'])){    
+        $id = $_POST['remove'];?>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Remove Employee?</h2>
+                </div>
+                <div class="modal-body">
+                    <form action="includes/rmemp.php" method="POST">
+                        <?php $data = (fetchDataid($connection,$id)); $id = $data['employee_id']; $name = $data['FName']." ".$data['MName']." ".$data['LName']; $access=$data['access'];?>
+                        <p class="text">Remove the following Employee?</p><br>
+                        <p class="text"><?php echo $id;?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $name;?></p><br>
+                        <button type="Submit" class="blue" name="remove" value="<?php echo $id; ?>">Remove</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>        
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("myBtn");
+        $(function() {
+         $('#myModal').css('display','block');
+        });</script>
+    <?php } ?>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/accounts.css">
-            <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-        <style type="text/css">
-</style>
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 	<title><?php echo fetchcompanyname($connection); ?></title>
 </head>
 <body>
@@ -25,13 +46,13 @@
                             <th class="header"><b>Employee ID</th>
                             <th class="header"><b>Full Name</th>
                             <th class="header"><b>Email</th>
-                            <th class="header"><b>Permission</th>
                             <th class="header"><b>Address</th>
                             <th class="header"><b>Contact</th>
                             <th class="header"><b>Action</th>
                         </thead>
-                        <?php
-                                $sql = "SELECT * FROM accounts";
+                        <form method="POST">
+                            <?php
+                                $sql = "SELECT * FROM accounts WHERE employee_status='active'";
                                 $stmt = mysqli_stmt_init($connection);
                                 if (!mysqli_stmt_prepare($stmt, $sql)) {
                                     header("location: ../index.php?error=stmtfailedexists");
@@ -43,44 +64,24 @@
 
                                 while($data = mysqli_fetch_array($resultData)){
                             ?>
-                        <tbody>
-                            <tr>
-                                <th><?php echo $data[1]; ?></th>
-                                <th><?php echo $data[4] ." ". $data[5] ." ". $data[6]; ?></th>
-                                <th><?php echo $data[2]?></th>
-                                <th><?php echo $data[7]?></th>
-                                <th><?php echo $data[8]?></th>
-                                <th><?php echo $data[9]?></th>
-                                <th><a href="includes/rmemp.php"><i class="fas fa-user-minus"></i></a></th>
-                            </tr>
-                        </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th><?php echo $data[1]; ?></th>
+                                        <th><?php echo $data[4] ." ". $data[5] ." ". $data[6]; ?></th>
+                                        <th><?php echo $data[2]?></th>
+                                        <th><?php echo $data[9]?></th>
+                                        <th><?php echo $data[10]?></th>
+                                        <th><button type="Submit" class="action" name="remove" id ="myBtn" value="<?php echo $data[1]; ?>"><i class="fas fa-user-minus"></i></button></th>
+                                    </tr>
+                                </tbody>
                             <?php }mysqli_stmt_close($stmt); ?>
+                        </form>
                     </table>
                 </div>
             </div>
             <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-<script type="text/javascript" src="script/paging.js"></script> 
-<script type="text/javascript">
-            $(document).ready(function() {
-                $('#tableData').paging({limit:5});
-            });
-        </script>
-        <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36251023-1']);
-  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+            <script type="text/javascript" src="script/paging.js"></script> 
 <?php 
 	include_once 'includes/footer.php';
 ?>
-

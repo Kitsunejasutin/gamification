@@ -18,7 +18,7 @@
             <h1 id="header">Add Employee</h1>
             <form action="includes/addemp.php" method="POST" accept-charset="utf-8">
             <fieldset class="form-group">
-                    <input type="text" class="card-control no-outline" name="employee_number" placeholder="Employee Number" required>
+                    <input  readonly type="text" class="card-control no-outline" name="employee_number" value="<?php $data = fetchLatestAccount($connection); $id = $data['employee_id'];for ($x = 0; $x <= $id; $x++){}echo $x; ?>" required>
                 </fieldset>
                 <fieldset class="form-group">
                     <input type="text" class="card-control no-outline" name="FName" placeholder="First Name" required>
@@ -41,7 +41,8 @@
                 <fieldset class="form-group">
                     <input type="text" class="card-control no-outline" name="contact" placeholder="Contact" required>
                 </fieldset>
-                <button type="Submit" class="btn" name="submit"><span>Add</span></button>
+                <?php include_once 'includes/registration_errors.php'; ?>
+                <button type="Submit" class="btn blue" name="submit"><span>Add</span></button>
             </form>
         </div>
     </div>

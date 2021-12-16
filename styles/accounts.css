@@ -108,6 +108,89 @@ button.btn {
     margin-left: 540px;
 }
 
+button.action {
+    border: none;
+    outline: none;
+}
+
 .fa-user-minus, .fa-chevron-circle-up {
     font-size: 25px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    margin-left:260px;
+    width: 85%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    top: 180px;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:180; opacity:1}
+}
+  
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:180; opacity:1}
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+  
+.modal-header {
+    padding: 2px 16px;
+    width: 711px;
+    background-color: #5cb85c;
+    color: white;
+}
+  
+.modal-body {
+    padding: 2px 16px;
+}
+
+p.text {
+    font-size: 20px;
+}
+
+.hidden{
+    display: none;
+}
+
+span.error {
+    position: absolute;
+    margin-left: 115px;
 }

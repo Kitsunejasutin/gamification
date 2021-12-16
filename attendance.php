@@ -47,8 +47,8 @@
 			<!-- Button -->
 			<div align = "center">
 				<div align="center">
-					<button id='TimeIN-btn' style='width:100px; height:100px; margin:20px; font-size:16pt; <?php if ($_SESSION['status'] == "timeIn") echo "background-color:yellowgreen;" ?>' name='TimeIN-btn' class='btn btn-success' value='-IN'>Time<br />IN</button>
-					<button id='TimeOUT-btn' style='width:100px; height:100px; margin:20px; font-size:16pt; <?php if ($_SESSION['status'] == "timeOut") echo "background-color:yellowgreen;" ?>' name='TimeOUT-btn' class='btn btn-danger' value='-OUT'>Time<br />OUT</button>
+					<button id='TimeIN-btn' class="blue" style='width:100px; height:100px; margin:20px; font-size:16pt; <?php if ($_SESSION['status'] == "timeIn") echo "background-color:yellowgreen;" ?>' name='TimeIN-btn' class='btn btn-success' value='-IN'>Time<br />IN</button>
+					<button id='TimeOUT-btn' class="blue" style='width:100px; height:100px; margin:20px; font-size:16pt; <?php if ($_SESSION['status'] == "timeOut") echo "background-color:yellowgreen;" ?>' name='TimeOUT-btn' class='btn btn-danger' value='-OUT'>Time<br />OUT</button>
 				</div>
 			</div>
 		</fieldset>

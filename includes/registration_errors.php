@@ -6,5 +6,7 @@
             echo "<span class='error'>Your file is too big!</span>";
         }else if ($_GET["status"] == "error") {
             echo "<span class='error'>There was an error uploading your file!</span>";
+        }else if ($_GET["status"] == "emailtaken") {
+            echo "<span class='error'>Email is already taken!</span>";
         }
     }

@@ -12,6 +12,10 @@
     $contact = $_POST['contact'];
 
 	if(isset($_POST['submit'])){
+        if(emailExists($connection, $email) !== false){
+            header("location: ../addemployee.php?status=emailtaken");
+            exit();
+        }
         createUser($connection, $id, $email, $pwd, $FName, $MName, $LName, $address, $contact);
 	}else {
 
