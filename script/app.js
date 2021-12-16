@@ -31,17 +31,16 @@ $(window).on('load', function () {
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     });
-    var modal = document.getElementById("myModal");
+
+    $('.action').click(function() {
+     $('#addModal').css('display','block');
+    });
        
-    var span = document.getElementsByClassName("close")[0];
-                    
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-                        
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
+    $('.close').click(function () {
+        $('#myModal').css('display', 'none');
+    });
+    
+    $('.close').click(function () {
+        $('#addModal').css('display', 'none');
+    });
 });
