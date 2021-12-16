@@ -62,11 +62,12 @@
                                 mysqli_stmt_execute($stmt);
 
                                 $resultData = mysqli_stmt_get_result($stmt);
+                                $x = 1;
                                 while($data = mysqli_fetch_array($resultData)){
                             ?>
                                 <tbody>
                                     <tr>
-                                        <th><?php echo $data[0];?></th>
+                                        <th><?php echo $x; $x++; ?></th>
                                         <th><?php echo $data[1];?></th>
                                         <th><?php echo implode("|",fetchStock($connection,$data['1'])); ?></th>
                                         <th><?php echo implode("|",fetchStockPrice($connection,$data['1'])); ?></th>
