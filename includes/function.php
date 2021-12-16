@@ -312,6 +312,30 @@ function fetchStock($connection, $category){
     exit();
 }
 
+function selectProdName($connection, $category) {
+    $sql = "SELECT product_name FROM stocks WHERE employee_id=?;";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../permissions.php?error=stmtfailedcreate");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $category);
+    mysqli_stmt_execute($stmt);    
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    }else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+    exit();
+
+}
+
 function fetchStockPrice($connection, $category){
     $sql = "SELECT SUM(product_price) FROM stocks WHERE product_category=?;";
     $stmt = mysqli_stmt_init($connection);
@@ -372,4 +396,24 @@ function fetchSupplier($connection, $supplier) {
 
     mysqli_stmt_close($stmt);
     exit();
+}
+function fetchSpecific($connection, $table, $specific, $column) {
+    $sql = "SELECT * FROM ".$table." WHERE ".$specific."=?;";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../permissions.php?error=stmtfailedcreate");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $column);
+    mysqli_stmt_execute($stmt);    
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    while ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    }
+
+    mysqli_stmt_close($stmt);
+    exit();
+
 }
