@@ -12,7 +12,7 @@
                     <h2>Remove Employee?</h2>
                 </div>
                 <div class="modal-body">
-                    <form action="includes/rmemp.php" method="POST">
+                    <form action="includes/stocks.php" method="POST">
                         <?php $data = (fetchDataid($connection,$id)); $id = $data['employee_id']; $name = $data['FName']." ".$data['MName']." ".$data['LName']; $access=$data['access'];?>
                         <p class="text">Remove the following Employee?</p><br>
                         <p class="text"><?php echo $id;?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $name;?></p><br>
@@ -40,23 +40,19 @@
             <div class="info">
                 <div class="card">
                     <div class="header">
-                        <span class="span-header">Stocks</span>
-                        <a class="action">Add Stock</a>
+                        <span class="span-header">Suppliers</span>
+                        <button class="action"><a class="action">Add Supplier</a></button>
                     </div>
                     <table id = "tableData">
                         <thead>
                             <th>#</th>
                             <th>Name</th>
-                            <th>Code</th>
-                            <th>Category</th>
-                            <th>Quantity</th>
-                            <th>Supplier</th>
-                            <th>Price</th>
+                            <th>Quantity of Products</th>
                             <th>Action</th>
                         </thead>
                         <form method="POST">
                             <?php
-                                $sql = "SELECT * FROM stocks";
+                                $sql = "SELECT * FROM supplier";
                                 $stmt = mysqli_stmt_init($connection);
                                 if (!mysqli_stmt_prepare($stmt, $sql)) {
                                     header("location: ../index.php?error=stmtfailedexists");
@@ -70,19 +66,29 @@
                             ?>
                                 <tbody>
                                     <tr>
-                                        <th><?php  echo $x; $x++; ?></th>
-                                        <th><?php echo $data[1]?></th>
-                                        <th><?php echo $data[2];?></th>
-                                        <th><?php echo $data[3];?></th>
-                                        <th><?php echo $data[4];?></th>
-                                        <th><?php echo $data[5];?></th>
-                                        <th><?php echo $data[6];?></th>
-                                        <th><button type="Submit" class="action" name="remove" id ="myBtn" value="<?php echo $data[1]; ?>"><i class="fas fa-edit"></i></button></th>
+                                        <th><?php echo $x; $x++; ?></th>
+                                        <th><?php echo $data[1];?></th>
+                                        <th><?php echo implode("|",fetchSupplier($connection,$data['1'])); ?></th>
+                                        <th><button type="Submit" class="action" name="editsupp" id ="myBtn" value="<?php echo $data[1]; ?>"><i class="fas fa-edit"></i></button></th>
                                     </tr>
                                 </tbody>
                             <?php }mysqli_stmt_close($stmt); ?>
                         </form>
                     </table>
+                </div>
+            </div>
+            <div id="addModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2>Add Supplier</h2>
+                    </div>
+                    <div class="modal-body">
+                        <form action="includes/stocks.php" method="POST">
+                            <p class="input"><input type="text" placeholder="Supplier Name" name="supplier" required></p>
+                            <button type="Submit" class="btn blue" name="addsupp" value="<?php ?>">Add Supplier</button>
+                        </form>
+                    </div>
                 </div>
             </div>
             <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 

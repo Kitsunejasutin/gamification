@@ -335,3 +335,41 @@ function fetchStockPrice($connection, $category){
     mysqli_stmt_close($stmt);
     exit();
 }
+
+function addSupplier($connection, $name) {
+    $sql = "INSERT INTO supplier (supplier_name) VALUES (?);";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../suppliers.php?error=stmtfailedcreate");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $name);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../suppliers.php?success=added");
+    exit();
+}
+
+function fetchSupplier($connection, $supplier) {
+    $sql = "SELECT COUNT(product_supplier) AS NumberOfProducts FROM stocks WHERE product_supplier=?;";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../index.php?error=stmtfailedexists");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "s", $supplier);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    }else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+    exit();
+}

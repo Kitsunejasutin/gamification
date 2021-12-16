@@ -14,6 +14,9 @@ if(isset($_POST['addcat'])){
     $supplier = $_POST['supplier'];
     $price = $_POST['price'];
     addStock($connection, $name, $code, $category, $quantity, $supplier, $price);
+}elseif(isset($_POST['addsupp'])){
+    $name = $_POST['supplier'];
+    addSupplier($connection,$name);
 }else{
     echo "parang may mali";
 }
