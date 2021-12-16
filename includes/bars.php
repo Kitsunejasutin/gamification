@@ -15,9 +15,7 @@
             </ul>
             <ul id="categories">
                 <li class="categories"><a><i class="fas fa-user-tie"></i>Account<i class="arrow right"></i></a></li>
-                <li class="dropdown"><span>Employees Transactions</span></li>
                 <a href="attendance.php"><li class="dropdown account"><span>Attendance</span></li></a>
-                <li class="dropdown"><span>Tasks</span></i></li>
                 <?php if ($_SESSION["access"] == "0") { ?>
                 <a href="permissions.php"><li class="dropdown"><span>Permissions</span></i></li></a>
                 <a href="accounts.php"><li class="dropdown"><span>Manage Accounts</span></li></a>
@@ -26,7 +24,7 @@
             </ul>
             <ul id="categories">
                 <li class="categories"><a><i class="fas fa-table"></i>Data & Reports<i class="arrow right"></i></a></li>
-                <li class="dropdown"><span>Customer Transactions</span></i></li>
+                <li class="dropdown"><span>Employees Transactions</span></li>
                 <li class="dropdown"><span>Income Sales</span></li>
                 <li class="dropdown"><span>Activity Report</span></i></li>
             </ul>
@@ -34,7 +32,6 @@
                 <li class="categories"><a><i class="fas fa-file-export"></i>Data Export<i class="arrow right"></i></a></li>
                 <li class="dropdown"><span>Income Export</span></li>
                 <li class="dropdown"><span>Database Export</span></li>
-                <li class="dropdown"><span>Customer Export</span></li>
                 <li class="dropdown"><span>Transaction Export</span></li>
                 <li class="dropdown"><span>Supplier Export</span></li>
             </ul>
