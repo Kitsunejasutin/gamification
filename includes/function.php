@@ -397,6 +397,30 @@ function fetchSupplier($connection, $supplier) {
     mysqli_stmt_close($stmt);
     exit();
 }
+
+function fetchStockAll ($connection, $prodname) {
+    $sql = "SELECT * FROM stocks WHERE product_name=?";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../stocks.php?error=stmtfailedcreate");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $prodname);
+    mysqli_stmt_execute($stmt);    
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    }else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+    exit();
+}
+
 function fetchSpecific($connection, $table, $specific, $column) {
     $sql = "SELECT * FROM ".$table." WHERE ".$specific."=?;";
     $stmt = mysqli_stmt_init($connection);
@@ -416,4 +440,49 @@ function fetchSpecific($connection, $table, $specific, $column) {
     mysqli_stmt_close($stmt);
     exit();
 
+}
+
+function updateStock($connection, $name, $code, $category, $quantity, $supplier, $price){
+    $sql = "UPDATE stocks SET product_name=?, product_code=?, product_category=?, product_quantity=?, product_supplier=?, product_price=? WHERE product_name=?";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../stock_manager.php?error=stmtfailedcreate");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "sssssss", $name, $code, $category, $quantity, $supplier, $price, $name);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../stock_manager.php?success=updated");
+    exit();
+}
+
+function deleteStock($connection, $id){
+    $sql = "DELETE FROM stocks WHERE id=?";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../stock_manager.php?error=stmtfailedcreate");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../stock_manager.php?success=deleted");
+    exit();
+}
+
+function updateCategory($connection, $name, $id) {
+    $sql = "UPDATE category SET category_name=? WHERE id=?";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../pro-categories.php?error=stmtfailedcreate");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ss", $name, $id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../pro-categories.php?success=updated");
+    exit();
 }

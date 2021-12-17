@@ -31,12 +31,16 @@ table,th,tr,td {
 
 table {
     margin: auto;
-    height: 540px;
+    height: 300px;
     border: 1px solid rgba(0, 0, 0, 0.171);
     border-collapse: collapse;
     box-shadow: 0 5px 10px gray;
     background-color: white;
     text-align: left;
+}
+
+table#tableData {
+    height: 100px;
 }
 
 thead {
@@ -49,7 +53,6 @@ th {
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     font-size: 0.7rem;
-    font-weight: 900;
 }
 
 a {
@@ -155,6 +158,11 @@ input.disabled {
     background: #dddddd;
 }
 
+input.input-table {
+    width: 20%;
+    text-align: center;
+}
+
 p.input {
     padding: 10px;
 }
@@ -165,6 +173,12 @@ p.compute {
 
 p.top {
     margin-top: 20px;
+}
+
+p.margin {
+    margin-bottom: 1rem;
+    margin-top: 5px;
+    color: rgba(0, 0, 0, 0.568);
 }
 
 .modal {
@@ -180,8 +194,8 @@ p.top {
     overflow: auto;
     background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.4);
-  }
-  
+}
+
 .modal-content {
     position: relative;
     background-color: #fefefe;
@@ -197,14 +211,19 @@ p.top {
     animation-duration: 0.4s
 }
 
+div.table {
+    width: 95%;
+    top: 70px;
+}
+
 @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0} 
-    to {top:180; opacity:1}
+    to {top:70; opacity:1}
 }
   
 @keyframes animatetop {
     from {top:-300px; opacity:0}
-    to {top:180; opacity:1}
+    to {top:70; opacity:1}
 }
 
 .close {
@@ -256,3 +275,59 @@ select {
     height: 35px;
     text-align: center;
 }
+
+select.category {
+    width: 20%;
+    height: 30px;
+}
+
+nav {
+    display: block;
+}
+
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.pagination>li {
+    display: inline;
+}
+
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    width: 50%;
+    text-align: center;
+}
+
+.pagination>li:first-child>span {
+    margin-left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.pagination>.active>span{
+    color: #fff;
+    cursor: default;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+

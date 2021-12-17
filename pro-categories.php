@@ -3,30 +3,32 @@
     require_once 'includes/connection.php';
     require_once 'includes/function.php';
     session_start();
-    if(isset($_POST['remove'])){    
-        $id = $_POST['remove'];?>
+    if(isset($_POST['editcat'])){    
+        $name = $_POST['editcat'];?>
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    <h2>Remove Employee?</h2>
+                    <h2>Remove Stock</h2>
                 </div>
                 <div class="modal-body">
+                    <?php $table="category"; $specific="category_name"; $column= $name;?>
                     <form action="includes/stocks.php" method="POST">
-                        <?php $data = (fetchDataid($connection,$id)); $id = $data['employee_id']; $name = $data['FName']." ".$data['MName']." ".$data['LName']; $access=$data['access'];?>
-                        <p class="text">Remove the following Employee?</p><br>
-                        <p class="text"><?php echo $id;?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $name;?></p><br>
-                        <button type="Submit" class="blue" name="remove" value="<?php echo $id; ?>">Remove</button>
+                    <?php $data = (fetchSpecific($connection, $table, $specific, $column)); ?>
+                    <input class="input-table" name="name" value="<?php echo $data['category_name'];?>"required>
+                    <p class="text margin">Category Name<p>
+                    <button type="Submit" class="blue" name="update-category" value="<?php echo $data['id']; ?>">Update</button>
                     </form>
                 </div>
             </div>
         </div>
-        <script>        
-        var modal = document.getElementById("myModal");
-        var btn = document.getElementById("myBtn");
-        $(function() {
-         $('#myModal').css('display','block');
-        });</script>
+    <script>        
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("myBtn");
+    $(function() {
+     $('#myModal').css('display','block');
+    });</script>
+
     <?php } ?>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/stocks.css">
@@ -42,6 +44,16 @@
                     <div class="header">
                         <span class="span-header">Categories</span>
                         <button class="action"><a class="action">Add Category</a></button>
+                        <select class  ="form-control" name="state" id="maxRows">
+                            <option value="5000">Show ALL Rows</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="70">70</option>
+                            <option value="100">100</option>
+                        </select>
                     </div>
                     <table id = "tableData">
                         <thead>
@@ -77,6 +89,18 @@
                             <?php }mysqli_stmt_close($stmt); ?>
                         </form>
                     </table>
+                    <div class='pagination-container' >
+				        <nav>
+				            <ul class="pagination">
+                                <li data-page="prev" >
+								     <span> < <span class="sr-only">(current)</span></span>
+								</li>
+                                <li data-page="next" id="prev">
+								    <span> > <span class="sr-only">(current)</span></span>
+								</li>
+				            </ul>
+				        </nav>
+			        </div>
                 </div>
             </div>
             <div id="addModal" class="modal">

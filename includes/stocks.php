@@ -80,7 +80,26 @@ if(isset($_POST['addcat'])){
 </body>
 </html>
 
-
-<?php }else{
+<?php }elseif(isset($_POST['update'])){
+    $name = $_POST['name'];
+    $code = $_POST['code'];
+    $category = $_POST['category'];
+    $quantity = $_POST['quantity'];
+    $supplier = $_POST['supplier'];
+    $price = $_POST['price'];
+    updateStock($connection, $name, $code, $category, $quantity, $supplier, $price);
+}elseif(isset($_POST['remove'])){
+    $id = $_POST['remove'];
+    echo $id;
+    deleteStock($connection, $id);
+}elseif(isset($_POST['update-category'])){
+    $name = $_POST['name'];
+    $id = $_POST['update-category'];
+    updateCategory($connection, $name, $id);
+}elseif(isset($_POST['remove-category'])){
+    $id = $_POST['remove'];
+    echo $id;
+    deleteStock($connection, $id);
+}else{
     echo "parang may mali";
 }
