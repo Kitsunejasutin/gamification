@@ -39,13 +39,23 @@
 <?php
     include_once 'includes/bars.php';
 ?>
-            <div class="info">
-                <div class="card">
-                    <?php ?>
-                    <h1 id="header">Permissions</h1>
+        <div class="info">
+            <div class="card">
+                <div class="header">
+                    <span class="span-header">Permissions</span>
+                    <select class="form-control" name="state" id="maxRows">
+                        <option value="5000">Show ALL Rows</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="70">70</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
                     <table id = "tableData">
                         <thead>
-                            <th class="header"><b>Employee ID</th>
                             <th class="header"><b>Full Name</th>
                             <th class="header"><b>Email</th>
                             <th class="header"><b>Permission</th>
@@ -69,7 +79,6 @@
                             ?>
                                 <tbody>
                                     <tr>
-                                        <th><?php echo $data[1]; ?></th>
                                         <th><?php echo $data[4] ." ". $data[5] ." ". $data[6]; ?></th>
                                         <th><?php echo $data[2]?></th>
                                         <th><?php echo $data[7]?></th>
@@ -81,6 +90,18 @@
                             <?php }mysqli_stmt_close($stmt); ?>
                         </form>
                     </table>
+                    <div class='pagination-container' >
+				        <nav>
+				            <ul class="pagination">
+                                <li data-page="prev" >
+								     <span> < <span class="sr-only">(current)</span></span>
+								</li>
+                                <li data-page="next" id="prev">
+								    <span> > <span class="sr-only">(current)</span></span>
+								</li>
+				            </ul>
+				        </nav>
+			        </div>
                 </div>
             </div>
             <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 

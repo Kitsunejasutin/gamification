@@ -15,7 +15,9 @@
     ?>
     <div class="info">
         <div class="card">
-            <h1 id="header">Add Employee</h1>
+        <div class="header">
+            <span class="span-header">Add Employee</span>
+        </div>
             <form action="includes/addemp.php" method="POST" accept-charset="utf-8">
             <fieldset class="form-group">
                     <input  readonly type="text" class="card-control no-outline" name="employee_number" value="<?php $data = fetchLatestAccount($connection); $id = $data['employee_id'];for ($x = 0; $x <= $id; $x++){}echo $x; ?>" required>

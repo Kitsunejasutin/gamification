@@ -9,23 +9,30 @@ div.card {
     -moz-box-shadow: 0px 1px 5px 5px rgba(0,0,0,0.18);
 }
 
+div.header {
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: .5rem;
+    display: inline-block;
+}
+
 a {
     color: black;;
 }
 
-h1#header {
-    padding-top: 30px;
-    padding-bottom: 25px;
-    padding-left: 35px;
+span.span-header {
+    font-size: 35px;
+    padding-left: 2.5rem;
 }
 
 table {
     margin: auto;
-    height: 540px;
+    height: 300px;
     border: 1px solid rgba(0, 0, 0, 0.171);
     border-collapse: collapse;
     box-shadow: 0 5px 10px gray;
     background-color: white;
+    text-align: center;
 }
 
 thead {
@@ -39,7 +46,6 @@ th {
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     font-size: 0.7rem;
-    font-weight: 900;
 }
 
 .paging-nav {
@@ -60,6 +66,13 @@ th {
 .paging-nav .selected-page {
     background: #187ed5;
     font-weight: bold;
+}
+
+select {
+    width: 60%;
+    font-size: 20px;
+    height: 35px;
+    text-align: center;
 }
 
 fieldset {
@@ -192,4 +205,53 @@ p.text {
 span.error {
     position: absolute;
     margin-left: 115px;
+}
+
+nav {
+    display: block;
+}
+
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.pagination>li {
+    display: inline;
+}
+
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    width: 50%;
+    text-align: center;
+}
+
+.pagination>li:first-child>span {
+    margin-left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.pagination>.active>span{
+    color: #fff;
+    cursor: default;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
 }

@@ -39,11 +39,21 @@
 ?>
             <div class="info">
                 <div class="card">
-                    <?php ?>
-                    <h1 id="header">Employees</h1>
+                <div class="header">
+                    <span class="span-header">Employees</span>
+                    <select class="form-control" name="state" id="maxRows">
+                        <option value="5000">Show ALL Rows</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="70">70</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
                     <table id = "tableData">
                         <thead>
-                            <th class="header"><b>Employee ID</th>
                             <th class="header"><b>Full Name</th>
                             <th class="header"><b>Email</th>
                             <th class="header"><b>Address</th>
@@ -66,7 +76,6 @@
                             ?>
                                 <tbody>
                                     <tr>
-                                        <th><?php echo $data[1]; ?></th>
                                         <th><?php echo $data[4] ." ". $data[5] ." ". $data[6]; ?></th>
                                         <th><?php echo $data[2]?></th>
                                         <th><?php echo $data[9]?></th>
