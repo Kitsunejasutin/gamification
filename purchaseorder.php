@@ -23,6 +23,7 @@
             <input type="text" class="header-input" name="search_text" id="search_text" placeholder="Enter Product" />
         </div>
         <div id="result"></div>
+        <?php include_once 'includes/order_inc.php' ?>
     </div>
 </div>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
