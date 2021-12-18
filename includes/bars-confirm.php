@@ -27,7 +27,6 @@
                 <li class="categories"><a><i class="fas fa-table"></i>Data & Reports<i class="arrow right"></i></a></li>
                 <a href="employ_trans.php"><li class="dropdown"><span>Employees Transactions</span></li></a>
                 <li class="dropdown"><span>Income Sales</span></li>
-                <li class="dropdown"><span>Activity Report</span></i></li>
             </ul>
             <ul id="categories">
                 <li class="categories"><a><i class="fas fa-file-export"></i>Data Export<i class="arrow right"></i></a></li>
