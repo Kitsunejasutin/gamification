@@ -113,7 +113,7 @@
                             <option value="100">100</option>
                         </select>
                     </div>
-                    <table id = "tableData">
+                    <table id = "tableData" class="onetable">
                         <thead>
                             <th>Name</th>
                             <th>Code</th>

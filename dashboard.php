@@ -41,19 +41,67 @@
                 </div>
                 <div class="card">
                     <div class="fourth">
-                        <p>Try</p>
+                        <p class="header">Time Clock</p>
+                        <table class="tableone">
+                            <thead>
+                                <th>Employee</th>
+                                <th>Status</th>
+                                <th>Time In</th>
+                                <th>Time Out</th>
+                            </thead>
+                            <?php
+                                $sql = "SELECT * FROM timeclock";
+                                $stmt = mysqli_stmt_init($connection);
+                                if (!mysqli_stmt_prepare($stmt, $sql)) {
+                                    header("location: ../index.php?error=stmtfailedexists");
+                                    exit();
+                                }
+                                mysqli_stmt_execute($stmt);
+
+                                $resultData = mysqli_stmt_get_result($stmt);
+
+                                while($data = mysqli_fetch_array($resultData)){
+                            ?>
+                                <tbody>
+                                    <tr class="one">
+                                        <th><?php echo $data[3]?></th>
+                                        <th><?php echo $data[2]?></th>
+                                        <th><?php echo $data[4]?></th>
+                                        <th><?php echo $data[5]?></th>
+                                    </tr>
+                                </tbody>
+                            <?php }mysqli_stmt_close($stmt); ?>
+                        </table>
                     </div>
                     <div class="fifth">
                         <p class="header">Orders</p>
-                        <table>
+                        <table class="tabletwo">
                             <thead>
-                                <th></th>
+                                <th>Product Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <th></th>
-                                </tr>
-                            </tbody>
+                            <?php
+                                $sql = "SELECT * FROM order_list";
+                                $stmt = mysqli_stmt_init($connection);
+                                if (!mysqli_stmt_prepare($stmt, $sql)) {
+                                    header("location: ../index.php?error=stmtfailedexists");
+                                    exit();
+                                }
+                                mysqli_stmt_execute($stmt);
+
+                                $resultData = mysqli_stmt_get_result($stmt);
+
+                                while($data = mysqli_fetch_array($resultData)){
+                            ?>
+                                <tbody>
+                                    <tr>
+                                        <th><?php echo $data[2]?></th>
+                                        <th><?php echo $data[5]?></th>
+                                        <th><?php echo $data[6]?></th>
+                                    </tr>
+                                </tbody>
+                            <?php }mysqli_stmt_close($stmt); ?>
                         </table>
                     </div>
                 </div>

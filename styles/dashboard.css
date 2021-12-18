@@ -72,6 +72,39 @@ p.align-right{
 }
 
 p.header {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    padding-top: 20px;
+    padding-bottom: 15px;
     text-align: center;
+}
+
+table,th,tr,td {
+    text-align: center;
+    margin-left: 100px;
+}
+
+table {
+    margin: auto;
+    height: 200px;
+    border: 1px solid rgba(0, 0, 0, 0.171);
+    border-collapse: collapse;
+    box-shadow: 0 5px 10px gray;
+    background-color: #fff;
+    text-align: left;
+}
+
+table#tableData {
+    height: 100px;
+}
+
+thead {
+    box-shadow: 0 5px 10px gray;
+}
+
+th {
+    border: 1px solid rgba(0, 0, 0, 0.075);
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 0.7rem;
 }

@@ -166,15 +166,38 @@ if($('.pagination li').length > 7 ){
 
 $(function() {
 
-    $('table tr:eq(0)').prepend('<th> # </th>');
+    $('.tableone tr:eq(0)').prepend('<th> # </th>');
 
     var id = 0;
 
-    $('table tr:gt(0)').each(function() {
+    $('.tableone tr:gt(0)').each(function() {
         id++;
         $(this).prepend('<td>' + id + '</td>');
     });
-    });
+});
+    
+$(function() {
 
+    $('.tabletwo tr:eq(0)').prepend('<th> # </th>');
+
+    var id = 0;
+
+    $('.tabletwo tr:gt(0)').each(function() {
+        id++;
+        $(this).prepend('<th>' + id + '</th>');
+    });
+});
+    
+$(function() {
+
+    $('.onetable tr:eq(0)').prepend('<th> # </th>');
+
+    var id = 0;
+
+    $('.onetable tr:gt(0)').each(function() {
+        id++;
+        $(this).prepend('<th>' + id + '</th>');
+    });
+});
     
 });
