@@ -6,6 +6,7 @@
     
 ?>
     <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
 	<title><?php echo fetchcompanyname($connection); ?></title>
 </head>
 <body>
@@ -13,23 +14,48 @@
     include_once 'includes/bars.php';
 ?>
             <div class="info">
-                <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A sed nobis ut exercitationem atque accusamus sit natus officiis totam blanditiis 
-                    at eum nemo, nulla et quae eius culpa eveniet voluptatibus repellat illum tenetur, facilis porro. Quae fuga odio perferendis itaque alias sint, 
-                    beatae non maiores magnam ad, veniam tenetur atque ea exercitationem earum eveniet totam ipsam magni tempora aliquid ullam possimus? Tempora nobis 
-                    facere porro, praesentium magnam provident accusamus temporibus! Repellendus harum veritatis itaque molestias repudiandae ea corporis maiores non 
-                    obcaecati libero, unde ipsum consequuntur aut consectetur culpa magni omnis vero odio suscipit vitae dolor quod dignissimos perferendis eos? Consequuntur!
+                <div class="header">
+                    <div class="row">
+                        <div class="column first">
+                            <div class=""><i class="fas fa-cubes"></i><p class="text">Stocks</p></div>
+                            <p class="align-right"><?php 
+                            $column = "product_name";
+                            $table = "stocks";
+                            echo implode("|",countAll($connection, $column, $table)); ?></p>
+                        </div>
+                        <div class="column second">
+                            <div class=""><i class="fas fa-user-check"></i><p class="text">Employees</p></div>
+                            <p class="align-right"><?php 
+                            $column = "employee_id";
+                            $table = "accounts";
+                            echo implode("|",countAll($connection, $column, $table)); ?></p>
+                        </div>
+                        <div class="column third">
+                            <div class=""><i class="fas fa-parachute-box"></i><p class="text">Suppliers</p></div>
+                            <p class="align-right"><?php 
+                            $column = "supplier_name";
+                            $table = "supplier";
+                            echo implode("|",countAll($connection, $column, $table)); ?></p>
+                        </div>
+                    </div>
                 </div>
-                <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A sed nobis ut exercitationem atque accusamus sit natus officiis totam blanditiis at eum nemo, 
-                    nulla et quae eius culpa eveniet voluptatibus repellat illum tenetur, facilis porro. Quae fuga odio perferendis itaque alias sint, beatae non maiores magnam ad, 
-                    veniam tenetur atque ea exercitationem earum eveniet totam ipsam magni tempora aliquid ullam possimus? Tempora nobis facere porro, praesentium magnam provident 
-                    accusamus temporibus! Repellendus harum veritatis itaque molestias repudiandae ea corporis maiores non obcaecati libero, unde ipsum consequuntur aut consectetur 
-                    culpa magni omnis vero odio suscipit vitae dolor quod dignissimos perferendis eos? Consequuntur!
-                </div>
-                <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A sed nobis ut exercitationem atque accusamus sit natus officiis totam blanditiis at eum nemo, nulla 
-                    et quae eius culpa eveniet voluptatibus repellat illum tenetur, facilis porro. Quae fuga odio perferendis itaque alias sint, beatae non maiores magnam ad, veniam 
-                    tenetur atque ea exercitationem earum eveniet totam ipsam magni tempora aliquid ullam possimus? Tempora nobis facere porro, praesentium magnam provident accusamus 
-                    temporibus! Repellendus harum veritatis itaque molestias repudiandae ea corporis maiores non obcaecati libero, unde ipsum consequuntur aut consectetur culpa magni 
-                    omnis vero odio suscipit vitae dolor quod dignissimos perferendis eos? Consequuntur!
+                <div class="card">
+                    <div class="fourth">
+                        <p>Try</p>
+                    </div>
+                    <div class="fifth">
+                        <p class="header">Orders</p>
+                        <table>
+                            <thead>
+                                <th></th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 <?php 
