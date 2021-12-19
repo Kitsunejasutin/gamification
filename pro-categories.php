@@ -57,7 +57,6 @@
                     </div>
                     <table id = "tableData" class="onetable">
                         <thead>
-                            <th>#</th>
                             <th>Name</th>
                             <th>Quantity</th>
                             <th>Price</th>
@@ -79,7 +78,6 @@
                             ?>
                                 <tbody>
                                     <tr>
-                                        <th><?php echo $x; $x++; ?></th>
                                         <th><?php echo $data[1];?></th>
                                         <th><?php echo implode("|",fetchStock($connection,$data['1'])); ?></th>
                                         <th><?php echo implode("|",fetchStockPrice($connection,$data['1'])); ?></th>
@@ -119,7 +117,6 @@
             </div>
             <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
             <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-            <script type="text/javascript" src="script/paging.js"></script> 
 <?php 
 	include_once 'includes/footer.php';
 ?>

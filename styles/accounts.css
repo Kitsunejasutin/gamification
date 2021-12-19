@@ -20,6 +20,19 @@ a {
     color: black;;
 }
 
+a.action {
+    padding: .5rem;
+    background-color: gray;
+    text-align: center;
+    color: #fff;
+    border-radius: 6px;
+}
+
+a.action:hover {
+    background-color: rgb(97, 102, 88);
+    cursor: pointer;
+}
+
 span.span-header {
     font-size: 35px;
     padding-left: 2.5rem;
@@ -143,7 +156,7 @@ button.action {
     overflow: auto;
     background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.4);
-  }
+}
   
 .modal-content {
     position: relative;

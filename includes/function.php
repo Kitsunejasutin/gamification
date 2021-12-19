@@ -487,7 +487,7 @@ function updateCategory($connection, $name, $id) {
     exit();
 }
 
-function countAll($connection, $column, $table, ) {
+function countAll($connection, $column, $table) {
     $sql = "SELECT COUNT($column)FROM $table;";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {

@@ -25,14 +25,11 @@
             <ul id="categories">
                 <li class="categories"><a><i class="fas fa-table"></i>Data & Reports<i class="arrow right"></i></a></li>
                 <a href="employ_trans.php"><li class="dropdown"><span>Employees Transactions</span></li></a>
-                <li class="dropdown"><span>Income Sales</span></li>
             </ul>
             <ul id="categories">
                 <li class="categories"><a><i class="fas fa-file-export"></i>Data Export<i class="arrow right"></i></a></li>
-                <li class="dropdown"><span>Income Export</span></li>
-                <li class="dropdown"><span>Database Export</span></li>
-                <li class="dropdown"><span>Transaction Export</span></li>
-                <li class="dropdown"><span>Supplier Export</span></li>
+                <a href="export.php?export=transaction"><li class="dropdown"><span>Transaction Export</span></li></a>
+                <a href="export.php?export=supplier"><li class="dropdown"><span>Supplier Export</span></li></a>
             </ul>
             <div class="social_media">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>

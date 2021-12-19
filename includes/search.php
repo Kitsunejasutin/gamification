@@ -29,9 +29,10 @@
         $result = mysqli_query($connection, $sql);
 
         if(mysqli_num_rows($result)>0){?>
-            <?php while($row=mysqli_fetch_array($result)){?>
+        $x = 1;
+            <?php $x = 1; while($row=mysqli_fetch_array($result)){ ?>
                 <tr>
-                    <th><?php echo $_POST['id']; ?></th>
+                    <th><?php echo $x; $x++; ?></th>
                     <th><?php echo $row[1]; ?></th>
                     <th><?php echo $row[3]?></th>
                     <th><?php echo $row[5]?></th>
