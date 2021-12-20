@@ -18,11 +18,11 @@ function pwdMatch($pwd, $pwdRepeat) {
     return $result;
 }
 
-function emailExists($connection, $email) {
-    $sql = "SELECT * FROM accounts WHERE email = ?;";
+function emailExists($connection, $email, $column, $table) {
+    $sql = "SELECT * FROM $table WHERE  $column= ?;";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../index.php?error=stmtfailedexists");
+        header("location: ../addstudent.php?error=stmtfailedexists");
         exit();
     }
 
@@ -41,32 +41,30 @@ function emailExists($connection, $email) {
     mysqli_stmt_close($stmt);
 }
 
-function createUser($connection, $id, $email, $pwd, $FName, $MName, $LName, $address, $contact) {
-    $sql = "INSERT INTO accounts (employee_id, email, pwd, FName, MName, LName, access, employee_status, employ_address, contact) VALUES (?, ?, ?, ?, ?, ?, '1', 'active', ?, ?);";
+function createUser($connection, $name, $email, $contact, $address) {
+    $sql = "INSERT INTO accounts (account_name, account_email, account_contact, account_address) VALUES (?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../addemployee.php?error=stmtfailedcreate");
+        header("location: ../addstudent.php?error=stmtfailedcreate");
         exit();
     }
 
-    $hashedPWD = password_hash($pwd, PASSWORD_DEFAULT);
-
-    mysqli_stmt_bind_param($stmt, "ssssssss", $id, $email, $hashedPWD, $FName, $MName, $LName, $address, $contact);
+    mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $contact, $address);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../addemployee.php?success=added");
+    header("location: ../addstudent.php?success=added");
     exit();
 }
 
-function loginUser($connection, $email, $pwd) {
-    $emailExists = emailExists($connection, $email);
+function loginUser($connection, $email, $pwd, $column, $table) {
+    $emailExists = emailExists($connection, $email, $table, $column);
 
     if ($emailExists === false) {
         header("location: ../index.php?error=wronglogin");
         exit();
     }
 
-    $pwdHashed = $emailExists["pwd"];
+    $pwdHashed = $emailExists["admin_password"];
     $checkPwd = password_verify($pwd, $pwdHashed);
 
     if ($checkPwd === false) {
@@ -74,23 +72,11 @@ function loginUser($connection, $email, $pwd) {
         exit();
     }else if ($checkPwd === true) {
         session_start();
-        $_SESSION["access"] = $emailExists["access"];
-        if ($_SESSION['access'] == "1") {
-            $_SESSION["LName"] = $emailExists["LName"];
-            $_SESSION["FName"] = $emailExists["FName"];
-            $_SESSION["MName"] = $emailExists["MName"];
-            header("location: ../dashboard.php" );
-            exit();
-        }elseif ($_SESSION['access'] == "0"){
-            $_SESSION["admin"] = TRUE;
-            $_SESSION["LName"] = $emailExists["LName"];
-            $_SESSION["FName"] = $emailExists["FName"];
-            $_SESSION["MName"] = $emailExists["MName"];
-            $_SESSION["email"] = $emailExists["email"];
-            $sql = "SELECT company_name FROM company_info"; $result = mysqli_query($connection, $sql); $column = mysqli_fetch_array($result);
-            if ($column['company_name'] == ""){header("location: ../registration1.php");}else {header("location: ../dashboard.php");}
-            exit();
-        }
+        $_SESSION["name"] = $emailExists["admin_name"];
+        $_SESSION["email"] = $emailExists["admin_email"];
+        $_SESSION["contact"] = $emailExists["admin_contact"];
+        header("location: ../index.php");
+        exit();
     }
 }
 
@@ -223,4 +209,23 @@ function countAllSpecific($connection, $column, $table, $columnspecific, $column
 
     mysqli_stmt_close($stmt);
     exit();
+}
+
+function fetchLatestAccount($connection) {
+    $sql = "SELECT account_id FROM accounts ORDER BY account_id DESC LIMIT 1";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../addstudents.php?error=stmtfailedexists");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_array($resultData)) {
+        return $row;
+    }else {
+        $result = false;
+        return $result;
+    }
 }

@@ -3,7 +3,6 @@
     require_once 'includes/connection.php';
     require_once 'includes/function.php';
     session_start();
-    $_SESSION['Name'] = false;
     
 ?>
     <link rel="stylesheet" href="styles/header.css">

@@ -25,6 +25,8 @@
             <ul id="categories">
                 <li class="categories"><a><i class="fas fa-user-tie"></i>Account<i class="arrow right"></i></a></li>
                 <a href="attendance.php"><li class="dropdown account"><span>Edit Account</span></li></a>
+                <a href="addstudent.php"><li class="dropdown account"><span>Add Student</span></li></a>
+                <?php if(isset($_SESSION['name'])){ echo '<a href="includes/logout.php"><li class="dropdown account"><span>LogOut</span></li></a>'; } ?>
             </ul>
             <ul id="categories">
                 <li class="categories"><a><i class="fas fa-table"></i>Data & Reports<i class="arrow right"></i></a></li>
@@ -35,6 +37,6 @@
             <div class="topbar">
                 <i class="fas fa-bell"></i>
                 <div class="account">
-                    <img src ="images/user-icon.png" class="user-icon"><span class="text"><?php if($_SESSION['Name'] !== true){ echo "LogIn";}else{ echo $_SESSION['Name']; } ?></span><span class="indicator">^</span>
+                    <img src ="images/user-icon.png" class="user-icon"><span class="text"><?php if(isset($_SESSION['name'])){ echo $_SESSION['name']; }else{ echo "<a href='login.php'>LogIn</a>"; } ?></span>
                 </div>
             </div>
