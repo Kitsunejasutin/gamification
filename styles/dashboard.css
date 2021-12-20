@@ -30,6 +30,7 @@ div.card {
     flex-direction: column;
     flex-basis: 100%;
     flex: 1;
+    height: 80%;
 }
 
 .first{
@@ -57,18 +58,36 @@ div.card {
     border-radius: 15px;
 }
 
-.fa-cubes, .fa-user-check, .fa-parachute-box {
+.fa-book, .fa-book-reader, .fa-clock {
     font-size: 90px;
     color: rgb(96, 96, 226);
     padding-top: 20px;
 }
 
+div.indicator {
+    margin-top: -90px;      
+}
+
+.margin5 {
+    margin-left: 5px;
+}
+
+.margin15 {
+    margin-left: 15px;
+}
+
+.margin25 {
+    margin-left: 25px;
+}
+
 p.align-right{
-    position: absolute;
-    margin: 65px;
-    padding-left: 160px;
-    text-align: right;
+    padding-top: 60px;
+    margin: auto;
     font-size: 30px;
+}
+
+p.text {
+    font-size: 20px;
 }
 
 p.header {

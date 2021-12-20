@@ -3,11 +3,12 @@
     require_once 'includes/connection.php';
     require_once 'includes/function.php';
     session_start();
+    $_SESSION['Name'] = false;
     
 ?>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/dashboard.css">
-	<title><?php echo fetchcompanyname($connection); ?></title>
+	<title>DUMNSS Library</title>
 </head>
 <body>
 <?php
@@ -17,92 +18,32 @@
                 <div class="header">
                     <div class="row">
                         <div class="column first">
-                            <div class=""><i class="fas fa-cubes"></i><p class="text">Stocks</p></div>
                             <p class="align-right"><?php 
-                            $column = "product_name";
-                            $table = "stocks";
-                            echo implode("|",countAll($connection, $column, $table)); ?></p>
+                            $column = "book_id";
+                            $table = "book";
+                            $columnspecific = "book_status";
+                            $columnspecific_value = "instock";
+                            echo implode("|",countAllSpecific($connection, $column, $table, $columnspecific, $columnspecific_value)); ?></p>
+                            <div class="indicator"><i class="fas fa-book"></i><p class="text margin15">Books</p></div>
                         </div>
                         <div class="column second">
-                            <div class=""><i class="fas fa-user-check"></i><p class="text">Employees</p></div>
                             <p class="align-right"><?php 
-                            $column = "employee_id";
-                            $table = "accounts";
-                            echo implode("|",countAll($connection, $column, $table)); ?></p>
+                                $column = "book_id";
+                                $table = "transaction";
+                                $columnspecific = "transaction_status";
+                                $columnspecific_value = "borrowed";
+                                echo implode("|",countAllSpecific($connection, $column, $table, $columnspecific, $columnspecific_value)); ?></p>
+                                <div class="indicator"><i class="fas fa-book-reader"></i></i><p class="text margin5">Borrowed</p></div>
                         </div>
                         <div class="column third">
-                            <div class=""><i class="fas fa-parachute-box"></i><p class="text">Suppliers</p></div>
                             <p class="align-right"><?php 
-                            $column = "supplier_name";
-                            $table = "supplier";
-                            echo implode("|",countAll($connection, $column, $table)); ?></p>
+                            $column = "book_id";
+                            $table = "transaction";
+                            $columnspecific = "transaction_status";
+                            $columnspecific_value = "late";
+                            echo implode("|",countAllSpecific($connection, $column, $table, $columnspecific, $columnspecific_value)); ?></p>
+                            <div class="indicator"><i class="fas fa-clock"></i></i><p class="text margin25">Late</p></div>
                         </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="fourth">
-                        <p class="header">Time Clock</p>
-                        <table class="tableone">
-                            <thead>
-                                <th>Employee</th>
-                                <th>Status</th>
-                                <th>Time In</th>
-                                <th>Time Out</th>
-                            </thead>
-                            <?php
-                                $sql = "SELECT * FROM timeclock";
-                                $stmt = mysqli_stmt_init($connection);
-                                if (!mysqli_stmt_prepare($stmt, $sql)) {
-                                    header("location: ../index.php?error=stmtfailedexists");
-                                    exit();
-                                }
-                                mysqli_stmt_execute($stmt);
-
-                                $resultData = mysqli_stmt_get_result($stmt);
-
-                                while($data = mysqli_fetch_array($resultData)){
-                            ?>
-                                <tbody>
-                                    <tr class="one">
-                                        <th><?php echo $data[3]?></th>
-                                        <th><?php echo $data[2]?></th>
-                                        <th><?php echo $data[4]?></th>
-                                        <th><?php echo $data[5]?></th>
-                                    </tr>
-                                </tbody>
-                            <?php }mysqli_stmt_close($stmt); ?>
-                        </table>
-                    </div>
-                    <div class="fifth">
-                        <p class="header">Orders</p>
-                        <table class="tabletwo">
-                            <thead>
-                                <th>Product Name</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                            </thead>
-                            <?php
-                                $sql = "SELECT * FROM order_list";
-                                $stmt = mysqli_stmt_init($connection);
-                                if (!mysqli_stmt_prepare($stmt, $sql)) {
-                                    header("location: ../index.php?error=stmtfailedexists");
-                                    exit();
-                                }
-                                mysqli_stmt_execute($stmt);
-
-                                $resultData = mysqli_stmt_get_result($stmt);
-
-                                while($data = mysqli_fetch_array($resultData)){
-                            ?>
-                                <tbody>
-                                    <tr>
-                                        <th><?php echo $data[2]?></th>
-                                        <th><?php echo $data[5]?></th>
-                                        <th><?php echo $data[6]?></th>
-                                    </tr>
-                                </tbody>
-                            <?php }mysqli_stmt_close($stmt); ?>
-                        </table>
                     </div>
                 </div>
             </div>

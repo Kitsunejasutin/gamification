@@ -14,12 +14,6 @@ $(window).on('load', function () {
         
     });
 
-    $('.popuptext-account').hide();
-
-    $('.account').click(function () {
-        $('.popuptext-account').toggle();
-    })
-
     $('.action').click(function() {
      $('#addModal').css('display','block');
     });
