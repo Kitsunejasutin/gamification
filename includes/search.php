@@ -1,44 +1,52 @@
 <?php
     require_once 'connection.php';
-    if(isset($_POST['name'])){
-        $sql = "SELECT * FROM stocks WHERE product_name LIKE '%".$_POST['name']."%' LIMIT 1";
+    if(isset($_POST['id']) || ($_POST['account-result'])){
+        $sql = "SELECT * FROM book WHERE book_id LIKE '%".$_POST['id']."%' LIMIT 5";
         $result = mysqli_query($connection, $sql);
 
-        if(mysqli_num_rows($result)>0){?>
-            <form action="includes/stocks.php" method="POST">
-            <?php while($row=mysqli_fetch_assoc($result)){?>
-                    <p class="text">Code</p>
-                    <input type="text" class="placeholder disabled" name="product-code" id="product-code" placeholder="Product Code" value="<?php echo $row['product_code']?>">
-                    <p class="text">Category</p>
-                    <input readonly type="text" class="placeholder disabled" name="product-category" id="product-category" placeholder="Product Category" value="<?php echo $row['product_category']?>">
-                    <p class="text">Stock Quantity</p>
-                    <input readonly type="text" class="placeholder disabled" name="product-quantity" id="product-quantity" placeholder="Product Quantity" value="<?php echo $row['product_quantity']?>">
-                    <p class="text">Supplier</p>
-                    <input readonly type="text" class="placeholder disabled" name="product-supplier" id="product-supplier" placeholder="Product Supplier" value="<?php echo $row['product_supplier'] ?>">
-                    <p class="text">Price</p>
-                    <input readonly type="text" class="placeholder disabled" name="product-price" id="product-price" placeholder="Product Price" value="<?php echo $row['product_price'] ?>"><br>
-                    <input type="text" class="placeholder" name="user-quantity" id="user-quantity" placeholder="Input Quantity" value="" required>
-                    <?php }?>
-                    <button type="Submit" class="btn blue margin" name="submit"><span>Order</span></button>
-                </form>
-        <?php }else{
-            echo "Data not found";
-        }
-    }elseif(isset($_POST['id'])){
-        $sql = "SELECT * FROM order_list WHERE employee_name LIKE '%".$_POST['id']."%'";
-        $result = mysqli_query($connection, $sql);
-
-        if(mysqli_num_rows($result)>0){?>
-        $x = 1;
-            <?php $x = 1; while($row=mysqli_fetch_array($result)){ ?>
-                <tr>
-                    <th><?php echo $x; $x++; ?></th>
-                    <th><?php echo $row[1]; ?></th>
-                    <th><?php echo $row[3]?></th>
-                    <th><?php echo $row[5]?></th>
-                    <th><?php echo $row[6]?></th>
-                </tr>
-                    <?php }?>
+        if(mysqli_num_rows($result)>0){ session_start();?>
+            <form action="includes/borrowbook_inc.php" method="POST" id="search-result">
+                <input readonly type="text" id="id" name="id" value="<?php echo $_POST['id']; ?>" style="display:none;"required> 
+                <input readonly type="text" id="account-result" name="account-result" value="<?php echo $_POST['account']; ?>" style="display:none;"required>
+                <input readonly type="text" id="admin" name="admin" value="<?php echo $_SESSION['name']; ?>" style="display:none;"required>
+                <?php while($row=mysqli_fetch_array($result)){?>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="lname">Book Name</label>
+                        </div>
+                        <div class="col-75">
+                            <input readonly type="text" id="name" name="name" value="<?php echo $row[2]; ?>" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="lname">Book Category</label>
+                        </div>
+                        <div class="col-75">
+                            <input readonly type="text" id="category" name="category" value="<?php echo $row[3]; ?>" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="lname">Book Author</label>
+                        </div>
+                        <div class="col-75">
+                            <input readonly type="text" id="author" name="author" value="<?php echo $row[5]; ?>" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="lname">Borrow Duration</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="borrow-time" name="borrow-time" placeholder="Enter days..." required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button type="Submit" class="submit" name="submit">Borrow Book</button>
+                    </div>
+                <?php }?>
+            </form>
         <?php }else{
             echo "Data not found";
         }

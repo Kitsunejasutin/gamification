@@ -26,21 +26,40 @@ $(window).on('load', function () {
         $('#addModal').css('display', 'none');
     });
 
-    $('#search_text').keypress(function () {
+    $("#submit").click(function() {
         $.ajax({
             type: 'POST',
             url: "includes/search.php",
             data: {
-                name:$("#search_text").val(),
+                id: $("#book_search").val(),
+                account: $("#account-result").val(),
             },
             success: function (data) {
-                $('#result').html(data);
+                $('#results').html(data);
             }
         });
     });
 
-    getPagination('#tableData');
+    $("#query").click(function() {
+        $.ajax({
+            type: 'POST',
+            url: "includes/query.php",
+            data: {
+                id: $("#book_return").val(),
+                account: $("#account-result").val(),
+            },
+            success: function (data) {
+                $('#results').html(data);
+            }
+        });
+    });
 
+    $("input[name=account]").focusout(function (e) {
+        $('#account-result').val($("input[name=account]").val());
+        e.preventDefault();
+    });
+
+    getPagination('#tableData');
 
     function getPagination(table) {
         var lastPage = 1;

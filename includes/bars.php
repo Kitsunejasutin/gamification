@@ -3,6 +3,15 @@
             <h2>DUMNSS Library</h2>
             <ul id="categories">
                 <li><a href="index.php"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+            </ul>
+            <ul id="categories">
+                <li class="categories"><a><i class="fas fa-book-open"></i>Books<i class="arrow right"></i></a></li>
+                <a href="listbook.php"><li class="dropdown account"><span>List Books</span></li></a>
+                <a href="addbook.php"><li class="dropdown account"><span>Add Books</span></li></a>
+                <a href="borrowbook.php"><li class="dropdown account"><span>Borrow Book</span></li></a>
+                <a href="returnbook.php"><li class="dropdown account"><span>Return Book</span></li></a>
+            </ul>
+            <ul id="categories">
                 <li class="categories"><a><i class="fas fa-list"></i><span>Categories</span><i class="arrow right"></i></a></li>
                 <?php 
                     $sql = "SELECT * FROM category";

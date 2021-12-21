@@ -28,8 +28,8 @@
                         <div class="column second">
                             <p class="align-right"><?php 
                                 $column = "book_id";
-                                $table = "transaction";
-                                $columnspecific = "transaction_status";
+                                $table = "book";
+                                $columnspecific = "book_status";
                                 $columnspecific_value = "borrowed";
                                 echo implode("|",countAllSpecific($connection, $column, $table, $columnspecific, $columnspecific_value)); ?></p>
                                 <div class="indicator"><i class="fas fa-book-reader"></i></i><p class="text margin5">Borrowed</p></div>

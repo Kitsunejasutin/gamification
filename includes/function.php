@@ -80,13 +80,6 @@ function loginUser($connection, $email, $pwd, $column, $table) {
     }
 }
 
-function fetchcompanyname($connection){
-    $sql = "SELECT company_name FROM company_info; ";
-    $result = mysqli_query($connection, $sql);
-    $row = mysqli_fetch_array($result);
-    return $row['company_name'];
-}
-
 function fetchAccounts($connection) {
     $sql = "SELECT * FROM accounts";
     $stmt = mysqli_stmt_init($connection);
@@ -106,65 +99,75 @@ function fetchAccounts($connection) {
     }
 }
 
-function updateAccess($connection, $access, $id){
-    $sql = "UPDATE accounts SET access=? WHERE employee_id=?;";
+function addBook($connection, $name, $id, $info, $author, $category, $publish) {
+    $sql = "INSERT INTO book (book_id, book_name, book_category, book_info, book_author, book_publish, book_status) VALUES (?, ?, ?, ?, ?, ?, 'active');";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../permissions.php?error=stmtfailedcreate");
+        header("location: ../addbook.php?error=stmtfailedcreate");
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "ss", $access, $id);
+    mysqli_stmt_bind_param($stmt, "ssssss", $id, $name, $category, $info, $author, $publish);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../permissions.php?success=updated");
+    header("location: ../addbook.php?success=added");
     exit();
 }
 
-function deleteAccount($connection, $id){
-    $sql = "DELETE FROM accounts WHERE employee_id=?";
-    $stmt = mysqli_stmt_init($connection);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../accounts.php?error=stmtfailedcreate");
+function borrowBook($connection, $admin, $id, $book_name, $category, $account_name, $borrow, $return, $status) {
+    $sql1 = "INSERT INTO transactions (admin_name, book_id, book_name, book_category, account_name, book_borrow, book_return) VALUES (?, ?, ?, ?, ?, ?, ?);";
+    $sql2 = "UPDATE book SET book_status=? WHERE book_id=?;";
+    $stmt1 = mysqli_stmt_init($connection);
+    $stmt2 = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt1, $sql1)) {
+        header("location: ../borrowbook.php?error=stmtfailedcreate1");
+        exit();
+    }else if (!mysqli_stmt_prepare($stmt2, $sql2)) {
+        header("location: ../borrowbook.php?error=stmtfailedcreate2");
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "s", $id);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-    header("location: ../accounts.php?success=deleted");
+    mysqli_stmt_bind_param($stmt1, "sssssss", $admin, $id, $book_name, $category, $account_name, $borrow, $return);
+    mysqli_stmt_execute($stmt1);
+    mysqli_stmt_bind_param($stmt2, "ss", $status, $id);
+    mysqli_stmt_execute($stmt2);
+    mysqli_stmt_close($stmt1);
+    header("location: ../borrowbook.php?success=borrowed");
     exit();
 }
 
-function addCategory($connection, $cat) {
-    $sql = "INSERT INTO category (category_name) VALUES (?);";
-    $stmt = mysqli_stmt_init($connection);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../pro-categories.php?error=stmtfailedcreate");
+function returnBook($connection, $borrow_admin, $id, $account, $borrow_date, $return_date, $admin, $current_date, $return_status) {
+    $book_status = "active";
+    $sql1 = "INSERT INTO history (borrow_admin_name, book_id, account_name, book_borrow, book_return, return_admin_name, account_book_return, return_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql2 = "DELETE FROM transactions WHERE book_id=?";
+    $sql3 = "UPDATE book SET book_status=?";
+    $stmt1 = mysqli_stmt_init($connection);
+    $stmt2 = mysqli_stmt_init($connection);
+    $stmt3 = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt1, $sql1)) {
+        header("location: ../returnbook.php?error=stmtfailedcreate1");
+        exit();
+    }else if (!mysqli_stmt_prepare($stmt2, $sql2)) {
+        header("location: ../returnbook.php?error=stmtfailedcreate2");
+        exit();
+    }else if (!mysqli_stmt_prepare($stmt3, $sql3)) {
+        header("location: ../returnbook.php?error=stmtfailedcreate2");
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "s", $cat);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-    header("location: ../pro-categories.php?success=added");
+    mysqli_stmt_bind_param($stmt1, "ssssssss", $borrow_admin, $id, $account, $borrow_date, $return_date, $admin, $current_date, $return_status);
+    mysqli_stmt_execute($stmt1);
+    mysqli_stmt_bind_param($stmt2, "s", $id);
+    mysqli_stmt_execute($stmt2);
+    mysqli_stmt_bind_param($stmt3, "s", $book_status);
+    mysqli_stmt_execute($stmt3);
+    mysqli_stmt_close($stmt1);
+    mysqli_stmt_close($stmt2);
+    mysqli_stmt_close($stmt3);
+    header("location: ../returnbook.php?success=returned");
     exit();
 }
 
-function addStock($connection, $name, $code, $category, $quantity, $supplier, $price) {
-    $sql = "INSERT INTO stocks (product_name, product_code, product_category, product_quantity, product_supplier, product_price) VALUES (?, ?, ?, ?, ?, ?);";
-    $stmt = mysqli_stmt_init($connection);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../stock_manager.php?error=stmtfailedcreate");
-        exit();
-    }
-
-    mysqli_stmt_bind_param($stmt, "ssssss", $name, $code, $category, $quantity, $supplier, $price);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-    header("location: ../stock_manager.php?success=added");
-    exit();
-}
 
 function fetchCategory($connection){
     $sql = "SELECT * FROM category";
@@ -216,6 +219,25 @@ function fetchLatestAccount($connection) {
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../addstudents.php?error=stmtfailedexists");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_array($resultData)) {
+        return $row;
+    }else {
+        $result = false;
+        return $result;
+    }
+}
+
+function fetchLatestBook($connection) {
+    $sql = "SELECT book_id FROM book ORDER BY book_id DESC LIMIT 1";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../addbook.php?error=stmtfailedexists");
         exit();
     }
 
