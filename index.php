@@ -21,7 +21,7 @@
                             $column = "book_id";
                             $table = "book";
                             $columnspecific = "book_status";
-                            $columnspecific_value = "instock";
+                            $columnspecific_value = "active";
                             echo implode("|",countAllSpecific($connection, $column, $table, $columnspecific, $columnspecific_value)); ?></p>
                             <div class="indicator"><i class="fas fa-book"></i><p class="text margin15">Books</p></div>
                         </div>
@@ -36,10 +36,10 @@
                         </div>
                         <div class="column third">
                             <p class="align-right"><?php 
-                            $column = "book_id";
-                            $table = "transaction";
-                            $columnspecific = "transaction_status";
-                            $columnspecific_value = "late";
+                            $column = "return_status";
+                            $table = "history";
+                            $columnspecific = "return_status";
+                            $columnspecific_value = "Late Return";
                             echo implode("|",countAllSpecific($connection, $column, $table, $columnspecific, $columnspecific_value)); ?></p>
                             <div class="indicator"><i class="fas fa-clock"></i></i><p class="text margin25">Late</p></div>
                         </div>
