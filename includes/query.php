@@ -1,7 +1,7 @@
 <?php
     require_once 'connection.php';
     if(isset($_POST['id'])){
-        $sql = "SELECT * FROM transactions WHERE book_id LIKE '%".$_POST['id']."%' LIMIT 5";
+        $sql = "SELECT * FROM transactions WHERE book_id LIKE '%".$_POST['id']."%' AND transaction_status='active' LIMIT 5";
         $result = mysqli_query($connection, $sql);
 
         if(mysqli_num_rows($result)>0){ session_start();?>

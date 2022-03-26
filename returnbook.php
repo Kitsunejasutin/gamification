@@ -22,12 +22,14 @@
                         <input list="book" id="book_return" required>
                         <datalist id="book">
                             <?php 
-                                $sql = "SELECT * FROM transactions";
+                                $status = "active";
+                                $sql = "SELECT * FROM transactions WHERE transaction_status=?";
                                 $stmt = mysqli_stmt_init($connection);
                                 if (!mysqli_stmt_prepare($stmt, $sql)) {
                                     header("location: ../borrowbook.php?error=stmtfailedexists");
                                     exit();
                                 }
+                                mysqli_stmt_bind_param($stmt, "s", $status);
                                 mysqli_stmt_execute($stmt);
                                             
                                 $resultData = mysqli_stmt_get_result($stmt);
