@@ -20,9 +20,7 @@
                             <p class="align-right"><?php 
                             $column = "book_id";
                             $table = "book";
-                            $columnspecific = "book_status";
-                            $columnspecific_value = "active";
-                            echo implode("|",countAllSpecific($connection, $column, $table, $columnspecific, $columnspecific_value)); ?></p>
+                            echo implode("|",countAll($connection, $column, $table)); ?></p>
                             <div class="indicator"><i class="fas fa-book"></i><p class="text margin15">Books</p></div>
                         </div>
                         <div class="column second">
