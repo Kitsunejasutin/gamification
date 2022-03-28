@@ -20,10 +20,18 @@
                     </div>
                     <div class="row">
                         <div class="col-25">
+                            <label for="lname">Book Author</label>
+                        </div>
+                        <div class="col-75">
+                            <input readonly type="text" id="author" name="author" value="<?php echo $row[4]; ?>" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
                             <label for="lname">Book Category</label>
                         </div>
                         <div class="col-75">
-                            <input readonly type="text" id="category" name="category" value="<?php echo $row[4]; ?>" required>
+                            <input readonly type="text" id="category" name="category" value="<?php echo $row[5]; ?>" required>
                         </div>
                     </div>
                     <div class="row">
@@ -31,7 +39,7 @@
                             <label for="lname">Student Name</label>
                         </div>
                         <div class="col-75">
-                            <input readonly type="text" id="sname" name="sname" value="<?php echo $row[5]; ?>" required>
+                            <input readonly type="text" id="sname" name="sname" value="<?php echo $row[6]; ?>" required>
                         </div>
                     </div>
                     <div class="row">
@@ -39,7 +47,7 @@
                             <label for="lname">Borrow Date</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="borrow-time" name="borrow-date" value="<?php echo $row[6]; ?>" required>
+                            <input type="text" id="borrow-time" name="borrow-date" value="<?php echo $row[7]; ?>" required>
                         </div>
                     </div>
                     <div class="row">
@@ -47,7 +55,7 @@
                             <label for="lname">Return Date</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="return-time" name="return-date" value="<?php echo $row[7]; ?>" required>
+                            <input type="text" id="return-time" name="return-date" value="<?php echo $row[8]; ?>" required>
                         </div>
                     </div>
                     <div class="row">
@@ -55,7 +63,7 @@
                             <label for="lname">Return Status</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="return-status" name="return-status" value="<?php if( strtotime($row[7]) > strtotime('now') ) {echo "Return on time";}else{ echo "Late Return";} ?>" required>
+                            <input type="text" id="return-status" name="return-status" value="<?php if( strtotime($row[8]) > strtotime('now') ) {echo "Return on time";}else{ echo "Late Return";} ?>" required>
                         </div>
                     </div>
                     <div class="row">

@@ -114,10 +114,10 @@ function addBook($connection, $name, $id, $info, $author, $category, $publish) {
     exit();
 }
 
-function borrowBook($connection, $admin, $id, $book_name, $category, $account_name, $borrow, $return, $status) {
+function borrowBook($connection, $admin, $id, $book_name, $book_author, $category, $account_name, $borrow, $return, $status) {
     $status = "active";
     $status2= "borrowed";
-    $sql1 = "INSERT INTO transactions (admin_name, book_id, book_name, book_category, account_name, book_borrow, book_return, transaction_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+    $sql1 = "INSERT INTO transactions (admin_name, book_id, book_name, book_author, book_category, account_name, book_borrow, book_return, transaction_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
     $sql2 = "UPDATE book SET book_status=? WHERE book_id=?;";
     $stmt1 = mysqli_stmt_init($connection);
     $stmt2 = mysqli_stmt_init($connection);
@@ -129,7 +129,7 @@ function borrowBook($connection, $admin, $id, $book_name, $category, $account_na
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt1, "ssssssss", $admin, $id, $book_name, $category, $account_name, $borrow, $return, $status);
+    mysqli_stmt_bind_param($stmt1, "sssssssss", $admin, $id, $book_name, $book_author, $category, $account_name, $borrow, $return, $status);
     mysqli_stmt_execute($stmt1);
     mysqli_stmt_bind_param($stmt2, "ss", $status2, $id);
     mysqli_stmt_execute($stmt2);
@@ -140,9 +140,8 @@ function borrowBook($connection, $admin, $id, $book_name, $category, $account_na
 
 function returnBook($connection, $borrow_admin, $id, $account, $borrow_date, $return_date, $admin, $current_date, $return_status) {
     $book_status = "active";
-    $book_status1 = "returned";
     $sql1 = "INSERT INTO history (borrow_admin_name, book_id, account_name, book_borrow, book_return, return_admin_name, account_book_return, return_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    $sql2 = "UPDATE transactions SET transaction_status=? WHERE book_id=?";
+    $sql2 = "DELETE FROM transactions WHERE book_id=?";
     $sql3 = "UPDATE book SET book_status=?";
     $stmt1 = mysqli_stmt_init($connection);
     $stmt2 = mysqli_stmt_init($connection);
@@ -160,7 +159,7 @@ function returnBook($connection, $borrow_admin, $id, $account, $borrow_date, $re
 
     mysqli_stmt_bind_param($stmt1, "ssssssss", $borrow_admin, $id, $account, $borrow_date, $return_date, $admin, $current_date, $return_status);
     mysqli_stmt_execute($stmt1);
-    mysqli_stmt_bind_param($stmt2, "ss", $book_status1, $id);
+    mysqli_stmt_bind_param($stmt2, "s", $id);
     mysqli_stmt_execute($stmt2);
     mysqli_stmt_bind_param($stmt3, "s", $book_status);
     mysqli_stmt_execute($stmt3);
