@@ -276,3 +276,49 @@ function fetchLatestBook($connection) {
         return $result;
     }
 }
+
+function countAllCategories($connection, $columnspecific_value) {
+    $sql = "SELECT COUNT(book_id)FROM book WHERE book_category=?;";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: index.php?error=stmtfailedexists");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "s", $columnspecific_value);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    }else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+    exit();
+}
+
+function countAllCategoriesBorrowed($connection, $columnspecific_value, $status) {
+    $sql = "SELECT COUNT(book_id)FROM book WHERE book_category=? AND book_status=?;";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: index.php?error=stmtfailedexists");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "ss", $columnspecific_value, $status);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    }else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+    exit();
+}

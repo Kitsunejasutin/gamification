@@ -31,7 +31,7 @@
                     $resultData = mysqli_stmt_get_result($stmt);
 
                     while($row = mysqli_fetch_array($resultData)){?>
-                        <a href="book.php?book=<?php echo $row[1]; ?>"><li class="dropdown account"><span><?php echo $row[1]; ?></span></li></a>
+                        <a href="categories.php?page=<?php echo $row[1]; ?>"><li class="dropdown account"><span><?php echo $row[1]; ?></span></li></a>
                     <?php }
                     
                     mysqli_stmt_close($stmt);
