@@ -61,7 +61,7 @@
                                     <label for="lname">Passowrd</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="password" id="password" name="password" placeholder="Password..." required>
+                                    <input type="password" id="password" name="password" placeholder="Password...">
                                 </div>
                             </div>
                             <div class="row">

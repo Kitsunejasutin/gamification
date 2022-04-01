@@ -88,6 +88,7 @@ function loginUser($connection, $email, $pwd, $column, $table, $continue) {
             session_start();
             $_SESSION['account_email'] = $email;
             header("location: ../login.php?account=firsttimelogin");
+            exit();
         }
     }
 
