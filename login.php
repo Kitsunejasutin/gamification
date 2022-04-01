@@ -30,7 +30,7 @@
                                     <label for="fname">Email</label>
                                 </div>
                                 <div class="col-75">
-                                    <input readonly type="text" id="email" name="email" placeholder="Email..." value="<?php echo $_SESSION['account_email']; ?>">
+                                    <input readonly type="text" id="email" name="email" placeholder="Email..." value="<?php echo $_SESSION['account_email']; ?>" required>
                                 </div>
                             </div>
                             <div class="row">
@@ -38,7 +38,7 @@
                                     <label for="lname">Passowrd</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="password" id="password" name="password" placeholder="Password...">
+                                    <input type="password" id="password" name="password" placeholder="Password..." required>
                                 </div>
                             </div>
                             <div class="row">
@@ -53,7 +53,7 @@
                                     <label for="fname">Email</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" id="email" name="email" placeholder="Email...">
+                                    <input type="text" id="email" name="email" placeholder="Email..." required>
                                 </div>
                             </div>
                             <div class="row">
@@ -61,7 +61,7 @@
                                     <label for="lname">Passowrd</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="password" id="password" name="password" placeholder="Password...">
+                                    <input type="password" id="password" name="password" placeholder="Password..." required>
                                 </div>
                             </div>
                             <div class="row">
