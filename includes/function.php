@@ -77,7 +77,12 @@ function loginUser($connection, $email, $pwd, $column, $table, $continue) {
         $_SESSION["contact"] = $emailExists["admin_contact"];
         $_SESSION["type"] = "admin";
 
-        header("location:" . $continue);
+        if ($continue == null) {
+            header("location: ../index.php");
+        }else{
+            header("location:" . $continue);
+        }
+
         exit();
     }
 }

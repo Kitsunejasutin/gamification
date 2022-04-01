@@ -36,10 +36,14 @@
                             </div>
                         </div>
                         <div class="row">
-                            <button type="Submit" class="submit" name="login" value="<?php echo $_GET['continue'] ?>">LogIn</button>
-                            <?php echo $_GET['continue']; 
-                            ?>
-
+                            <?php 
+                            /** error_reporting(E_ERROR | E_PARSE); **/
+                            if ($_GET['continue'] == null){
+                                echo '<button type="Submit" class="submit" name="login">LogIn</button>';
+                            }else{
+                                echo '<button type="Submit" class="submit" name="login" value="'. $_GET['continue'] .'">LogIn</button>';
+                                echo $_GET['continue']; 
+                            } ?>
                         </div>
                     </form>
                 </div>
