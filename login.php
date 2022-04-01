@@ -30,7 +30,7 @@
                                     <label for="fname">Email</label>
                                 </div>
                                 <div class="col-75">
-                                    <input readonly type="text" id="email" name="email" placeholder="Email..." value="<?php echo $_SESSION['account_email']; ?>" required>
+                                    <input readonly type="email" id="email" name="email" placeholder="Email..." value="<?php echo $_SESSION['account_email']; ?>" required>
                                 </div>
                             </div>
                             <div class="row">
@@ -53,7 +53,7 @@
                                     <label for="fname">Email</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" id="email" name="email" placeholder="Email..." required>
+                                    <input type="email" id="email" name="email" placeholder="Email..." required>
                                 </div>
                             </div>
                             <div class="row">

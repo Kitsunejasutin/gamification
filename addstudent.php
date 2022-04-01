@@ -28,7 +28,7 @@
                             <label for="lname">Email</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="email" name="email" placeholder="Email..." required>
+                            <input type="email" id="email" name="email" placeholder="Email..." required>
                         </div>
                     </div>
                     <div class="row">
