@@ -36,7 +36,10 @@
                             </div>
                         </div>
                         <div class="row">
-                            <button type="Submit" class="submit" name="login">LogIn</button>
+                            <button type="Submit" class="submit" name="login" value="<?php echo $_GET['continue'] ?>">LogIn</button>
+                            <?php echo $_GET['continue']; 
+                            ?>
+
                         </div>
                     </form>
                 </div>

@@ -15,121 +15,108 @@
 ?>
             <div class="info">
                 <?php 
-                    if (isset($_GET['edit'])){
-                        if ($_GET['edit'] == 'admins'){
-                            $email= $_SESSION['email'];
-                            $sql = "SELECT * FROM admins WHERE admin_email=?";
-                            $stmt = mysqli_stmt_init($connection);
-                            if (!mysqli_stmt_prepare($stmt, $sql)) {
-                                header("location: ../index.php?error=stmtfailedexists");
-                                exit();
-                            }
-                            mysqli_stmt_bind_param($stmt, "s", $email);
-                            mysqli_stmt_execute($stmt);
-                            
-                            $row = mysqli_stmt_get_result($stmt);
-                            $data = mysqli_fetch_array($row);
-                            if (isset($_SESSION['email'])){?>
-                                <form action="includes/updateaccount.php" method="POST">
-                                    <div class="row">
-                                        <div class="col-25">
-                                            <label for="lname">Admin Number</label>
-                                        </div>
-                                        <div class="col-75">
-                                            <input readonly type="text" id="number" name="number" value="<?php echo $data[0]; ?>" required>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-25">
-                                            <label for="lname">Admin Name</label>
-                                        </div>
-                                        <div class="col-75">
-                                            <input type="text" id="name" name="name" value="<?php echo $data[1]; ?>" required>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-25">
-                                            <label for="lname">Admin Email</label>
-                                        </div>
-                                        <div class="col-75">
-                                            <input type="text" id="email" name="email" value="<?php echo $data[2]; ?>" required>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-25">
-                                            <label for="lname">Admin Contact</label>
-                                        </div>
-                                        <div class="col-75">
-                                            <input type="text" id="contact" name="contact" value="<?php echo $data[4]; ?>" required>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <button type="Submit" class="submit" name="submit" value="admins">Update Account</button>
-                                    </div>
-                                </form>
-                        <?php
-                            }/*else{
-                                header("location: editaccount.php?edit=admin"); 
-                            }*/
-                        }elseif ($_GET['edit'] == 'accounts'){
-                            $account_id= $_SESSION['id'];
-                            $sql = "SELECT * FROM accounts WHERE id=?";
-                            $stmt = mysqli_stmt_init($connection);
-                            if (!mysqli_stmt_prepare($stmt, $sql)) {
-                                header("location: ../index.php?error=stmtfailedexists");
-                                exit();
-                            }
-                            mysqli_stmt_bind_param($stmt, "s", $account_id);
-                            mysqli_stmt_execute($stmt);
-                            
-                            $row = mysqli_stmt_get_result($stmt);
-                            $data = mysqli_fetch_array($row);
-                            if (isset($_SESSION['email'])){?>
-                                <form action="includes/updateaccount.php" method="POST">
-                                    <div class="row">
-                                        <div class="col-25">
-                                            <label for="lname">Admin Number</label>
-                                        </div>
-                                        <div class="col-75">
-                                            <input readonly type="text" id="number" name="number" value="<?php echo $data[0]; ?>" required>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-25">
-                                            <label for="lname">Admin Name</label>
-                                        </div>
-                                        <div class="col-75">
-                                            <input type="text" id="name" name="name" value="<?php echo $data[1]; ?>" required>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-25">
-                                            <label for="lname">Admin Email</label>
-                                        </div>
-                                        <div class="col-75">
-                                            <input type="text" id="email" name="email" value="<?php echo $data[2]; ?>" required>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-25">
-                                            <label for="lname">Admin Contact</label>
-                                        </div>
-                                        <div class="col-75">
-                                            <input type="text" id="contact" name="contact" value="<?php echo $data[4]; ?>" required>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <button type="Submit" class="submit" name="submit" value="admins">Update Account</button>
-                                    </div>
-                                </form>
-                        <?php
-                            }else{
-                                header("location: login.php");
-                            }
+                    if (isset($_SESSION['type']) == "admins"){
+                        $email= $_SESSION['email'];
+                        $sql = "SELECT * FROM admins WHERE admin_email=?";
+                        $stmt = mysqli_stmt_init($connection);
+                        if (!mysqli_stmt_prepare($stmt, $sql)) {
+                            header("location: ../index.php?error=stmtfailedexists");
+                            exit();
                         }
+                        mysqli_stmt_bind_param($stmt, "s", $email);
+                        mysqli_stmt_execute($stmt);
+                        $row = mysqli_stmt_get_result($stmt);
+                        $data = mysqli_fetch_array($row);?>
+                        <form action="includes/updateaccount.php" method="POST">
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">Admin Number</label>
+                                 </div>
+                                <div class="col-75">
+                                    <input readonly type="text" id="number" name="number" value="<?php echo $data[0]; ?>" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">Admin Name</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" id="name" name="name" value="<?php echo $data[1]; ?>" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">Admin Email</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" id="email" name="email" value="<?php echo $data[2]; ?>" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">Admin Contact</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" id="contact" name="contact" value="<?php echo $data[4]; ?>" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button type="Submit" class="submit" name="submit" value="admins">Update Account</button>
+                            </div>
+                        </form>
+                    <?php
+                    }elseif (isset($_SESSION['type']) == "admins"){
+                        $account_id= $_SESSION['id'];
+                        $sql = "SELECT * FROM accounts WHERE id=?";
+                        $stmt = mysqli_stmt_init($connection);
+                        if (!mysqli_stmt_prepare($stmt, $sql)) {
+                            header("location: ../index.php?error=stmtfailedexists");
+                            exit();
+                        }
+                        mysqli_stmt_bind_param($stmt, "s", $account_id);
+                        mysqli_stmt_execute($stmt);
+                        $row = mysqli_stmt_get_result($stmt);
+                        $data = mysqli_fetch_array($row);?>
+                        <form action="includes/updateaccount.php" method="POST">
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">Admin Number</label>
+                                </div>
+                                <div class="col-75">
+                                    <input readonly type="text" id="number" name="number" value="<?php echo $data[0]; ?>" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">Admin Name</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" id="name" name="name" value="<?php echo $data[1]; ?>" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">Admin Email</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" id="email" name="email" value="<?php echo $data[2]; ?>" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">Admin Contact</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" id="contact" name="contact" value="<?php echo $data[4]; ?>" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button type="Submit" class="submit" name="submit" value="admins">Update Account</button>
+                            </div>
+                        </form>
+                    <?php
                     }else{
-                        echo '<script>alert("Please go back to the previous page");';
-                        echo 'window.location = "editaccount.php?edit='. $_SESSION['type'] . 's" </script>';
+                        header("location: login.php?continue=http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
                     }
                 ?>
             </div>

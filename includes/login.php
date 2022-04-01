@@ -6,11 +6,12 @@ if (isset($_POST["login"])) {
     $pwd = $_POST["password"];
     $table = "admins";
     $column = "admin_email";
+    $continue = $_POST['login'];
 
     require_once 'connection.php';
     require_once 'function.php';
 
-    loginUser($connection, $email, $pwd, $table, $column);
+    loginUser($connection, $email, $pwd, $table, $column, $continue);
 }else {
     header("location: ../index.php");
     exit();

@@ -56,7 +56,7 @@ function createUser($connection, $name, $email, $contact, $address) {
     exit();
 }
 
-function loginUser($connection, $email, $pwd, $column, $table) {
+function loginUser($connection, $email, $pwd, $column, $table, $continue) {
     $emailExists = emailExists($connection, $email, $table, $column);
 
     if ($emailExists === false) {
@@ -76,7 +76,8 @@ function loginUser($connection, $email, $pwd, $column, $table) {
         $_SESSION["email"] = $emailExists["admin_email"];
         $_SESSION["contact"] = $emailExists["admin_contact"];
         $_SESSION["type"] = "admin";
-        header("location: ../index.php");
+
+        header("location:" . $continue);
         exit();
     }
 }

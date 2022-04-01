@@ -42,7 +42,7 @@
                     ?>
                     <ul id="categories">
                         <li class="categories"><a><i class="fas fa-user-tie"></i>Account<i class="arrow right"></i></a></li>
-                        <a href="editaccount.php?edit=<?php if ($_SESSION['type'] == "admin") { echo 'admins';} ?>"><li class="dropdown account"><span>Edit Account</span></li></a>
+                        <a href="editaccount.php"><li class="dropdown account"><span>Edit Account</span></li></a>
                         <a href="addstudent.php"><li class="dropdown account"><span>Add Student</span></li></a>
                         <?php if(isset($_SESSION['name'])){ echo '<a href="includes/logout.php"><li class="dropdown account"><span>LogOut</span></li></a>'; } ?>
                     </ul>
