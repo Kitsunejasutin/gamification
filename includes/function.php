@@ -56,27 +56,62 @@ function createUser($connection, $name, $email, $contact, $address) {
     exit();
 }
 
-function loginUser($connection, $email, $pwd, $column, $table, $continue) {
-    $emailExists = emailExists($connection, $email, $table, $column);
-
-    if ($emailExists === false) {
-        header("location: ../index.php?error=wronglogin");
+function createPassword($connection, $email, $pwd) {
+    $sql = "UPDATE accounts SET account_password=? WHERE account_email=?";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../addstudent.php?error=stmtfailedcreate");
         exit();
     }
 
-    $pwdHashed = $emailExists["admin_password"];
+    $hashedPWD = password_hash($pwd, PASSWORD_DEFAULT);
+
+    mysqli_stmt_bind_param($stmt, "ss", $hashedPWD, $email);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    echo "<script> alert('Password Successfully Updated'); </script>";
+}
+
+function loginUser($connection, $email, $pwd, $column, $table, $continue) {
+    $emailExists = emailExists($connection, $email, $column, $table);
+
+    if ($emailExists === false) {
+        header("location: ../login.php?error=wronglogin");
+        exit();
+    }
+    if ($table === "admins"){
+        $pwdHashed = $emailExists["admin_password"];
+    }elseif ($table === "accounts"){
+        $pwdHashed = $emailExists["account_password"];
+        if ($pwdHashed === ""){
+            session_start();
+            $_SESSION['account_email'] = $email;
+            header("location: ../login.php?account=firsttimelogin");
+        }
+    }
+
     $checkPwd = password_verify($pwd, $pwdHashed);
 
     if ($checkPwd === false) {
         header("location: ../index.php?error=wrongloginpassword");
         exit();
     }else if ($checkPwd === true) {
-        session_start();
-        $_SESSION["name"] = $emailExists["admin_name"];
-        $_SESSION["email"] = $emailExists["admin_email"];
-        $_SESSION["contact"] = $emailExists["admin_contact"];
-        $_SESSION["type"] = "admin";
-
+        if ($table === "admins"){
+            session_start();
+            $_SESSION["name"] = $emailExists["admin_name"];
+            $_SESSION["email"] = $emailExists["admin_email"];
+            $_SESSION["contact"] = $emailExists["admin_contact"];
+            $_SESSION["type"] = "admin";
+    
+        }elseif ($table === "accounts"){
+            session_start();
+            $_SESSION["name"] = $emailExists["account_name"];
+            $_SESSION["email"] = $emailExists["account_email"];
+            $_SESSION["contact"] = $emailExists["account_contact"];
+            $_SESSION["address"] = $emailExists["account_address"];
+            $_SESSION["type"] = "account";    
+        }
         if ($continue == null) {
             header("location: ../index.php");
         }else{
