@@ -14,35 +14,38 @@
     include_once 'includes/bars.php';
 ?>
             <div class="info">
-                <div class="header">
-                    <div class="row">
-                        <div class="column first">
-                            <p class="align-right"><?php 
-                            $column = "book_id";
-                            $table = "book";
-                            echo implode("|",countAll($connection, $column, $table)); ?></p>
-                            <div class="indicator"><i class="fas fa-book"></i><p class="text margin15">Books</p></div>
-                        </div>
-                        <div class="column second">
-                            <p class="align-right"><?php 
+                
+                <?php error_reporting(E_ERROR | E_PARSE); if ($_SESSION['type'] == "admins"){ ?>
+                    <div class="header">
+                        <div class="row">
+                            <div class="column first">
+                                <p class="align-right"><?php 
                                 $column = "book_id";
                                 $table = "book";
-                                $columnspecific = "book_status";
-                                $columnspecific_value = "borrowed";
+                                echo implode("|",countAll($connection, $column, $table)); ?></p>
+                                <div class="indicator"><i class="fas fa-book"></i><p class="text margin15">Books</p></div>
+                            </div>
+                            <div class="column second">
+                                <p class="align-right"><?php 
+                                    $column = "book_id";
+                                    $table = "book";
+                                    $columnspecific = "book_status";
+                                    $columnspecific_value = "borrowed";
+                                    echo implode("|",countAllSpecific($connection, $column, $table, $columnspecific, $columnspecific_value)); ?></p>
+                                    <div class="indicator"><i class="fas fa-book-reader"></i></i><p class="text margin5">Borrowed</p></div>
+                            </div>
+                            <div class="column third">
+                                <p class="align-right"><?php 
+                                $column = "return_status";
+                                $table = "history";
+                                $columnspecific = "return_status";
+                                $columnspecific_value = "Late Return";
                                 echo implode("|",countAllSpecific($connection, $column, $table, $columnspecific, $columnspecific_value)); ?></p>
-                                <div class="indicator"><i class="fas fa-book-reader"></i></i><p class="text margin5">Borrowed</p></div>
-                        </div>
-                        <div class="column third">
-                            <p class="align-right"><?php 
-                            $column = "return_status";
-                            $table = "history";
-                            $columnspecific = "return_status";
-                            $columnspecific_value = "Late Return";
-                            echo implode("|",countAllSpecific($connection, $column, $table, $columnspecific, $columnspecific_value)); ?></p>
-                            <div class="indicator"><i class="fas fa-clock"></i></i><p class="text margin25">Late</p></div>
+                                <div class="indicator"><i class="fas fa-clock"></i></i><p class="text margin25">Late</p></div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php } ?>
                 <div class="news">
                     <div class="main-news">
                         <span>Site Announcements</span><br>
