@@ -128,18 +128,6 @@ body{
   border-bottom: 1px solid #e0e4e8;
 }
 
-.container .main_content .topbar .fa-bell {
-  font-size: 20px;
-  padding-right: 30px;
-}
-
-.container .main_content .topbar .fa-clock {
-  font-size: 20px;
-  color: #717171;
-  padding-right: 30px;
-  cursor: pointer;
-}
-
 .container .main_content .topbar .account {
   display: flex;
   align-items: center ;

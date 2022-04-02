@@ -67,7 +67,6 @@
         </div>
         <div class="main_content">
             <div class="topbar">
-                <i class="fas fa-bell"></i>
                 <div class="account">
                     <img src ="images/user-icon.png" class="user-icon"><span class="text"><?php if(isset($_SESSION['name'])){ echo $_SESSION['name']; }else{ echo "<a href='login.php'>LogIn</a>"; } ?></span>
                 </div>
