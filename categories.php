@@ -53,7 +53,7 @@
                             echo '<table><tr>';
                             while ($row = mysqli_fetch_array($resultData)) { 
                                 if($count <= 4) {
-                                    echo '<th>' . $row['book_id'] . '<br><img src="images/books/'. $row['book_id'] .'.jpg" width="250px"><br><p class="book-name">'. $row['book_name'] . '</p><p class="author">'. $row['book_author'] . '</p><p class="status">[' .$row['book_status'] .']</p></th>';
+                                    echo '<th><span class="id">' . $row['book_id'] . '</span><br><img src="images/books/'. $row['book_id'] .'.jpg" width="250px"><br><p class="book-name">'. $row['book_name'] . '</p><p class="author">'. $row['book_author'] . '</p><p class="status">[' .$row['book_status'] .']</p></th>';
                                 }else{
                                     echo '</tr>\n<tr>'. '<th>' . $row['book_id'] . '<br><img src="images/books/'. $row['book_id'] .'.jpg" width="250px"><br><p class="book-name">'. $row['book_name'] . '</p><p class="author">'. $row['book_author'] . '</p><p class="status">[' .$row['book_status'] .']</p></th>';
                                 }
