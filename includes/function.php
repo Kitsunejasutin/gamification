@@ -407,3 +407,26 @@ function updateAccount($connection, $id, $table, $name, $email, $contact, $addre
         exit();
     }
 }
+
+function fetchBook($connection, $book) {
+    $sql = "SELECT * FROM book WHERE book_id=?";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../addbook.php?error=stmtfailedexists");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $book);
+
+    mysqli_stmt_execute($stmt);
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_array($resultData)) {
+        return $row;
+        mysqli_stmt_close($stmt);
+    }else {
+        $result = false;
+        return $result;
+        mysqli_stmt_close($stmt);
+    }
+}

@@ -13,8 +13,7 @@
 <?php
     include_once 'includes/bars.php';
 ?>
-            <div class="info">
-                
+            <div class="info"> 
                 <?php error_reporting(E_ERROR | E_PARSE); if ($_SESSION['type'] == "admins"){ ?>
                     <div class="header">
                         <div class="row">
