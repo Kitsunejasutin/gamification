@@ -103,15 +103,16 @@ function loginUser($connection, $email, $pwd, $column, $table, $continue) {
             $_SESSION["name"] = $emailExists["admin_name"];
             $_SESSION["email"] = $emailExists["admin_email"];
             $_SESSION["contact"] = $emailExists["admin_contact"];
-            $_SESSION["type"] = "admin";
+            $_SESSION["type"] = "admins";
     
         }elseif ($table === "accounts"){
             session_start();
+            $_SESSION["id"] = $emailExists["id"];
             $_SESSION["name"] = $emailExists["account_name"];
             $_SESSION["email"] = $emailExists["account_email"];
             $_SESSION["contact"] = $emailExists["account_contact"];
             $_SESSION["address"] = $emailExists["account_address"];
-            $_SESSION["type"] = "account";    
+            $_SESSION["type"] = "accounts";    
         }
         if ($continue == null) {
             header("location: ../index.php");
@@ -366,7 +367,7 @@ function countAllCategoriesBorrowed($connection, $columnspecific_value, $status)
     exit();
 }
 
-function updateAccount($connection, $id, $table, $name, $email, $contact, $address) {
+function updateAccount($connection, $id, $table, $name, $email, $contact, $address, $pwd) {
     if ($table == "admins"){
         $sql = "UPDATE admins SET admin_name=?, admin_email=?, admin_contact=? WHERE id=?;";
         $stmt = mysqli_stmt_init($connection);
@@ -382,21 +383,27 @@ function updateAccount($connection, $id, $table, $name, $email, $contact, $addre
         $_SESSION['contact'] = $contact;
         mysqli_stmt_close($stmt);
         echo '<script>alert("Account successfully updated");';
-        echo 'window.location = "../editaccount.php?edit='. $_SESSION['type'] . 's" </script>';
+        echo 'window.location = "../editaccount.php"</script>';
         exit();
     }elseif ($table == "accounts"){
-        $sql = "UPDATE accounts SET account_name=?, account_email=?, acount_contact=?, account_address=? WHERE id=?;";
+        $sql = "UPDATE $table SET account_name=?, account_email=?, account_password=?, account_contact=?, account_address=? WHERE id=?;";
         $stmt = mysqli_stmt_init($connection);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             header("location: ../editaccount.php?error=stmtfailedcreate1");
             exit();
         }
-        mysqli_stmt_bind_param($stmt, "", $name, $email, $contact, $address, $id);
+
+        $hashedPWD = password_hash($pwd, PASSWORD_DEFAULT);
+
+        mysqli_stmt_bind_param($stmt, "ssssss", $name, $email, $hashedPWD, $contact, $address, $id);
         mysqli_stmt_execute($stmt);
-    
+        session_start();
+        $_SESSION['name'] = $name;
+        $_SESSION['email'] = $email;
+        $_SESSION['contact'] = $contact;
         mysqli_stmt_close($stmt);
-        header("location: ../editaccount.php?success=updated");
+        echo '<script>alert("Account successfully updated");';
+        echo 'window.location = "../editaccount.php"</script>';
         exit();
     }
-
 }

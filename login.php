@@ -75,7 +75,7 @@
                                 }
                             }else{
                                 echo '<a href="login.php" class="admin"><span class="admin-login">Back</span></a><br><br>'; 
-                                //error_reporting(E_ERROR | E_PARSE);
+                                error_reporting(E_ERROR | E_PARSE);
                                 if ($_GET['continue'] == null){
                                     echo '<button type="Submit" class="submit" name="admin">LogIn</button>';
                                 }else{
