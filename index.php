@@ -43,6 +43,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="news">
+                    <div class="main-news">
+                        <span>Site Announcements</span><br>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt itaque labore aspernatur assumenda natus! Nulla amet quod laboriosam recusandae laudantium repellendus. Neque quo asperiores qui, sit possimus totam similique hic!
+                    </div>
+                    <div class="side-news">
+                        <span>Other News</span><br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id eius accusamus aliquid illo sit perspiciatis ut quae beatae dignissimos, delectus corporis? Obcaecati voluptatum mollitia inventore in tempore sequi aliquid modi?
+                    </div>
+                </div>
             </div>
 <?php 
 	include_once 'includes/footer.php';

@@ -127,3 +127,39 @@ th {
     letter-spacing: 0.1rem;
     font-size: 0.7rem;
 }
+
+div.news {
+    position: relative;
+    display: flex;
+    align-self: center;
+    width: 90%;
+    height: 100%;
+    margin: auto;
+}
+
+div.main-news {
+    justify-content: center;
+    text-align: center;
+    min-width: 70%;
+    max-height: 100vh;
+    background-color: bisque;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+div.main-news > span {
+    font-size: 25px;
+}
+
+div.side-news {
+    background-color: bisque;
+    text-align: center;
+    justify-content: center;
+    border-radius: .5rem;
+    margin-left: 1rem;
+    padding: 1rem;
+}
+
+div.side-news > span {
+    font-size: 25px;
+}
