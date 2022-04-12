@@ -41,7 +41,7 @@
                             <th class="header"><b>Transaction Status</th>
                         </thead>
                             <?php
-                                $sql = "SELECT * FROM transactions";
+                                $sql = "SELECT * FROM history";
                                 $stmt = mysqli_stmt_init($connection);
                                 if (!mysqli_stmt_prepare($stmt, $sql)) {
                                     header("location: ../listbook.php?error=stmtfailedexists");

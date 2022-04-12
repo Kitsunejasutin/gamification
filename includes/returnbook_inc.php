@@ -11,15 +11,15 @@
     $return_status = $_POST['return-status'];
     $admin = $_POST['admin'];
     $borrow_admin = $_POST['borrow-admin'];
-
 	if(isset($_POST['submit'])){
         $email = $id;
+        $book_id = $_POST['submit'];
         $status = "borrowed";
         $column = "book_name";
         $table = "book";
         date_default_timezone_set('Asia/Manila');
         $current_date = date("Y-m-d");
-        returnBook($connection, $borrow_admin, $id, $account, $borrow_date, $return_date, $admin, $current_date, $return_status);
+        returnBook($connection, $borrow_admin, $id, $book_id, $account, $borrow_date, $return_date, $admin, $current_date, $return_status);
 	}else {
         echo "Something went wrong";
         header("location: ../borrowbook.php?status=somethingwentwrong");

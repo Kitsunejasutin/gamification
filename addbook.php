@@ -81,6 +81,14 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-25">
+                            <label for="lname">Book Copies</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="number" id="copies" name="copies" required>
+                        </div>
+                    </div>
+                    <div class="row">
                         <button type="Submit" class="submit" name="submit">Add Book</button>
                     </div>
                 </form>

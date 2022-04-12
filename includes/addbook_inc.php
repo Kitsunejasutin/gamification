@@ -8,6 +8,7 @@
     $category = $_POST['category'];
     $author = $_POST['author'];
     $publish = $_POST['publish'];
+    $copies = $_POST['copies'];
 
 	if(isset($_POST['submit'])){
         $email = $id;
@@ -17,7 +18,7 @@
             header("location: ../addstudent.php?status=bookalreadytaken");
             exit();
         }
-        addBook($connection, $name, $id, $info, $author, $category, $publish);
+        addBook($connection, $name, $id, $info, $author, $category, $publish, $copies);
 	}else {
         echo "Something went wrong";
         header("location: ../addstudent.php?status=somethingwentwrong");

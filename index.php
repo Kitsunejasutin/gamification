@@ -28,18 +28,30 @@
                                 <p class="align-right"><?php 
                                     $column = "book_id";
                                     $table = "book";
-                                    $columnspecific = "book_status";
+                                    $columnspecific = "book_borrowed";
                                     $columnspecific_value = "borrowed";
                                     echo implode("|",countAllSpecific($connection, $column, $table, $columnspecific, $columnspecific_value)); ?></p>
                                     <div class="indicator"><i class="fas fa-book-reader"></i></i><p class="text margin5">Borrowed</p></div>
                             </div>
                             <div class="column third">
                                 <p class="align-right"><?php 
-                                $column = "return_status";
-                                $table = "history";
-                                $columnspecific = "return_status";
-                                $columnspecific_value = "Late Return";
-                                echo implode("|",countAllSpecific($connection, $column, $table, $columnspecific, $columnspecific_value)); ?></p>
+                                      $sql = "SELECT * FROM book";
+                                      $stmt = mysqli_stmt_init($connection);
+                                      if (!mysqli_stmt_prepare($stmt, $sql)) {
+                                          header("location: index.php?error=stmtfailedexists");
+                                          exit();
+                                      }
+                                      mysqli_stmt_execute($stmt);
+  
+                                      $resultData = mysqli_stmt_get_result($stmt);
+  
+                                      while ($row = mysqli_fetch_assoc($resultData)){
+                                          $total += $row['book_borrowed'];
+                                      }
+                                      mysqli_stmt_close($stmt);
+                                      echo $total;  
+                                        ?>
+                                    </p>
                                 <div class="indicator"><i class="fas fa-clock"></i></i><p class="text margin25">Late</p></div>
                             </div>
                         </div>

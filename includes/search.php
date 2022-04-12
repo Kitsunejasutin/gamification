@@ -43,7 +43,15 @@
                         </div>
                     </div>
                     <div class="row">
-                        <button type="Submit" class="submit" name="submit">Borrow Book</button>
+                        <div class="col-25">
+                            <label for="lname">Book Copies</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="book_copies" name="book_copies" value="<?php echo $row[8]; ?>" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button type="Submit" class="submit" name="submit" value="<?php echo $row[7]; ?>">Borrow Book</button>
                     </div>
                 <?php }?>
             </form>

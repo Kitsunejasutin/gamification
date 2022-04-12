@@ -67,7 +67,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <button type="Submit" class="submit" name="submit">Return Book</button>
+                        <button type="Submit" class="submit" name="submit" value="<?php echo $row[0]; ?>">Return Book</button>
                     </div>
                 <?php }?>
             </form>

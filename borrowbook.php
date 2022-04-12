@@ -22,14 +22,12 @@
                         <input list="book" id="book_search" required>
                         <datalist id="book">
                             <?php 
-                                $book_status = "active";
-                                $sql = "SELECT * FROM book WHERE book_status=?";
+                                $sql = "SELECT * FROM book WHERE book_copies > book_borrowed";
                                 $stmt = mysqli_stmt_init($connection);
                                 if (!mysqli_stmt_prepare($stmt, $sql)) {
                                     header("location: ../borrowbook.php?error=stmtfailedexists");
                                     exit();
                                 }
-                                mysqli_stmt_bind_param($stmt, "s", $book_status);
                                 mysqli_stmt_execute($stmt);
                                             
                                 $resultData = mysqli_stmt_get_result($stmt);
