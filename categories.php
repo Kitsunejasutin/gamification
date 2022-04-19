@@ -80,6 +80,7 @@
                     }
                 }else{
                     echo '<p>Please go back to the previous page</p>';
+                    header( "Refresh:5; url=index.php", true, 303);
                 }
             ?>
 <?php 
