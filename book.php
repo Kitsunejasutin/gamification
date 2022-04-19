@@ -57,18 +57,20 @@
                         <span>About</span>
                     </div>
                     <div class="section-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quis necessitatibus consequuntur qui odio provident tempora, et tempore ea ad 
-                        cumque quisquam cum a sit possimus, consectetur rerum dolor error magni autem quo! Adipisci sunt possimus eveniet eligendi alias mollitia nemo 
-                        placeat eius natus dolorum quod rem aperiam officia enim tempore quae vel ipsa, voluptatem pariatur, minima voluptate temporibus dolore? Tenetur
-                        quis earum qui dolor sed, voluptates sapiente illum eius. Animi velit eum recusandae neque consequatur quis consequuntur tenetur enim culpa temporibus. 
-                        Qui fugiat dicta ut ipsa eum, facilis enim eos natus! Distinctio neque cum et! Minima, porro facere? Nam cumque iure amet corrupti eligendi nisi rerum 
-                        beatae? Voluptatem laboriosam nemo ut numquam soluta est libero saepe, perferendis adipisci voluptatum, necessitatibus minima iste facilis pariatur nam 
-                        magni corrupti sint reprehenderit obcaecati molestiae recusandae labore. Quibusdam, asperiores ipsam temporibus unde laudantium laboriosam quaerat ab, commodi 
-                        accusamus fuga pariatur ducimus distinctio saepe? Possimus, ab nulla unde quos autem mollitia quidem, sunt illo nobis natus rem quis reiciendis distinctio, quod 
-                        incidunt saepe corrupti aspernatur voluptas. Blanditiis similique voluptates omnis excepturi cumque harum, hic maxime rem eius repellendus illo dolorem dolorum, 
-                        deleniti adipisci qui aliquid perspiciatis iusto provident odio dicta odit fugit. Mollitia esse facilis a ea, expedita quis voluptatibus vel perspiciatis sequi 
-                        labore eveniet perferendis consequatur doloribus vero magni error laudantium eos delectus! Atque libero sed aut, facilis, ullam laborum ducimus nesciunt ab quae 
-                        quisquam ut assumenda. Aliquid eius placeat in, quasi quidem est autem praesentium iusto maxime quae corporis ea quo beatae?
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quis necessitatibus consequuntur qui odio provident tempora, et tempore ea ad 
+                            cumque quisquam cum a sit possimus, consectetur rerum dolor error magni autem quo! Adipisci sunt possimus eveniet eligendi alias mollitia nemo 
+                            placeat eius natus dolorum quod rem aperiam officia enim tempore quae vel ipsa, voluptatem pariatur, minima voluptate temporibus dolore? Tenetur
+                            quis earum qui dolor sed, voluptates sapiente illum eius. Animi velit eum recusandae neque consequatur quis consequuntur tenetur enim culpa temporibus. 
+                            Qui fugiat dicta ut ipsa eum, facilis enim eos natus! Distinctio neque cum et! Minima, porro facere? Nam cumque iure amet corrupti eligendi nisi rerum 
+                            beatae? Voluptatem laboriosam nemo ut numquam soluta est libero saepe, perferendis adipisci voluptatum, necessitatibus minima iste facilis pariatur nam 
+                            magni corrupti sint reprehenderit obcaecati molestiae recusandae labore. Quibusdam, asperiores ipsam temporibus unde laudantium laboriosam quaerat ab, commodi 
+                            accusamus fuga pariatur ducimus distinctio saepe? Possimus, ab nulla unde quos autem mollitia quidem, sunt illo nobis natus rem quis reiciendis distinctio, quod 
+                            incidunt saepe corrupti aspernatur voluptas. Blanditiis similique voluptates omnis excepturi cumque harum, hic maxime rem eius repellendus illo dolorem dolorum, 
+                            deleniti adipisci qui aliquid perspiciatis iusto provident odio dicta odit fugit. Mollitia esse facilis a ea, expedita quis voluptatibus vel perspiciatis sequi 
+                            labore eveniet perferendis consequatur doloribus vero magni error laudantium eos delectus! Atque libero sed aut, facilis, ullam laborum ducimus nesciunt ab quae 
+                            quisquam ut assumenda. Aliquid eius placeat in, quasi quidem est autem praesentium iusto maxime quae corporis ea quo beatae?
+                        </p>
                     </div>
                 </div>
 
