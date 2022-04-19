@@ -54,3 +54,9 @@ button.submit:hover {
     margin-top: 0;
   }
 }
+
+.hidden{
+  display: none;
+  margin: 0;
+  padding: 0;
+}

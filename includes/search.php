@@ -42,12 +42,12 @@
                             <input type="text" id="borrow-time" name="borrow-time" placeholder="Enter days..." required>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row hidden">
                         <div class="col-25">
                             <label for="lname">Book Copies</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="book_copies" name="book_copies" value="<?php echo $row[8]; ?>" required>
+                            <input readonly type="text" id="book_copies" name="book_copies" value="<?php echo $row[8]; ?>" required>
                         </div>
                     </div>
                     <div class="row">
