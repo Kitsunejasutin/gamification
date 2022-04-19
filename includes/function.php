@@ -448,3 +448,35 @@ function fetchBook($connection, $book) {
         mysqli_stmt_close($stmt);
     }
 }
+
+function incrementViews($connection, $book_id) {
+    $sql1 = "SELECT book_views FROM book WHERE book_id= ?;";
+    $stmt1 = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt1, $sql1)) {
+        header("location: ../addstudent.php?error=stmtfailedexists");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt1, "s", $book_id);
+    mysqli_stmt_execute($stmt1);
+
+    $resultData = mysqli_stmt_get_result($stmt1);
+
+    $bookData = mysqli_fetch_array($resultData);
+
+    mysqli_stmt_close($stmt1);
+
+    $increment = $bookData['book_views'] + 1;
+    //echo $increment;
+    //print_r ($bookData);
+    $sql2 = "UPDATE book SET book_views=? WHERE book_id=?";
+    $stmt2 = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt2, $sql2)) {
+        header("location: ../addstudent.php?error=stmtfailedcreate");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt2, "ss", $increment, $book_id);
+    mysqli_stmt_execute($stmt2);
+    mysqli_stmt_close($stmt2);
+}

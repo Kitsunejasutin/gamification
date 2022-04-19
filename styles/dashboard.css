@@ -259,3 +259,7 @@ div.section-description {
     text-align: justify;
     text-justify: inter-word;
 }
+
+p.views {
+    margin-top: 20px;
+}

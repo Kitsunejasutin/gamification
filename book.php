@@ -5,7 +5,6 @@
     session_start();
     
 ?>
-    <meta http-equiv="refresh" content="5;url=index.php"> 
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/dashboard.css">
 	<title>DUMNSS Library</title>
@@ -18,6 +17,8 @@
         $book = $_GET['book'];
         $data = fetchBook($connection, $book);
         // print_r ($data);
+
+        print_r (incrementViews($connection, $book));
         ?>
         <div class="holder">
         <div class="image-holder">
@@ -47,6 +48,7 @@
                     <button class="blue"><i class="fas fa-phone-alt"></i>&nbspContact</button>
                     <button class="blue"><i class="fas fa-bookmark"></i></i>&nbspBookmark</button>
                 </div>
+                <p class="views"><?php echo "Views: " . $data['book_views']; ?></p>
             </div>
         </div>
     </div>
