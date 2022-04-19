@@ -30,15 +30,14 @@
                 </div>
                     <table id = "tableData" class="onetable">
                         <thead>
-                            <th class="header"><b>Admin</th>
+                            <th class="header"><b>Borrow Admin</th>
                             <th class="header"><b>Book ID</th>
-                            <th class="header"><b>Book Name</th>
-                            <th class="header"><b>Book Author</th>
-                            <th class="header"><b>Book Category</th>
-                            <th class="header"><b>Student Name</th>
+                            <th class="header"><b>Account Name</th>
                             <th class="header"><b>Borrow Time</th>
+                            <th class="header"><b>Return Admin</th>
                             <th class="header"><b>Return Time</th>
-                            <th class="header"><b>Transaction Status</th>
+                            <th class="header"><b>Account Return Time</th>
+                            <th class="header"><b>Return Status</th>
                         </thead>
                             <?php
                                 $sql = "SELECT * FROM history";
@@ -59,11 +58,10 @@
                                         <th><?php echo $data[2]?></th>
                                         <th><?php echo $data[3]?></th>
                                         <th><?php echo $data[4]?></th>
-                                        <th><?php echo $data[5]?></th>
                                         <th><?php echo $data[6]?></th>
+                                        <th><?php echo $data[5]?></th>
                                         <th><?php echo $data[7]?></th>
                                         <th><?php echo $data[8]?></th>
-                                        <th><?php echo $data[9]?></th>
                                     </tr>
                                 </tbody>
                             <?php }mysqli_stmt_close($stmt); ?>

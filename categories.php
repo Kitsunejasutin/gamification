@@ -64,7 +64,7 @@
                             $resultData = mysqli_stmt_get_result($stmt);
                             
                             $count = 1;
-                            echo '<p class="header">'.$_GET['page'] . ' Books</p>';
+                            echo '<p class="header">'. $page . ' Books</p>';
                             echo '<table><tr>';
                             while ($row = mysqli_fetch_array($resultData)) { 
                                 if($count <= 4) {

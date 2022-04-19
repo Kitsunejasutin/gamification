@@ -35,7 +35,7 @@
                             <th class="header"><b>Book Category</th>
                             <th class="header"><b>Book Author</th>
                             <th class="header"><b>Book Publish</th>
-                            <th class="header"><b>Book Status</th>
+                            <th class="header"><b>Book Copies</th>
                         </thead>
                             <?php
                                 $sql = "SELECT * FROM book";
@@ -57,7 +57,7 @@
                                         <th><?php echo $data[3]?></th>
                                         <th><?php echo $data[5]?></th>
                                         <th><?php echo $data[6]?></th>
-                                        <th><?php echo $data[7]?></th>
+                                        <th><?php echo $data[8]?></th>
                                     </tr>
                                 </tbody>
                             <?php }mysqli_stmt_close($stmt); ?>
