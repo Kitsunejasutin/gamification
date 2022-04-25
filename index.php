@@ -7,6 +7,7 @@
 ?>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="styles/carousel.css">
 	<title>DUMNSS Library</title>
 </head>
 <body>
@@ -63,9 +64,34 @@
                         <span>Site Announcements</span><br>
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt itaque labore aspernatur assumenda natus! Nulla amet quod laboriosam recusandae laudantium repellendus. Neque quo asperiores qui, sit possimus totam similique hic!
                     </div>
-                    <div class="side-news">
-                        <span>Other News</span><br>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id eius accusamus aliquid illo sit perspiciatis ut quae beatae dignissimos, delectus corporis? Obcaecati voluptatum mollitia inventore in tempore sequi aliquid modi?
+                    <div class="popular-books">
+                        <span class="title">Popular Books</span><br>
+                            <div class="carousel">
+                                <button class="carousel__button carousel__button--left">
+                                    <img src="images/left.svg" alt="">
+                                </button>
+                                <div class="carousel__track-container">
+                                    <ul class="carousel__track">
+                                        <li class="carousel__slide">
+                                            <img class="carousel__image" src="images/books/1.jpg" alt="">
+                                        </li>
+                                        <li class="carousel__slide">
+                                            <img class="carousel__image" src="images/books/2.jpg" alt="">
+                                        </li>
+                                        <li class="carousel__slide">
+                                            <img class="carousel__image" src="images/books/3.jpg" alt="">
+                                        </li>
+                                    </ul>
+                                </div>
+                                <button class="carousel__button carousel__button--right">
+                                    <img src="images/right.svg" alt="">
+                                </button>
+                                <div class="carousel__nav">
+                                    <button class="carousel__indicator current-slide"></button>
+                                    <button class="carousel__indicator"></button>
+                                    <button class="carousel__indicator"></button>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>

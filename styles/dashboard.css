@@ -140,7 +140,7 @@ div.news {
 div.main-news {
     justify-content: center;
     text-align: center;
-    min-width: 70%;
+    width: 70%;
     max-height: 100vh;
     background-color: bisque;
     padding: 1rem;
@@ -151,16 +151,15 @@ div.main-news > span {
     font-size: 25px;
 }
 
-div.side-news {
+div.popular-books {
     background-color: bisque;
-    text-align: center;
-    justify-content: center;
     border-radius: .5rem;
     margin-left: 1rem;
     padding: 1rem;
+    width: 30%;
 }
 
-div.side-news > span {
+div.popular-books > span {
     font-size: 25px;
 }
 
