@@ -72,15 +72,24 @@
                                 </button>
                                 <div class="carousel__track-container">
                                     <ul class="carousel__track">
-                                        <li class="carousel__slide current-slide">
-                                            <img class="carousel__image" src="images/books/1.jpg" alt="">
-                                        </li>
-                                        <li class="carousel__slide">
-                                            <img class="carousel__image" src="images/books/2.jpg" alt="">
-                                        </li>
-                                        <li class="carousel__slide">
-                                            <img class="carousel__image" src="images/books/3.jpg" alt="">
-                                        </li>
+
+                                        <?php 
+                                            $sql = "SELECT book_id FROM book ORDER BY book_views DESC LIMIT 5;";
+                                            $stmt = mysqli_stmt_init($connection);
+                                            if (!mysqli_stmt_prepare($stmt, $sql)) {
+                                                header("location: ../dashboard.php?error=stmtfailedexists");
+                                                exit();
+                                            }
+                                        
+                                            mysqli_stmt_execute($stmt);
+                                            $resultData = mysqli_stmt_get_result($stmt);
+                                        
+                                            while ($row = mysqli_fetch_array($resultData)) {
+                                                echo '<li class="carousel__slide current-slide">';
+                                                echo '<img class="carousel__image" src="images/books/' . $row[0] .'.jpg" alt="">';
+                                            echo '</li>';
+                                            }
+                                        ?>
                                     </ul>
                                 </div>
                                 <button class="carousel__button carousel__button--right">
@@ -88,6 +97,8 @@
                                 </button>
                                 <div class="carousel__nav">
                                     <button class="carousel__indicator current-slide"></button>
+                                    <button class="carousel__indicator"></button>
+                                    <button class="carousel__indicator"></button>
                                     <button class="carousel__indicator"></button>
                                     <button class="carousel__indicator"></button>
                                 </div>
