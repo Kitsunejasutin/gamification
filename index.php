@@ -67,12 +67,12 @@
                     <div class="popular-books">
                         <span class="title">Popular Books</span><br>
                             <div class="carousel">
-                                <button class="carousel__button carousel__button--left">
+                                <button class="carousel__button is-hidden carousel__button--left">
                                     <img src="images/left.svg" alt="">
                                 </button>
                                 <div class="carousel__track-container">
                                     <ul class="carousel__track">
-                                        <li class="carousel__slide">
+                                        <li class="carousel__slide current-slide">
                                             <img class="carousel__image" src="images/books/1.jpg" alt="">
                                         </li>
                                         <li class="carousel__slide">

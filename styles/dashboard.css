@@ -2,6 +2,7 @@ div.header {
     display: flex;
     margin: auto;
     width: 90%;
+    margin-bottom: 20px;
 }
 
 div.card {
@@ -23,6 +24,7 @@ div.card {
     flex-direction: row;
     flex-basis: 100%;
     flex: 1;
+    margin-bottom: 20px;
 }
 
 .column {
@@ -36,26 +38,19 @@ div.card {
 .first{
     background-color: blanchedalmond;
     border-radius: 15px;
+    margin-bottom: 20px;
 }
 
 .second {
     background-color: rgba(228, 223, 216, 0.74);
     border-radius: 15px;
+    margin-bottom: 20px;
 }
 
 .third {
     background-color: rgb(247, 205, 148);
     border-radius: 15px;
-}
-
-.fourth{
-    background-color: blanchedalmond;
-    border-radius: 15px;
-}
-
-.fifth {
-    background-color: rgba(228, 223, 216, 0.74);
-    border-radius: 15px;
+    margin-bottom: 20px;
 }
 
 .fa-book, .fa-book-reader, .fa-clock {
@@ -65,7 +60,8 @@ div.card {
 }
 
 div.indicator {
-    margin-top: -90px;      
+    margin-top: -90px;   
+    margin-bottom: 20px;   
 }
 
 .margin5 {
