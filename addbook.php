@@ -92,6 +92,7 @@
                         <button type="Submit" class="submit" name="submit">Add Book</button>
                     </div>
                 </form>
+                <?php include_once "includes/notification_handle.php" ?>
             </div>
 <?php 
 	include_once 'includes/footer.php';

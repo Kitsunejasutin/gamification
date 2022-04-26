@@ -52,7 +52,7 @@ function createUser($connection, $name, $email, $contact, $address) {
     mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $contact, $address);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../addstudent.php?success=added");
+    header("location: ../addstudent.php?success=addedUser");
     exit();
 }
 
@@ -154,7 +154,7 @@ function addBook($connection, $name, $id, $info, $author, $category, $publish, $
     mysqli_stmt_bind_param($stmt, "sssssss", $id, $name, $category, $info, $author, $publish, $copies);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../addbook.php?success=added");
+    header("location: ../addbook.php?success=addedBook");
     exit();
 }
 
@@ -472,7 +472,7 @@ function incrementViews($connection, $book_id) {
     $sql2 = "UPDATE book SET book_views=? WHERE book_id=?";
     $stmt2 = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt2, $sql2)) {
-        header("location: ../addstudent.php?error=stmtfailedcreate");
+        header("location: ../dashboard.php?error=stmtfailedcreate");
         exit();
     }
 

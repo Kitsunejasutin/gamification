@@ -19,6 +19,7 @@
         // print_r ($data);
 
         print_r (incrementViews($connection, $book));
+        include_once "includes/notification_handle.php"
         ?>
         <div class="holder">
         <div class="image-holder">

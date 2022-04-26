@@ -75,6 +75,7 @@
                                 $count++;
                             }
                             ?>
+                            <?php include_once "includes/notification_handle.php" ?>
                         </div>
                         <?php
                     }

@@ -88,6 +88,8 @@
                         </div>
                     </form>
                 </div>
+                <?php include_once "includes/notification_handle.php" ?>
+                <?php include_once "includes/login_errors.php" ?>
             </div>
 <?php 
 	include_once 'includes/footer.php';
