@@ -86,7 +86,7 @@
                                         
                                             while ($row = mysqli_fetch_array($resultData)) {
                                                 echo '<li class="carousel__slide current-slide">';
-                                                echo '<img class="carousel__image" src="images/books/' . $row[0] .'.jpg" alt="">';
+                                                echo '<a href=book.php?book=' . $row[0] . '><img class="carousel__image" src="images/books/' . $row[0] .'.jpg" alt=""></a>';
                                             echo '</li>';
                                             }
                                         ?>
