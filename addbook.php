@@ -14,7 +14,7 @@
     include_once 'includes/bars.php';
 ?>
             <div class="info">
-                <form action="includes/addbook_inc.php" method="POST">
+                <form action="includes/addbook_inc.php" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-25">
                             <label for="fname">Book ID</label>
@@ -86,6 +86,14 @@
                         </div>
                         <div class="col-75">
                             <input type="number" id="copies" name="copies" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="lname">Book Image</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="file" id="file" name="file" required>
                         </div>
                     </div>
                     <div class="row">
