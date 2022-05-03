@@ -60,3 +60,36 @@ button.submit:hover {
   margin: 0;
   padding: 0;
 }
+
+.wrapper{
+  position: relative;
+  height: 350px;
+  width: 20%;
+  border-radius: 10px;
+  background: #fff;
+  border: 2px dashed #c2cdda;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: auto;
+}
+
+.wrapper.active{
+  border: none;
+}
+
+.wrapper .image{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}

@@ -50,6 +50,13 @@
                             <input readonly type="text" id="book_copies" name="book_copies" value="<?php echo $row[8]; ?>" required>
                         </div>
                     </div>
+                    <div class="wrapper">
+                        <div class="image">
+                        <img src="images/books/<?php echo $_POST['id'];?>.jpg" alt="">
+                        </div>
+                        <div class="content">
+                        </div>
+                    </div>
                     <div class="row">
                         <button type="Submit" class="submit" name="submit" value="<?php echo $row[7]; ?>">Borrow Book</button>
                     </div>

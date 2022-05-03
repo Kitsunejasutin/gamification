@@ -66,6 +66,13 @@
                             <input type="text" id="return-status" name="return-status" value="<?php if( strtotime($row[8]) > strtotime('now') ) {echo "Return on time";}else{ echo "Late Return";} ?>" required>
                         </div>
                     </div>
+                    <div class="wrapper">
+                        <div class="image">
+                        <img src="images/books/<?php echo $_POST['id'];?>.jpg" alt="">
+                        </div>
+                        <div class="content">
+                        </div>
+                    </div>
                     <div class="row">
                         <button type="Submit" class="submit" name="submit" value="<?php echo $row[0]; ?>">Return Book</button>
                     </div>
