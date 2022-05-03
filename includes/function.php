@@ -77,8 +77,13 @@ function loginUser($connection, $email, $pwd, $column, $table, $continue) {
     $emailExists = emailExists($connection, $email, $column, $table);
 
     if ($emailExists === false) {
-        header("location: ../login.php?error=wronglogin");
-        exit();
+        if ($table === "admins"){
+            header("location: ../login.php?login=admin&error=wronglogin");
+            exit();
+        }else if ($table === "accounts"){
+            header("location: ../login.php?error=wronglogin");
+            exit();
+        }
     }
     if ($table === "admins"){
         $pwdHashed = $emailExists["admin_password"];
@@ -95,8 +100,13 @@ function loginUser($connection, $email, $pwd, $column, $table, $continue) {
     $checkPwd = password_verify($pwd, $pwdHashed);
 
     if ($checkPwd === false) {
-        header("location: ../index.php?error=wrongloginpassword");
-        exit();
+        if ($table === "admins"){
+            header("location: ../login.php?login=admin&error=wrongloginpassword");
+            exit();
+        }else if ($table === "accounts"){
+            header("location: ../login.php?error=wrongloginpassword");
+            exit();
+        }
     }else if ($checkPwd === true) {
         if ($table === "admins"){
             session_start();
