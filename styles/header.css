@@ -170,3 +170,10 @@ button.blue {
   line-height: 25px;
   padding: 20px;
 }
+
+.info-login {
+  line-height: 25px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}

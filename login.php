@@ -13,7 +13,7 @@
 <?php
     include_once 'includes/bars.php';
 ?>
-            <div class="info">
+            <div class="info-login">
                 <div class="card">
                     <div class="logo">
                         <img src="images/dumnss_logo.png">
