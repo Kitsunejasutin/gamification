@@ -1,0 +1,62 @@
+.header {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+span.span-header {
+    font-size: 25px;
+    padding: 1rem ;
+}
+
+div.current-points {
+    display: flex;
+    margin-top: 1px;
+}
+
+span.points {
+    font-size: 20px;
+    padding: 2rem;
+}
+
+button.submit {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+    
+button.submit:hover {
+    background-color: #45a049;
+}
+
+.rewards-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table,th,tr,td {
+    text-align: center;
+}
+
+table {
+    height: 200px;
+    border: 1px solid rgba(0, 0, 0, 0.171);
+    border-collapse: collapse;
+    box-shadow: 0 5px 10px gray;
+    background-color: #fff;
+}
+
+thead {
+    box-shadow: 0 5px 10px gray;
+}
+
+th {
+    border: 1px solid rgba(0, 0, 0, 0.075);
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 0.7rem;
+}

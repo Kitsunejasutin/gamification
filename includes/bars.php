@@ -10,7 +10,7 @@
                 <?php
                     if(isset($_SESSION['name'])){ 
                         ?>
-                            <?php if(isset($_SESSION['type']) === "admin"){ ?>
+                            <?php if($_SESSION['type'] === "admins"){ ?>
                             <a href="addbook.php"><li class="dropdown account"><span>Add Books</span></li></a>
                         <?php }?>
                             <a href="borrowbook.php"><li class="dropdown account"><span>Borrow Book</span></li></a>
@@ -69,6 +69,15 @@
     </div>
     <div class="main_content">
         <div class="topbar">
+            <?php 
+            if(isset($_SESSION['type'])) {
+                if($_SESSION['type'] === "accounts") { ?>
+                    <div class="reward">
+                        <a href="rewards.php"><i class="fas fa-crown"></i></a>
+                    </div>
+                <?php }
+            } ?>
+
             <div class="account">
                 <img src ="images/user-icon.png" class="user-icon"><span class="text"><?php if(isset($_SESSION['name'])){ echo $_SESSION['name']; }else{ echo "<a href='login.php'>LogIn</a>"; } ?></span>
             </div>

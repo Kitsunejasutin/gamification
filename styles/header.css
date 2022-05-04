@@ -177,3 +177,15 @@ button.blue {
   display: flex;
   justify-content: center;
 }
+
+.reward {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.fa-crown {
+  font-size: 25px;
+  color: yellowgreen;
+}
