@@ -10,7 +10,9 @@
                 <?php
                     if(isset($_SESSION['name'])){ 
                         ?>
+                            <?php if(isset($_SESSION['type']) === "admin"){ ?>
                             <a href="addbook.php"><li class="dropdown account"><span>Add Books</span></li></a>
+                        <?php }?>
                             <a href="borrowbook.php"><li class="dropdown account"><span>Borrow Book</span></li></a>
                             <a href="returnbook.php"><li class="dropdown account"><span>Return Book</span></li></a>
                         <?php
