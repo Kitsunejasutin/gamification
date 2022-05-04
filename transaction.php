@@ -40,11 +40,22 @@
                             <th class="header"><b>Return Status</th>
                         </thead>
                             <?php
-                                $sql = "SELECT * FROM history";
+                                $type = $_SESSION['type'];
+                                if($type === "admins"){
+                                    $sql = "SELECT * FROM history";
+                                }elseif ($type === "accounts"){
+                                    $name = $_SESSION['name'];
+                                    $sql = "SELECT * FROM history WHERE account_name=?";
+                                }
+
                                 $stmt = mysqli_stmt_init($connection);
                                 if (!mysqli_stmt_prepare($stmt, $sql)) {
                                     header("location: ../listbook.php?error=stmtfailedexists");
                                     exit();
+                                }
+
+                                if ($type === "accounts") {
+                                    mysqli_stmt_bind_param($stmt, "s", $name);
                                 }
                                 mysqli_stmt_execute($stmt);
 
