@@ -3,6 +3,7 @@
     require_once 'includes/connection.php';
     require_once 'includes/function.php';
     session_start();
+    setDay($connection);
     
 ?>
     <link rel="stylesheet" href="styles/header.css">

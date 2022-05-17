@@ -122,6 +122,8 @@ function loginUser($connection, $email, $pwd, $column, $table, $continue) {
             $_SESSION["email"] = $emailExists["account_email"];
             $_SESSION["contact"] = $emailExists["account_contact"];
             $_SESSION["address"] = $emailExists["account_address"];
+            $_SESSION["points"] = $emailExists["points"];
+            $_SESSION["checkIn"] = $emailExists["day_checkin"];
             $_SESSION["type"] = "accounts";    
         }
         if ($continue == null) {
@@ -513,4 +515,71 @@ function fetchPoints($connection) {
     }
 
     mysqli_stmt_close($stmt);
+}
+
+function checkStatus($connection, $id, $points) {
+    $newpoints = $points + 1;
+    $checkedIn = 'In';
+    $sql = "UPDATE accounts SET points=?, day_checkin=? WHERE id=?;";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../rewards.php?error=stmtfailedexists2");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "sss", $newpoints, $checkedIn, $id);
+    mysqli_stmt_execute($stmt);
+
+    mysqli_stmt_close($stmt);
+    header("location: ../rewards.php?success:checkedin");
+    exit();
+
+}
+
+function fetchAccountInfo($connection, $id) {
+    $sql = "SELECT * FROM accounts WHERE id=?";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../index.php?error=stmtfailedexists");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $id);
+    mysqli_stmt_execute($stmt);
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_array($resultData)) {
+        return $row;
+        exit();
+    }else {
+        $result = false;
+        return $result;
+        exit();
+    }
+}
+
+function setDay($connection) {
+    if (!isset($_SESSION['currentDay'])){
+        date_default_timezone_set('Asia/Manila');
+        $_SESSION['currentDay'] = date("Y-m-d");
+
+    }else{
+        $currentDay = $_SESSION['currentDay'];
+        date_default_timezone_set('Asia/Manila');
+        $newDate = (date("Y-m-d"));
+        if ($newDate > $currentDay) {
+            $checkOut = "Out";
+            $_SESSION['currentDay'] = $newDate;
+            $sql = "UPDATE accounts SET day_checkin=?;";
+            $stmt = mysqli_stmt_init($connection);
+            if (!mysqli_stmt_prepare($stmt, $sql)) {
+                header("location: ../index.php?error=stmtfailedexists");
+                exit();
+            }
+            mysqli_stmt_bind_param($stmt, "s", $checkOut);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+        }
+    }
+    
 }

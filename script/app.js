@@ -236,7 +236,7 @@ $(window).on('load', function () {
 
         });       
 }
-
+ 
 function limitPagging(){
 
 if($('.pagination li').length > 7 ){

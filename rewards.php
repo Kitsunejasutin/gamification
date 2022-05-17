@@ -3,6 +3,7 @@
     require_once 'includes/connection.php';
     require_once 'includes/function.php';
     session_start();
+    setDay($connection);
     
 ?>
     <link rel="stylesheet" href="styles/header.css">
@@ -17,10 +18,19 @@
                 <div class="card">
                     <div class="header">
                         <span class="span-header">Rewards</span>
-                        <button type="Submit" class="submit" name="accounts" value="accounts">SignIn</button>
+                        <form action="includes/rewards.php" method="POST" >
+                            <?php 
+                            $id = $_SESSION['id'];
+                            $info = fetchAccountInfo($connection, $id); ?>
+                            <input readonly type="text" class="hidden" name="id" value="<?php echo $info['id']; ?>">
+                            <input readonly type="text" class="hidden" name="checkIn" value="<?php echo $info['day_checkin']; ?>">
+                            <input readonly type="text" class="hidden" name="points" value="<?php echo $info['points']; ?>">
+                            <?php if ($info['day_checkin'] == "Out") { echo '<button type="Submit" class="submit" name="submit">SignIn </button>'; } ?>
+                        </form>
                     </div>
                     <div class="current-points">
-                        <span class="points">Current Rewards Points: <?php echo implode("|",fetchPoints($connection)); ?></span>
+                        <span class="points">Current Rewards Points: <?php echo implode("|",fetchPoints($connection));   
+                            ?></span>
                     </div>
                     <div class="rewards-table">
                         <table>
