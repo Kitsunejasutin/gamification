@@ -24,7 +24,7 @@
                     } ?>
                     <?php 
                     if (isset($_GET['account']) == "firsttimelogin"){?>
-                        <form action="includes/createpassword.php" method="POST">'
+                        <form action="includes/createpassword.php" method="POST">
                             <span class="greetings">Hello <?php echo $_SESSION['account_email'] ?> , Please Set your password</span>
                             <div class="row">
                                 <div class="col-25">
